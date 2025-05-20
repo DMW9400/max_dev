@@ -62,8 +62,8 @@ function setTab(tab){
             outlet (0, dispLvl)
             outlet (0, dispMid)
             outlet (0, dispDst)
-            inactiveCoord[0] += 25
-            inactiveCoord[1] += 25
+            inactiveCoord[0] = inactiveCoord[0] + 25
+            inactiveCoord[1] = inactiveCoord[1] + 25
         }
 
     }
