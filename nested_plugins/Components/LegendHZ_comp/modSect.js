@@ -8,26 +8,26 @@ dispCoord = [
     {
         src:[88, 296],
         lvl:[112, 324],
-        mid:[118, 354.5],
+        mid:[118, 355],
         dst:[89, 376]
     },
     {
         src:[168, 296],
         lvl:[190, 324],
-        mid:[196, 354.5],
-        dst:[89, 376]
+        mid:[196, 355],
+        dst:[167, 376]
     },
     {
-        src:[246.7, 296],
-        lvl:[269.2, 324],
-        mid:[275.2, 354.5],
-        dst:[246.627, 376]
+        src:[247, 296],
+        lvl:[269, 324],
+        mid:[275, 355],
+        dst:[247, 376]
     },
     {
-        src:[326.7, 296],
-        lvl:[349.2, 324],
-        mid:[355.2, 354.5],
-        dst:[326.6, 376]
+        src:[327, 296],
+        lvl:[350, 324],
+        mid:[355, 355],
+        dst:[327, 376]
     }
 ]
 
@@ -36,16 +36,35 @@ function setTab(tab){
     let max = min + 4
     displayInc = 0
 
-    for(i = 0; i < 11; i++){
-        let srcOut = `src_${i}`
-        let lvlOut = `lvl_${i}`
-        let midOut = `mid_${i}`
-        let dstOut = `dst_${i}`
-        let scriptTxt = 'script move '
+    for(i = 0; i <= 11; i++){
+        let srcOut = `script move src_${i} `
+        let lvlOut = `script move lvl_${i} `
+        let midOut = `script move mid_${i} `
+        let dstOut = `script move dst_${i} `
+        let inactiveCoord = [160, 1700]
 
         if (i >= min && i < max){
-            outlet (0,'script move ' )
+            dispSrc = srcOut + dispCoord[displayInc].src[0] + " " + dispCoord[displayInc].src[1]
+            dispLvl = lvlOut + dispCoord[displayInc].lvl[0] + " " + dispCoord[displayInc].lvl[1]
+            dispMid = midOut + dispCoord[displayInc].mid[0] + " " + dispCoord[displayInc].mid[1]
+            dispDst = dstOut + dispCoord[displayInc].dst[0] + " " + dispCoord[displayInc].dst[1]
+            outlet (0, dispSrc)
+            outlet (0, dispLvl)
+            outlet (0, dispMid)
+            outlet (0, dispDst)
             displayInc += 1
+        } else {
+            dispSrc = srcOut + inactiveCoord[0] + " " + inactiveCoord[1]
+            dispLvl = lvlOut + inactiveCoord[0] + " " + inactiveCoord[1]
+            dispMid = midOut + inactiveCoord[0] + " " + inactiveCoord[1]
+            dispDst = dstOut + inactiveCoord[0] + " " + inactiveCoord[1]
+            outlet (0, dispSrc)
+            outlet (0, dispLvl)
+            outlet (0, dispMid)
+            outlet (0, dispDst)
+            inactiveCoord[0] += 25
+            inactiveCoord[1] += 25
         }
+
     }
 }
