@@ -34,14 +34,13 @@ dispCoord = [
 function setTab(tab){
     let min = tab * 4
     let max = min + 4
-    displayInc = 0
-
+    let displayInc = 0
+    let inactiveCoord = [160, 1700]
     for(i = 0; i <= 11; i++){
         let srcOut = `script move src_${i} `
         let lvlOut = `script move lvl_${i} `
         let midOut = `script move mid_${i} `
         let dstOut = `script move dst_${i} `
-        let inactiveCoord = [160, 1700]
 
         if (i >= min && i < max){
             dispSrc = srcOut + dispCoord[displayInc].src[0] + " " + dispCoord[displayInc].src[1]
@@ -62,9 +61,8 @@ function setTab(tab){
             outlet (0, dispLvl)
             outlet (0, dispMid)
             outlet (0, dispDst)
-            inactiveCoord[0] = inactiveCoord[0] + 25
-            inactiveCoord[1] = inactiveCoord[1] + 25
+            inactiveCoord[0] += 60
+            inactiveCoord[1] += 60
         }
-
     }
 }
