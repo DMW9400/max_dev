@@ -111,7 +111,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "toUDP",
+					"comment" : "toController",
 					"id" : "obj-3",
 					"index" : 1,
 					"maxclass" : "outlet",

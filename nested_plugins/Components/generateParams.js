@@ -3,47 +3,51 @@ inlets = 1;
 outlets = 1;
 
 
-function generateParams(paramNum){
-    let initX = 110;
-    let initY = 500;
+function generateParams(paramNum, offset = 0){
+    let initX = 150;
+    let initY = 700;
     let groupHandles = [];
     let groupIndices = [];
     let groupIdx     = 0;    // counts 10‑item chunks
 
     for (let i = 1; i <= paramNum; i++){
-        const col      = Math.floor((i - 1) / 20);   // every 20 params start a new column
-        const row      = (i - 1) % 20;               // 0‑based row inside the column
-        initX = 150 + col * 300;
-        initY = 150 + row * 50;
+        const idx = i + offset;    // global index for unique names/parameters
 
-            outlet(0, `script newdefault dial_${i} ${initX} ${initY} live.dial`);
-            outlet(0, `script send dial_${i} _parameter_type 0`);  
-            outlet(0, `script send dial_${i} _parameter_range 0. 1.`);
-            outlet(0, `script send dial_${i} _parameter_unitstyle 1`); 
-            outlet(0, `script send dial_${i} focusbordercolor 0.631373 0.639216 0.662745 0.`);
-            outlet(0, `script send dial_${i} live_focus_frame 0`);
-            outlet(0, `script send dial_${i} showname 0`);
-            outlet(0, `script send dial_${i} shownumber 0`);
-            outlet(0, `script send dial_${i} _parameter_longname _${i}`);
-            outlet(0, `script send dial_${i} _parameter_shortname _${i}`);
-            outlet(0, `script send dial_${i} _parameter_linknames dial_${i}`);
-            outlet(0, `script send dial_${i} _parameter_order ${i - 1}`);
+        const col      = Math.floor((idx - 1) / 20);   // every 20 params start a new column
+        const row      = (idx - 1) % 20;               // 0‑based row inside the column
+        initX = 150 + col * 300;
+        initY = 700 + row * 50;   // vertical anchor shifted downward
+
+            outlet(0, `script newdefault dial_${idx} ${initX} ${initY} live.dial`);
+            outlet(0, `script send dial_${idx} _parameter_type 0`);  
+            outlet(0, `script send dial_${idx} _parameter_range 0. 1.`);
+            outlet(0, `script send dial_${idx} _parameter_unitstyle 1`); 
+            outlet(0, `script send dial_${idx} focusbordercolor 0.631373 0.639216 0.662745 0.`);
+            outlet(0, `script send dial_${idx} live_focus_frame 0`);
+            outlet(0, `script send dial_${idx} showname 0`);
+            outlet(0, `script send dial_${idx} shownumber 0`);
+            outlet(0, `script send dial_${idx} _parameter_longname _${idx}`);
+            outlet(0, `script send dial_${idx} _parameter_shortname _${idx}`);
+            outlet(0, `script send dial_${idx} _parameter_linknames dial_${idx}`);
+            outlet(0, `script send dial_${idx} _parameter_order ${idx - 1}`);
+            // _parameter_invisible 1 
+            outlet(0, `script send dial_${idx} _parameter_invisible 1`); // set initial value
             
             const msgX = initX + 40;
             const msgY = initY + 5;
-            outlet(0, `script newdefault msg_${i} ${msgX} ${msgY} message`);
-            outlet(0, `script send msg_${i} set ${i} \\$1`);
+            outlet(0, `script newdefault msg_${idx} ${msgX} ${msgY} message`);
+            outlet(0, `script send msg_${idx} set ${idx} \\$1`);
 
             const fbX = msgX + 75;
             const fbY = msgY;
-            outlet(0, `script newdefault handleFb_${i} ${fbX} ${fbY} handleFb`);
+            outlet(0, `script newdefault handleFb_${idx} ${fbX} ${fbY} handleFb`);
 
-            const handleName = `handleFb_${i}`;
+            const handleName = `handleFb_${idx}`;
             groupHandles.push(handleName);
-            groupIndices.push(i);
+            groupIndices.push(idx);
 
-            const groupDone      = (i % 20 === 0);
-            const finalRemainder = (i === paramNum) && (groupIndices.length > 0);
+            const groupDone      = (idx % 20 === 0);
+            const finalRemainder = ((i === paramNum) && groupIndices.length > 0);
 
             if (groupDone || finalRemainder) {
                 // base X = column's left margin, Y = row below current
@@ -57,8 +61,10 @@ function generateParams(paramNum){
                 outlet(0, `script newdefault ${sendName} ${baseX} ${baseY} s --params`);
                 outlet(0, `script send ${sendName} patching_rect ${baseX} ${baseY} 60 20`);
 
-                /* wire handleFb -> s */
-                groupHandles.forEach(h => outlet(0, `script connect ${h} 0 ${sendName} 0`));
+                /* wire each message out -> s in */
+                groupIndices.forEach(idxVal => {
+                    outlet(0, `script connect msg_${idxVal} 0 ${sendName} 0`);
+                });
 
                 /* prepare names */
                 const routeArgs = groupIndices.join(" ");
@@ -85,10 +91,10 @@ function generateParams(paramNum){
                 groupIndices = [];
             }
 
-            // ── wire everything together ──
-            outlet(0, `script connect dial_${i} 0 msg_${i} 0`);
-            outlet(0, `script connect msg_${i} 0 handleFb_${i} 0`);
-            outlet(0, `script connect handleFb_${i} 1 dial_${i} 0`);
+            // ── wire dial, handleFb, and message ──
+            outlet(0, `script connect dial_${idx} 0 handleFb_${idx} 0`);  // dial → handleFb
+            outlet(0, `script connect handleFb_${idx} 0 dial_${idx} 0`);  // handleFb out‑0 → dial in‑0
+            outlet(0, `script connect handleFb_${idx} 1 msg_${idx} 0`);   // handleFb out‑1 → msg in‑0
 
     } 
 }
