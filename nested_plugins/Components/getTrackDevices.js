@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 1;
-outlets = 2;
+outlets = 3;    // 0: device menu, 1: dial values, 2: scripting cmds
 
 var trackDevices = [];
 var devicesObserver = null;
@@ -50,12 +50,30 @@ function devicesCallback() {
 }
 
 function updateDeviceList(ids, fullRefresh = true) {
-    if (ids.length === 0) return;     
+    if (ids.length === 0) return;
     ids = ids.slice(1);
-    if (arraysEqual(ids, trackDevices)) return;   // no change → no UI update
+    if (arraysEqual(ids, trackDevices)) return;
     trackDevices = ids.slice();
-    if (fullRefresh) outlet(0, "clear");
-    for (var i = 0; i < ids.length; i++) outlet(0, "append", idAPI(ids[i]).get("name"));
+    populateMenus();
+    // reload observers for current selections
+    getParams(groupA_index, 0);
+    getParams(groupB_index, 1);
+}
+
+function populateMenus(){
+    outlet(2,"script","send","bankA_menu","clear");
+    outlet(2,"script","send","bankB_menu","clear");
+    for(var i=0;i<trackDevices.length;i++){
+        var name=idAPI(trackDevices[i]).get("name");
+        outlet(2,"script","send","bankA_menu","append",name);
+        outlet(2,"script","send","bankB_menu","append",name);
+    }
+    if(trackDevices.length){
+        groupA_index=Math.min(groupA_index,trackDevices.length-1);
+        groupB_index=Math.min(groupB_index,trackDevices.length-1);
+        outlet(2,"script","send","bankA_menu","set",groupA_index);
+        outlet(2,"script","send","bankB_menu","set",groupB_index);
+    }
 }
 
 function bang() {
@@ -74,10 +92,31 @@ function clearObs(arr){
 
 function getParams(idx,group){
     idx = +idx; group = (+group===1)?1:0;
+    if(group===0) groupA_index=idx; else groupB_index=idx;
     if(idx<0||idx>=trackDevices.length) return;
     var ids = formatIDarr(idAPI(trackDevices[idx]).get("parameters"));
-    if(group===0) groupA_params = ids.slice();
-    else          groupB_params = ids.slice();  
+    var pageName = (group === 0) ? "bankA_page" : "bankB_page";
+    if (group === 0) groupA_params = ids.slice(); else groupB_params = ids.slice();
+
+    var pages = Math.ceil(ids.length / PAGE);
+    outlet(2, "script", "send", pageName, "clear");
+
+    if (pages > 1) {
+        if (group === 0)
+            outlet(2, "script", "send", "bankA_page", "move", 365, 528);
+        else
+            outlet(2, "script", "send", "bankB_page", "move", 650, 515);
+
+        for (var p = 1; p <= pages; p++)
+            outlet(2, "script", "send", pageName, "append", p);
+
+    } else {
+        if (group === 0)
+            outlet(2, "script", "send", "bankA_page", "move", 32, 680);
+        else
+            outlet(2, "script", "send", "bankB_page", "move", 87, 680);
+    }
+
     pageParams(0, group);
 }
 
@@ -94,8 +133,8 @@ function pageParams(page,group){
         if(pIdx>=bank.length) break;
         (function(dialIdx,id){
             var obs = new LiveAPI(function(v){
-                // v looks like ["value", <num>]
-                outlet(1,dialIdx,Number(v[1]));
+                if (v && v[0] === "value" && typeof v[1] === "number")
+                    outlet(1, dialIdx, v[1]);
             },"id "+id);
             obs.mode=1; obs.property="value";
             store.push(obs);
