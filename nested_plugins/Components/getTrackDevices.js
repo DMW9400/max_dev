@@ -10,6 +10,7 @@ var groupA_observers = [];
 var groupB_observers = [];
 var groupA_index= 0;
 var groupB_index= 0;
+const PAGE   = 6;          // dials per page
 
 function idAPI(id) { return new LiveAPI("id " + id); }
 
@@ -76,12 +77,6 @@ function populateMenus(){
     }
 }
 
-function bang() {
-    if (devicesObserver) updateDeviceList(formatIDarr(devicesObserver.get("devices")));
-}
-
-const PAGE   = 6;          // dials per page
-
 function clearObs(arr){
     for(var i=0;i<arr.length;i++){
         var o = arr[i];
@@ -103,7 +98,7 @@ function getParams(idx,group){
 
     if (pages > 1) {
         if (group === 0)
-            outlet(2, "script", "move", "bankA_page", 365, 528);
+            outlet(2, "script", "move", "bankA_page", 365, 515);
         else
             outlet(2, "script", "move", "bankB_page", 650, 515);
 
@@ -143,4 +138,5 @@ function pageParams(page,group){
     if(group===0) groupA_observers=store; else groupB_observers=store;
 }
 
-function msg_int(v){ return}
+function msg_int(v){
+    return;}
