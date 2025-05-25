@@ -103,18 +103,18 @@ function getParams(idx,group){
 
     if (pages > 1) {
         if (group === 0)
-            outlet(2, "script", "send", "bankA_page", "move", 365, 528);
+            outlet(2, "script", "move", "bankA_page", 365, 528);
         else
-            outlet(2, "script", "send", "bankB_page", "move", 650, 515);
+            outlet(2, "script", "move", "bankB_page", 650, 515);
 
         for (var p = 1; p <= pages; p++)
             outlet(2, "script", "send", pageName, "append", p);
 
     } else {
         if (group === 0)
-            outlet(2, "script", "send", "bankA_page", "move", 32, 680);
+            outlet(2, "script", "move", "bankA_page", 32, 680);
         else
-            outlet(2, "script", "send", "bankB_page", "move", 87, 680);
+            outlet(2, "script", "move", "bankB_page", 87, 680);
     }
 
     pageParams(0, group);
