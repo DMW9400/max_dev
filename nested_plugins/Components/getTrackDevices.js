@@ -29,6 +29,14 @@ function arraysEqual(a, b) {
     return true;
 }
 
+function strForValue(api, val){
+    var res = api.call("str_for_value", val);
+    if (res === undefined || res === null) return "";
+    // LiveAPI returns either ["str_for_value", "text"] or a bare string
+    if (Array.isArray(res)) return (res.length > 1) ? String(res[1]) : "";
+    return String(res);
+}
+
 function init() {
     var devAPI = new LiveAPI("this_device");
     var parentAPI = new LiveAPI(devAPI.get("canonical_parent"));
@@ -120,6 +128,12 @@ function getParams(idx,group){
     pageParams(0, group);
 }
 
+function setLabelAndValue(group, dialIdx, nameTxt, valStr){
+    var prefix = (group===0) ? "a" : "b";
+    outlet(2,"script","send",prefix+"Label_"+dialIdx,"set",nameTxt);
+    outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",valStr);
+}
+
 /* pageParams(page,group)  ── build six LiveAPI observers */
 function pageParams(page,group){
     page = +page; group=(+group===1)?1:0;
@@ -129,19 +143,37 @@ function pageParams(page,group){
     var store  = (group===0)?groupA_observers:groupB_observers;
 
     store = clearObs(store);   
+    for(var clr=0; clr<PAGE; clr++){
+        setLabelAndValue(group, clr, "---", "");
+        var pfx = (group===0?"a":"b");
+        outlet(2,"script","send",pfx+"Dial_"+clr,"float",0);
+    }
     post("Observers now:", store.length, "\n");
     var start = page*PAGE;
     for(var i=0;i<PAGE;i++){
         var pIdx = start+i;
         if(pIdx>=bank.length) break;
-        (function(dialIdx,id){
+        (function(g, dialIdx, id){
+            var paramAPI = new LiveAPI("id "+id);
+            var initVal  = Number(paramAPI.get("value"));
+            var valStr = strForValue(paramAPI, initVal);
+            setLabelAndValue(g, dialIdx, paramAPI.get("name"), valStr);
+            var pfxInit = (g===0?"a":"b");
+            outlet(2,"script","send",pfxInit+"Dial_"+dialIdx,"float",initVal);
+            // observer
             var obs = new LiveAPI(function(v){
-                if (v && v[0] === "value" && typeof v[1] === "number")
-                    outlet(1, dialIdx, v[1]);
+                if (v && v[0] === "value" && typeof v[1] === "number"){
+                    var num = v[1];
+                    var prefix = (g===0?"a":"b");
+                    outlet(1, dialIdx, num);                             // numeric stream
+                    outlet(2,"script","send",prefix+"Dial_"+dialIdx,"float",num); // update dial
+                    var s = strForValue(paramAPI, num);
+                    outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",s);      // update text
+                }
             },"id "+id);
             obs.mode=1; obs.property="value";
             store.push(obs);
-        })(i,bank[pIdx]);
+        })(group, i, bank[pIdx]);
     }
     if(group===0) groupA_observers=store; else groupB_observers=store;
     if(group===0) currentPageA = page; else currentPageB = page;
