@@ -10,6 +10,8 @@ var groupA_observers = [];
 var groupB_observers = [];
 var groupA_index= 0;
 var groupB_index= 0;
+var currentPageA = -1;
+var currentPageB = -1;
 const PAGE   = 6;          // dials per page
 
 function idAPI(id) { return new LiveAPI("id " + id); }
@@ -65,6 +67,8 @@ function populateMenus(){
     outlet(2,"script","send","bankA_menu","clear");
     outlet(2,"script","send","bankB_menu","clear");
     for(var i=0;i<trackDevices.length;i++){
+        post("device "+i+" : "+trackDevices[i]+"\n");
+        post('number of devices: '+trackDevices.length+'\n');
         var name=idAPI(trackDevices[i]).get("name");
         outlet(2,"script","send","bankA_menu","append",name);
         outlet(2,"script","send","bankB_menu","append",name);
@@ -88,6 +92,7 @@ function clearObs(arr){
 function getParams(idx,group){
     idx = +idx; group = (+group===1)?1:0;
     if(group===0) groupA_index=idx; else groupB_index=idx;
+    if(group===0) currentPageA = -1; else currentPageB = -1;
     if(idx<0||idx>=trackDevices.length) return;
     var ids = formatIDarr(idAPI(trackDevices[idx]).get("parameters"));
     var pageName = (group === 0) ? "bankA_page" : "bankB_page";
@@ -98,18 +103,18 @@ function getParams(idx,group){
 
     if (pages > 1) {
         if (group === 0)
-            outlet(2, "script", "move", "bankA_page", 365, 515);
+            outlet(2, "script", "send", "bankA_page", "patching_rect", 365, 515, 35, 20);
         else
-            outlet(2, "script", "move", "bankB_page", 650, 515);
+            outlet(2, "script", "send", "bankB_page", "patching_rect", 650, 515, 35, 20);
 
         for (var p = 1; p <= pages; p++)
             outlet(2, "script", "send", pageName, "append", p);
 
     } else {
         if (group === 0)
-            outlet(2, "script", "move", "bankA_page", 32, 680);
+            outlet(2, "script", "send", "bankA_page", "patching_rect", 32, 680, 35, 20);
         else
-            outlet(2, "script", "move", "bankB_page", 87, 680);
+            outlet(2, "script", "send", "bankB_page", "patching_rect", 87, 680, 35, 20);
     }
 
     pageParams(0, group);
@@ -118,10 +123,13 @@ function getParams(idx,group){
 /* pageParams(page,group)  ── build six LiveAPI observers */
 function pageParams(page,group){
     page = +page; group=(+group===1)?1:0;
+    if ((group===0 && page===currentPageA) || (group===1 && page===currentPageB))
+        return;                 // observers already up-to-date
     var bank   = (group===0)?groupA_params:groupB_params;
     var store  = (group===0)?groupA_observers:groupB_observers;
 
-    store = clearObs(store);                               // dispose old
+    store = clearObs(store);   
+    post("Observers now:", store.length, "\n");
     var start = page*PAGE;
     for(var i=0;i<PAGE;i++){
         var pIdx = start+i;
@@ -136,7 +144,9 @@ function pageParams(page,group){
         })(i,bank[pIdx]);
     }
     if(group===0) groupA_observers=store; else groupB_observers=store;
+    if(group===0) currentPageA = page; else currentPageB = page;
 }
 
 function msg_int(v){
-    return;}
+    return;
+}
