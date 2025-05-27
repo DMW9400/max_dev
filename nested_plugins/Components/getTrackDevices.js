@@ -30,10 +30,16 @@ function getAPIById(id){
 
 function idAPI(id) { return new LiveAPI("id " + id); }
 
-function formatIDarr(raw) {
-    var out = [];
-    for (var i = 0; i < raw.length; i += 2)
-        if (raw[i] === "id") out.push(raw[i + 1]);
+function formatIDarr(raw){
+    var out=[];
+    if(raw.length===0) return out;
+    if(raw[0]==="id"){                 // alternating ["id", <num>, "id", <num>…]
+        for(var i=0;i<raw.length-1;i+=2)
+            if(raw[i]==="id") out.push(raw[i+1]);
+    }else{                             // plain list of parameter IDs
+        for(var j=0;j<raw.length;j++)
+            if(typeof raw[j]==="number"||!isNaN(raw[j])) out.push(raw[j]);
+    }
     return out;
 }
 
@@ -166,7 +172,7 @@ function pageParams(page,group){
     for(var clr=0; clr<PAGE; clr++){
         setLabelAndValue(group, clr, "---", "");
         var pfx = (group===0?"a":"b");
-        outlet(2,"script","send",pfx+"Dial_"+clr,"float",0);
+        outlet(2,"script","send",pfx+"Dial_"+clr,0);
         var updArr = (group===0)?updatingA:updatingB;
         updArr[clr]=false;
         var lastArr = (group===0)?lastSetA:lastSetB;
@@ -174,19 +180,24 @@ function pageParams(page,group){
     }
     post("Observers now:", store.length, "\n");
     var start = page*PAGE;
+    post("-- creating observers for page", page, "group", group, "\n");
+
     for(var i=0;i<PAGE;i++){
         var pIdx = start+i;
         if(pIdx>=bank.length) break;
         (function(g, dialIdx, id){
-            var obs = getAPIById(id);            // cached object
-            var initVal  = Number(obs.get("value"));
-            var valStr   = strForValue(obs, initVal);
-            setLabelAndValue(g, dialIdx, obs.get("name"), valStr);
+            // separate API for metadata
+            var paramAPI = getAPIById(id);
+            var initVal  = Number(paramAPI.get("value"));
+            var valStr   = strForValue(paramAPI, initVal);
+            setLabelAndValue(g, dialIdx, paramAPI.get("name"), valStr);
+
             var pfxInit = (g===0?"a":"b");
-            outlet(2,"script","send",pfxInit+"Dial_"+dialIdx,"float",initVal);
-            // turn existing obs into the observer
-            obs.setcall(function(v){
-                if (v && v[0] === "value" && typeof v[1] === "number"){
+            outlet(2,"script","send",pfxInit+"Dial_"+dialIdx,initVal);
+
+            // observer callback
+            var obs = new LiveAPI(function(v){
+                if(v && v[0]==="value" && typeof v[1]==="number"){
                     var num = v[1];
                     var updArr  = (g===0)?updatingA:updatingB;
                     var lastArr = (g===0)?lastSetA:lastSetB;
@@ -195,16 +206,17 @@ function pageParams(page,group){
                         return;
                     }
                     var prefix = (g===0?"a":"b");
-                    outlet(1, dialIdx, num);
-                    outlet(2,"script","send",prefix+"Dial_"+dialIdx,"float",num);
-                    var s = strForValue(this, num);   // use same API object
+                    outlet(1,dialIdx,num);
+                    outlet(2,"script","send",prefix+"Dial_"+dialIdx,num);
+                    var s = strForValue(paramAPI,num);
                     outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",s);
                 }
-            });
-            obs.mode = 1;
+            },"id "+id);
             obs.property = "value";
+            obs.mode     = 1;
+
             store.push(obs);
-        })(group, i, bank[pIdx]);
+        })(group,i,bank[pIdx]);
     }
     if(group===0) groupA_observers=store; else groupB_observers=store;
     if(group===0) currentPageA = page; else currentPageB = page;
