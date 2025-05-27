@@ -35,6 +35,21 @@ function tidyName(raw){
     return (txt.length>12)?txt.slice(0,11)+"…" : txt;
 }
 
+/* ───── value‑string tidy ─────────────────────────────────────────── */
+function tidyVal(str){
+    if(!str) return "";
+    str = String(str);
+    // locate first digit
+    var m = str.match(/[0-9]/);
+    if(!m) return str.slice(0,10);   // no numbers, keep first 10 chars
+    var sub = str.slice(m.index);    // from first digit onward
+    if(sub.length > 7){
+        // keep first 4 chars, last 3 become '...'
+        return sub.slice(0,4) + "...";
+    }
+    return sub;
+}
+
 var updatingA = new Array(PAGE).fill(false);
 var updatingB = new Array(PAGE).fill(false);
 var lastSetA  = new Array(PAGE).fill(null);
@@ -133,12 +148,11 @@ function populateMenus(){
 function clearObs(arr){
     for(var i=0;i<arr.length;i++){
         var o = arr[i];
-        if(o && typeof o.dispose === "function"){
-            o.mode = 0;              // stop observing
+        if(o){
+            // stop observing, but do NOT dispose – let GC handle it safely
+            o.mode = 0;
             o.property = "";
-            o.setcall("");
-            if(o.id) delete paramAPICache[o.id]; // remove from cache
-            o.dispose();
+            if(typeof o.setcall === "function") o.setcall("");
         }
     }
     return [];
@@ -178,7 +192,7 @@ function getParams(idx,group){
 function setLabelAndValue(group, dialIdx, nameTxt, valStr){
     var prefix = (group===0) ? "a" : "b";
     outlet(2,"script","send",prefix+"Label_"+dialIdx,"set",tidyName(nameTxt));
-    outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",valStr);
+    outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",tidyVal(valStr));
 }
 
 /* pageParams(page,group)  ── build six LiveAPI observers */
@@ -210,7 +224,7 @@ function pageParams(page,group){
             // separate API for metadata
             var paramAPI = getAPIById(id);
             var initVal  = Number(paramAPI.get("value"));
-            var valStr   = strForValue(paramAPI, initVal);
+            var valStr   = tidyVal(strForValue(paramAPI, initVal));
             setLabelAndValue(g, dialIdx, paramAPI.get("name"), valStr);
 
             var pfxInit = (g===0?"a":"b");
@@ -225,14 +239,14 @@ function pageParams(page,group){
                     if(updArr[dialIdx] && num === lastArr[dialIdx]){
                         updArr[dialIdx] = false;
                         // update only the display string (avoid dial echo)
-                        var sEcho = strForValue(paramAPI,num);
+                        var sEcho = tidyVal(strForValue(paramAPI,num));
                         outlet(2,"script","send",(g===0?"a":"b")+"Str_"+dialIdx,"set",sEcho);
                         return;
                     }
                     var prefix = (g===0?"a":"b");
                     outlet(1,dialIdx,num);
                     outlet(2,"script","send",prefix+"Dial_"+dialIdx,num);
-                    var s = strForValue(paramAPI,num);
+                    var s = tidyVal(strForValue(paramAPI,num));
                     outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",s);
                 }
             },"id "+id);
