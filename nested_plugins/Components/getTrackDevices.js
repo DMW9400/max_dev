@@ -172,7 +172,7 @@ function getParams(idx,group){
 
     if (pages > 1) {
         if (group === 0)
-            outlet(2, "script", "send", "bankA_page", "patching_rect", 365, 515, 35, 20);
+            outlet(2, "script", "send", "bankA_page", "patching_rect", 365, 481, 35, 20);
         else
             outlet(2, "script", "send", "bankB_page", "patching_rect", 650, 515, 35, 20);
 
