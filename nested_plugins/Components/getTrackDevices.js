@@ -50,6 +50,16 @@ function tidyVal(str){
     return sub;
 }
 
+/* ───── device‑on toggles ─────────────────────────────────────────── */
+var toggleA_param = null;
+var toggleB_param = null;
+var toggleA_observer = null;
+var toggleB_observer = null;
+var updatingToggleA = false;
+var updatingToggleB = false;
+var lastToggleA     = null;
+var lastToggleB     = null;
+
 var updatingA = new Array(PAGE).fill(false);
 var updatingB = new Array(PAGE).fill(false);
 var lastSetA  = new Array(PAGE).fill(null);
@@ -77,6 +87,44 @@ function formatIDarr(raw){
             if(typeof raw[j]==="number"||!isNaN(raw[j])) out.push(raw[j]);
     }
     return out;
+}
+
+function setupDeviceToggle(paramId, group){
+    var prevObs = (group===0)?toggleA_observer:toggleB_observer;
+    if(prevObs){
+        prevObs.mode   = 0;
+        prevObs.property = "";
+        if(typeof prevObs.setcall==="function") prevObs.setcall("");
+    }
+    var api = getAPIById(paramId);
+    var initVal = Number(api.get("value"));
+    var tName = (group===0) ? "aDevToggle" : "bDevToggle";
+    outlet(2,"script","send",tName,initVal);
+
+    var obs = new LiveAPI(function(v){
+        if(v && v[0]==="value" && typeof v[1]==="number"){
+            var num = v[1];
+            if(group===0){
+                if(updatingToggleA && num===lastToggleA){ updatingToggleA=false; return; }
+                outlet(2,"script","send","aDevToggle",num);
+            }else{
+                if(updatingToggleB && num===lastToggleB){ updatingToggleB=false; return; }
+                outlet(2,"script","send","bDevToggle",num);
+            }
+        }
+    },"id "+paramId);
+    obs.property = "value";
+    obs.mode     = 1;
+
+    if(group===0){
+        toggleA_param = paramId;
+        toggleA_observer = obs;
+        lastToggleA = initVal;
+    }else{
+        toggleB_param = paramId;
+        toggleB_observer = obs;
+        lastToggleB = initVal;
+    }
 }
 
 function arraysEqual(a, b) {
@@ -165,6 +213,11 @@ function getParams(idx,group){
     if(idx<0||idx>=trackDevices.length) return;
     var ids = formatIDarr(idAPI(trackDevices[idx]).get("parameters"));
     var pageName = (group === 0) ? "bankA_page" : "bankB_page";
+    // first parameter is device On/Off toggle
+    if(ids.length===0) return;
+    var toggleId = ids[0];
+    setupDeviceToggle(toggleId, group);
+    ids = ids.slice(1);   // remaining params for dials
     if (group === 0) groupA_params = ids.slice(); else groupB_params = ids.slice();
 
     var pages = Math.ceil(ids.length / PAGE);
@@ -197,6 +250,7 @@ function setLabelAndValue(group, dialIdx, nameTxt, valStr){
 
 /* pageParams(page,group)  ── build six LiveAPI observers */
 function pageParams(page,group){
+    if (page === 1) post("[debug ids]", bank.join(), "\n");
     page = +page; group=(+group===1)?1:0;
     if ((group===0 && page===currentPageA) || (group===1 && page===currentPageB))
         return;                 // observers already up-to-date
@@ -286,4 +340,29 @@ function setByDial(dialIdx, bankNum, val){
 
 function msg_int(v){
     return;
+}
+
+function setToggle(bankNum, val){
+    // bankNum: 0 = A, 1 = B
+    bankNum = (+bankNum === 1) ? 1 : 0;
+    val     = (+val > 0) ? 1 : 0;            // normalise to 0 / 1
+
+    const paramId = (bankNum === 0) ? toggleA_param : toggleB_param;
+    if (!paramId) return;
+
+    const api     = getAPIById(paramId);
+    const current = Number(api.get("value"));
+    if (current === val) return;              // nothing to change
+
+    // flag so the observer ignores the echo we’re about to get
+    if (bankNum === 0){
+        updatingToggleA = true;
+        lastToggleA     = val;
+    } else {
+        updatingToggleB = true;
+        lastToggleB     = val;
+    }
+
+    // simple set, same as dials — no gesture wrapping
+    api.set("value", val);
 }
