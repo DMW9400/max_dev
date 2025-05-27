@@ -14,6 +14,27 @@ var currentPageA = -1;
 var currentPageB = -1;
 const PAGE   = 6;          // dials per page
 
+/* ───── label tidy helpers ────────────────────────────────────────── */
+const ABBREV = {
+    "Frequency":"Freq","Balance":"Bal","Volume":"Vol","Release":"Rel",
+    "Attack":"Atk","Device":"Dev","Input":"In","Output":"Out","Delay":"Dly",
+    "Left":"L","Right":"R","Time":"T","Curve":"Crv","Early":"E"
+};
+
+function tidyName(raw){
+    if(!raw) return "";
+    // split CamelCase
+    raw = String(raw).replace(/([a-z])([A-Z])/g,"$1 $2");
+    // map through abbreviations
+    var txt = raw.split(/\s+/).map(w=>ABBREV[w]||w).join(" ");
+    if(txt.length > 14){
+        // first 6 chars + "..." + last 5 chars
+        return txt.slice(0,6) + "..." + txt.slice(-5);
+    }
+    // shorter fallback: same 12‑char cap with single ellipsis
+    return (txt.length>12)?txt.slice(0,11)+"…" : txt;
+}
+
 var updatingA = new Array(PAGE).fill(false);
 var updatingB = new Array(PAGE).fill(false);
 var lastSetA  = new Array(PAGE).fill(null);
@@ -156,7 +177,7 @@ function getParams(idx,group){
 
 function setLabelAndValue(group, dialIdx, nameTxt, valStr){
     var prefix = (group===0) ? "a" : "b";
-    outlet(2,"script","send",prefix+"Label_"+dialIdx,"set",nameTxt);
+    outlet(2,"script","send",prefix+"Label_"+dialIdx,"set",tidyName(nameTxt));
     outlet(2,"script","send",prefix+"Str_"+dialIdx,"set",valStr);
 }
 
@@ -203,6 +224,9 @@ function pageParams(page,group){
                     var lastArr = (g===0)?lastSetA:lastSetB;
                     if(updArr[dialIdx] && num === lastArr[dialIdx]){
                         updArr[dialIdx] = false;
+                        // update only the display string (avoid dial echo)
+                        var sEcho = strForValue(paramAPI,num);
+                        outlet(2,"script","send",(g===0?"a":"b")+"Str_"+dialIdx,"set",sEcho);
                         return;
                     }
                     var prefix = (g===0?"a":"b");
@@ -240,6 +264,10 @@ function setDial(dialIdx, bankNum, val){
     updArr[dialIdx]  = true;   // suppress echo
     lastArr[dialIdx] = val;
     api.set("value", val);
+}
+
+function setByDial(dialIdx, bankNum, val){
+    setDial(dialIdx, bankNum, val);
 }
 
 function msg_int(v){
