@@ -60,8 +60,12 @@ function getDevParams(devID, bank){
     var params = formatIDarr(currentDev.get("parameters"));
     let devOn = params.shift();
     let pageMenu = '';
-    let bankPage = ''
-    let pageCount = 0
+    let bankPage = '';
+    let pageCount = 0;
+    let bankA_y = [781,481];
+    let bankB_y = [781,481];
+    let outX = null;
+    let outY = null;
 
     if (bank == '0') {
         pageMenu = 'bankA_menu';
@@ -69,12 +73,14 @@ function getDevParams(devID, bank){
         aDevOn = devOn;
         aDevice = currentDev;
         aParams = params;
+        outX = 365;
     } else {
         pageMenu = 'bankB_menu';
         bankPage = 'bankB_page';
         bDevOn = devOn;
         bDevice = currentDev;
         bParams = params;
+        outX = 865;
     }
 
     if (params.length > 4){
