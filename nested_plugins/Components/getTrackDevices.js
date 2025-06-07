@@ -91,6 +91,7 @@ function getDevParams(devID, bank){
             outlet(0,'script','send',bankPage,'append',i);
         }
     }
+    pageParams(bank, 1);
 }
 
 function pageParams(bank, page){
@@ -103,9 +104,7 @@ function pageParams(bank, page){
     }
     params = params.slice(startInd, startInd + 4);
     params.forEach((param, i) => {
-        var paramObj = new LiveAPI('id ' + param);
-        outlet(1,);
-        outlet(0, 'script', 'send', 'bank' + bank + '_param' + (i + 1), 'setvalueof', paramObj.get("value"));
+        outlet(1, bank, i, 'id', param);
     });
 
 }
