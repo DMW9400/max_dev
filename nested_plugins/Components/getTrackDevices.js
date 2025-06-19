@@ -45,7 +45,7 @@ function init(){
 function getDevices(parentID){
     parentObj = new LiveAPI('id ' + parentID);
     var devs = formatIDarr(parentObj.get("devices"));
-    devs.shift(); // Remove the 'id' element
+    devs.shift(); // Remove this device
     currentDevices = [];
     devs.forEach((dev) => {
         currentDevices.push(dev);
@@ -58,7 +58,7 @@ function getDevices(parentID){
 function getDevParams(devID, bank){
     currentDev = new LiveAPI('id ' + devID);
     var params = formatIDarr(currentDev.get("parameters"));
-    let devOn = params.shift();
+    // let devOn = params.shift();
     let pageMenu = '';
     let bankPage = '';
     let pageCount = 0;
@@ -70,14 +70,14 @@ function getDevParams(devID, bank){
     if (bank == '0') {
         pageMenu = 'bankA_menu';
         bankPage = 'bankA_page'
-        aDevOn = devOn;
+        // aDevOn = devOn;
         aDevice = currentDev;
         aParams = params;
         outX = 365;
     } else {
         pageMenu = 'bankB_menu';
         bankPage = 'bankB_page';
-        bDevOn = devOn;
+        // bDevOn = devOn;
         bDevice = currentDev;
         bParams = params;
         outX = 865;
@@ -91,7 +91,7 @@ function getDevParams(devID, bank){
             outlet(0,'script','send',bankPage,'append',i);
         }
     }
-    pageParams(bank, 1);
+    pageParams(bank, 0);
 }
 
 function pageParams(bank, page){
