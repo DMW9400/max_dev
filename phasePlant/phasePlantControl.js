@@ -32,12 +32,23 @@ function getDevices(parentID){
             post('Phase Plant found with ID: ' + phasePlantID + '\n');
         }
     });
+    getParams(phasePlantID);
 }
 
-function getParams(){
+function getParams(devID){
+    var dev = new LiveAPI('id ' + devID);
+    var params = formatIDarr(dev.get("parameters"));
+    // remove first param - dev on
+    params.shift();
+    devParams = [];
+    params.forEach((param, i) => {
+        outlet(0, i, 'id', param);
+        // post('i: ' + i + ', param: ' + param + '\n');
+    });
     
 }
 
 function init(){
+    post('Initializing Phase Plant Control...\n');
     getPhasePlant();
 }
