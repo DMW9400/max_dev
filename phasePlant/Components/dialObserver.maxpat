@@ -341,7 +341,7 @@
 				"box" : 				{
 					"comment" : "dialOut",
 					"id" : "obj-6",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -353,7 +353,7 @@
 				"box" : 				{
 					"comment" : "dialIn",
 					"id" : "obj-5",
-					"index" : 3,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -366,7 +366,7 @@
 				"box" : 				{
 					"comment" : "dialID",
 					"id" : "obj-3",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -379,7 +379,7 @@
 				"box" : 				{
 					"comment" : "jsIn",
 					"id" : "obj-1",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -482,6 +482,13 @@
 					"destination" : [ "obj-32", 1 ],
 					"midpoints" : [ 88.5, 435.0, 75.0, 435.0, 75.0, 660.0, 132.5, 660.0 ],
 					"source" : [ "obj-30", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-32", 0 ]
 				}
 
 			}
@@ -606,13 +613,8 @@
 
 			}
  ],
-		"saved_attribute_attributes" : 		{
-			"default_plcolor" : 			{
-				"expression" : ""
-			}
-
-		}
-
+		"dependency_cache" : [  ],
+		"autosave" : 0
 	}
 
 }
