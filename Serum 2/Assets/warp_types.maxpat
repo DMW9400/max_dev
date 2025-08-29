@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
+		"rect" : [ 34.0, 100.0, 796.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -41,12 +41,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-21",
+					"linecount" : 2,
 					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 555.0, 255.0, 100.0, 22.0 ],
-					"text" : "route 9 10"
+					"numinlets" : 7,
+					"numoutlets" : 7,
+					"outlettype" : [ "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 555.0, 255.0, 100.0, 35.0 ],
+					"text" : "route 9 10 27 28 29 30"
 				}
 
 			}
@@ -250,7 +251,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 356.0, 37.0, 20.0, 24.0 ]
+					"patching_rect" : [ 356.100005306303501, 36.000000536441803, 20.0, 24.0 ]
 				}
 
 			}
@@ -262,7 +263,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 279.0, 42.0, 74.0, 15.0 ],
+					"patching_rect" : [ 279.0, 41.0, 74.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -287,7 +288,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 356.0, 7.0, 20.0, 24.0 ]
+					"patching_rect" : [ 356.000005304813385, 6.000000089406967, 20.0, 24.0 ]
 				}
 
 			}
@@ -299,7 +300,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 279.0, 11.0, 74.0, 15.0 ],
+					"patching_rect" : [ 279.012320816516876, 9.876542329788208, 74.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -361,7 +362,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 221.0, 6.0, 20.0, 24.0 ]
+					"patching_rect" : [ 221.200003296136856, 6.000000089406967, 20.0, 24.0 ]
 				}
 
 			}
@@ -373,7 +374,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 144.0, 10.5, 74.0, 15.0 ],
+					"patching_rect" : [ 143.749996572732925, 9.583333104848862, 74.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -557,6 +558,38 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-10", 1 ],
+					"midpoints" : [ 605.0, 330.0, 222.0, 330.0, 222.0, 402.0, 200.5, 402.0 ],
+					"source" : [ "obj-21", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 1 ],
+					"midpoints" : [ 591.5, 330.0, 200.5, 330.0 ],
+					"source" : [ "obj-21", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 1 ],
+					"midpoints" : [ 632.0, 414.0, 335.5, 414.0 ],
+					"source" : [ "obj-21", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-14", 1 ],
+					"midpoints" : [ 618.5, 330.0, 335.5, 330.0 ],
+					"source" : [ "obj-21", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-54", 1 ],
 					"midpoints" : [ 564.5, 330.0, 79.5, 330.0 ],
 					"source" : [ "obj-21", 0 ]
@@ -566,7 +599,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-9", 1 ],
-					"midpoints" : [ 605.0, 402.0, 79.5, 402.0 ],
+					"midpoints" : [ 578.0, 330.0, 99.0, 330.0, 99.0, 402.0, 79.5, 402.0 ],
 					"source" : [ "obj-21", 1 ]
 				}
 
@@ -582,7 +615,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 230.5, 61.270276218652725, 130.464169651269913, 61.270276218652725, 130.464169651269913, 31.270276218652725, 153.5, 31.270276218652725 ],
+					"midpoints" : [ 230.700003296136856, 61.270276308059692, 130.664172947406769, 61.270276308059692, 130.664172947406769, 31.270276308059692, 153.249996572732925, 31.270276308059692 ],
 					"source" : [ "obj-3", 0 ]
 				}
 
@@ -591,7 +624,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 153.5, 27.0, 129.0, 27.0, 129.0, 192.0, 145.5, 192.0 ],
+					"midpoints" : [ 153.249996572732925, 27.0, 129.0, 27.0, 129.0, 192.0, 145.5, 192.0 ],
 					"order" : 1,
 					"source" : [ "obj-4", 0 ]
 				}
@@ -601,7 +634,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 153.5, 61.270276218652725, 247.464169651269913, 61.270276218652725, 247.464169651269913, 22.270276218652725, 230.5, 22.270276218652725 ],
+					"midpoints" : [ 153.249996572732925, 61.270276308059692, 247.664172947406769, 61.270276308059692, 247.664172947406769, 22.270276308059692, 230.700003296136856, 22.270276308059692 ],
 					"order" : 0,
 					"source" : [ "obj-4", 0 ]
 				}
@@ -658,7 +691,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 365.5, 72.4999960064888, 273.399996012449265, 72.4999960064888, 273.399996012449265, 36.4999960064888, 288.5, 36.4999960064888 ],
+					"midpoints" : [ 365.600005306303501, 72.4999960064888, 273.399996012449265, 72.4999960064888, 273.399996012449265, 36.4999960064888, 288.5, 36.4999960064888 ],
 					"source" : [ "obj-5", 0 ]
 				}
 
@@ -686,7 +719,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 288.5, 72.4999960064888, 375.399996012449265, 72.4999960064888, 375.399996012449265, 33.4999960064888, 365.5, 33.4999960064888 ],
+					"midpoints" : [ 288.5, 72.4999960064888, 375.399996012449265, 72.4999960064888, 375.399996012449265, 33.4999960064888, 365.600005306303501, 33.4999960064888 ],
 					"order" : 0,
 					"source" : [ "obj-6", 0 ]
 				}
@@ -696,7 +729,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 365.5, 61.770276218652725, 265.464169651269913, 61.770276218652725, 265.464169651269913, 31.770276218652725, 288.5, 31.770276218652725 ],
+					"midpoints" : [ 365.500005304813385, 61.770276218652725, 265.464169651269913, 61.770276218652725, 265.464169651269913, 31.770276218652725, 288.512320816516876, 31.770276218652725 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
@@ -705,7 +738,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-18", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 288.5, 27.0, 264.0, 27.0, 264.0, 192.0, 280.5, 192.0 ],
+					"midpoints" : [ 288.512320816516876, 27.0, 264.0, 27.0, 264.0, 192.0, 280.5, 192.0 ],
 					"order" : 1,
 					"source" : [ "obj-8", 0 ]
 				}
@@ -715,13 +748,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 288.5, 61.770276218652725, 382.464169651269913, 61.770276218652725, 382.464169651269913, 22.770276218652725, 365.5, 22.770276218652725 ],
+					"midpoints" : [ 288.512320816516876, 61.770276218652725, 382.464169651269913, 61.770276218652725, 382.464169651269913, 22.770276218652725, 365.500005304813385, 22.770276218652725 ],
 					"order" : 0,
 					"source" : [ "obj-8", 0 ]
 				}
 
 			}
- ]
+ ],
+		"saved_attribute_attributes" : 		{
+			"default_plcolor" : 			{
+				"expression" : ""
+			}
+
+		}
+
 	}
 
 }
