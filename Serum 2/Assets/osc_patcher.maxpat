@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 332.0, 936.0 ],
+		"rect" : [ 34.0, 100.0, 1196.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -58,6 +58,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_pitchCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -778,6 +780,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_ampCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -1504,6 +1508,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.3 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_pitchDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
