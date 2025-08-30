@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 796.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -29,11 +29,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.gain~[4]",
+							"parameter_longname" : "mstr_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.gain~",
+							"parameter_shortname" : "mstr_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -71,7 +71,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 330.0, 780.0, 75.0, 22.0 ],
+					"patching_rect" : [ 345.0, 780.0, 75.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 1,
 						"normalized" : 0,
@@ -89,7 +89,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 300.0, 750.0, 75.0, 22.0 ],
+					"patching_rect" : [ 310.0, 750.0, 75.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 1,
 						"normalized" : 0,
@@ -143,7 +143,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 195.0, 660.0, 75.0, 22.0 ],
+					"patching_rect" : [ 205.0, 660.0, 75.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 1,
 						"normalized" : 0,
@@ -161,7 +161,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 165.0, 630.0, 75.0, 22.0 ],
+					"patching_rect" : [ 170.0, 630.0, 75.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"_persistence" : 1,
 						"normalized" : 0,
@@ -179,7 +179,7 @@
 					"numinlets" : 8,
 					"numoutlets" : 8,
 					"outlettype" : [ "", "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 225.580000000000013, 555.0, 411.0, 22.0 ],
+					"patching_rect" : [ 226.0, 555.0, 264.0, 22.0 ],
 					"text" : "route 74 75 76 77 78 79 80"
 				}
 
@@ -214,10 +214,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[57]",
+							"parameter_longname" : "b_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.dial[56]",
+							"parameter_shortname" : "b_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -248,11 +248,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.gain~[2]",
+							"parameter_longname" : "b_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.gain~",
+							"parameter_shortname" : "b_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -283,10 +283,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[55]",
+							"parameter_longname" : "n_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.dial[56]",
+							"parameter_shortname" : "n_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -317,11 +317,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.gain~[1]",
+							"parameter_longname" : "n_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.gain~",
+							"parameter_shortname" : "n_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -352,10 +352,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[56]",
+							"parameter_longname" : "a_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.dial[56]",
+							"parameter_shortname" : "a_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -386,11 +386,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.gain~",
+							"parameter_longname" : "a_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.gain~",
+							"parameter_shortname" : "a_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -438,7 +438,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 37.250000178813934, 120.0, 45.0, 120.0, 45.0, 615.0, 174.5, 615.0 ],
+					"midpoints" : [ 37.250000178813934, 120.0, 45.0, 120.0, 45.0, 615.0, 179.5, 615.0 ],
 					"source" : [ "obj-10", 3 ]
 				}
 
@@ -496,7 +496,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 26.16666716337204, 663.0, 192.0, 663.0, 192.0, 657.0, 204.5, 657.0 ],
+					"midpoints" : [ 26.16666716337204, 663.0, 192.0, 663.0, 192.0, 657.0, 214.5, 657.0 ],
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -523,7 +523,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-9", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 119.500003278255463, 783.0, 327.0, 783.0, 327.0, 777.0, 339.5, 777.0 ],
+					"midpoints" : [ 119.500003278255463, 783.0, 327.0, 783.0, 327.0, 777.0, 354.5, 777.0 ],
 					"source" : [ "obj-25", 0 ]
 				}
 
@@ -532,7 +532,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 129.916669607162476, 120.0, 138.0, 120.0, 138.0, 753.0, 297.0, 753.0, 297.0, 747.0, 309.5, 747.0 ],
+					"midpoints" : [ 129.916669607162476, 120.0, 138.0, 120.0, 138.0, 753.0, 297.0, 753.0, 297.0, 747.0, 319.5, 747.0 ],
 					"source" : [ "obj-27", 3 ]
 				}
 

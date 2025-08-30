@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -64,11 +64,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[53]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f2_lvl",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -102,18 +104,20 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 315.044273138046265, 84.955759048461914, 27.0, 28.0 ],
+					"patching_rect" : [ 315.044273138046265, 84.955759048461914, 27.0, 34.0 ],
 					"saved_attribute_attributes" : 					{
 						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[63]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f2_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -122,6 +126,7 @@
 ,
 					"showname" : 0,
 					"shownumber" : 0,
+					"triangle" : 1,
 					"varname" : "live.dial[2]"
 				}
 
@@ -154,11 +159,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[64]",
+							"parameter_initial" : [ 1 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f2_mix",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_mix",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -199,11 +206,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[65]",
+							"parameter_longname" : "f2_var",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_var",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -244,11 +251,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[66]",
+							"parameter_longname" : "f2_drive",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_drive",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -289,11 +296,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[67]",
+							"parameter_longname" : "f2_res",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_res",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -334,11 +341,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[68]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f2_freq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f2_freq",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -375,6 +384,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
+							"parameter_invisible" : 2,
 							"parameter_longname" : "live.menu[9]",
 							"parameter_mmax" : 106,
 							"parameter_modmode" : 0,
@@ -717,11 +727,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[16]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f1_lvl",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -755,18 +767,20 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 118.000001758337021, 84.800001263618469, 27.0, 28.0 ],
+					"patching_rect" : [ 118.000001758337021, 84.800001263618469, 27.0, 34.0 ],
 					"saved_attribute_attributes" : 					{
 						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[14]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f1_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -775,6 +789,7 @@
 ,
 					"showname" : 0,
 					"shownumber" : 0,
+					"triangle" : 1,
 					"varname" : "live.dial[14]"
 				}
 
@@ -807,11 +822,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[15]",
+							"parameter_initial" : [ 1 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f1_mix",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_mix",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -852,11 +869,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[13]",
+							"parameter_longname" : "f1_var",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_var",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -897,11 +914,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[12]",
+							"parameter_longname" : "f1_drive",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_drive",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -942,11 +959,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[11]",
+							"parameter_longname" : "f1_res",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_res",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -987,11 +1004,13 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[10]",
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "f1_freq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "f1_freq",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1028,6 +1047,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
+							"parameter_invisible" : 1,
 							"parameter_longname" : "live.menu[8]",
 							"parameter_mmax" : 106,
 							"parameter_modmode" : 0,
