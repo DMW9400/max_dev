@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 1660.0, 983.0 ],
+		"rect" : [ 34.0, 100.0, 796.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -277,7 +277,7 @@
 					"numoutlets" : 5,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 98.666669607162476, 10.666666984558105, 48.0, 108.0 ],
+					"patching_rect" : [ 99.500003278255463, 10.666666984558105, 48.0, 108.0 ],
 					"saved_attribute_attributes" : 					{
 						"focusbordercolor" : 						{
 							"expression" : ""
@@ -586,7 +586,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 129.916669607162476, 120.0, 138.0, 120.0, 138.0, 324.0, 415.5, 324.0 ],
+					"midpoints" : [ 130.750003278255463, 120.0, 138.0, 120.0, 138.0, 324.0, 415.5, 324.0 ],
 					"source" : [ "obj-27", 3 ]
 				}
 
