@@ -37,9 +37,7 @@ function getDevices(parentID){
 }
 
 function getParams(devID){
-    post('Getting parameters for Serum 2 with ID: ' + devID + '\n');
     var dev = new LiveAPI('id ' + devID);
-    post('dev:', dev.id, '\n');
     var params = formatIDarr(dev.get("parameters"));
     post('params: ' + params + '\n');
     post('params length: ' + params.length + '\n');
