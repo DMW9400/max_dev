@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -414,7 +414,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ -0.666666686534882, 0.0, 189.333338975906372, 169.333338379859924 ],
+					"patching_rect" : [ -1.0, 0.0, 189.0, 167.0 ],
 					"proportion" : 0.39,
 					"saved_attribute_attributes" : 					{
 						"bgfillcolor" : 						{
