@@ -14,6 +14,18 @@
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-138",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 63.380000000000003, 673.789999999999964, 100.0, 22.0 ],
+					"text" : "loadmess 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-139",
 					"maxclass" : "newobj",
 					"numinlets" : 6,
@@ -945,7 +957,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 13.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_semi",
+							"parameter_longname" : "live.dial[54]",
 							"parameter_mmax" : 26.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_semi",
@@ -991,7 +1003,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 4 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_oct",
+							"parameter_longname" : "live.dial[60]",
 							"parameter_mmax" : 8.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_oct",
@@ -1155,7 +1167,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_pitchCrv",
+							"parameter_longname" : "live.dial[59]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1362,7 +1374,7 @@
 				"box" : 				{
 					"comment" : "thisPatcher",
 					"id" : "obj-59",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -1618,7 +1630,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_unison",
+							"parameter_longname" : "live.dial[45]",
 							"parameter_mmax" : 16.0,
 							"parameter_mmin" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -1675,7 +1687,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_unisonBlend",
+							"parameter_longname" : "live.dial[46]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1720,7 +1732,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_unisonDetune",
+							"parameter_longname" : "live.dial[47]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1767,7 +1779,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_pitchEnvDec",
+							"parameter_longname" : "live.dial[48]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1814,7 +1826,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795275 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_pitchEnv",
+							"parameter_longname" : "live.dial[49]",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1927,7 +1939,7 @@
 				"box" : 				{
 					"comment" : "handleTab",
 					"id" : "obj-4",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -2555,7 +2567,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_wt",
+							"parameter_longname" : "live.dial[32]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2647,7 +2659,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_warp2",
+							"parameter_longname" : "live.dial[27]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2739,7 +2751,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_warp1",
+							"parameter_longname" : "live.dial[43]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2786,7 +2798,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_fine",
+							"parameter_longname" : "live.dial[25]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_fine",
@@ -3005,6 +3017,46 @@
 					"hidden" : 1,
 					"midpoints" : [ 46.020000000000003, 498.0, 552.0, 498.0, 552.0, 186.0, 831.0, 186.0, 831.0, 159.0, 853.896549880504608, 159.0 ],
 					"source" : [ "obj-137", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"hidden" : 1,
+					"midpoints" : [ 72.879999999999995, 705.0, 321.0, 705.0, 321.0, 276.0, 343.5, 276.0 ],
+					"order" : 0,
+					"source" : [ "obj-138", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-17", 0 ],
+					"hidden" : 1,
+					"midpoints" : [ 72.879999999999995, 705.0, 210.0, 705.0, 210.0, 276.0, 158.5, 276.0 ],
+					"order" : 2,
+					"source" : [ "obj-138", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"hidden" : 1,
+					"midpoints" : [ 72.879999999999995, 705.0, 321.0, 705.0, 321.0, 249.0, 369.0, 249.0, 369.0, 81.0, 343.5, 81.0 ],
+					"order" : 1,
+					"source" : [ "obj-138", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-70", 0 ],
+					"hidden" : 1,
+					"midpoints" : [ 72.879999999999995, 705.0, 210.0, 705.0, 210.0, 261.0, 171.0, 261.0, 171.0, 153.0, 174.0, 153.0, 174.0, 81.0, 158.5, 81.0 ],
+					"order" : 3,
+					"source" : [ "obj-138", 0 ]
 				}
 
 			}
@@ -3792,64 +3844,7 @@
 				}
 
 			}
- ],
-		"parameters" : 		{
-			"obj-102" : [ "b_unison", "b_unison", 0 ],
-			"obj-104" : [ "live.dial[34]", "b_wtVel", 0 ],
-			"obj-119" : [ "live.dial[71]", "n_ampVel", 0 ],
-			"obj-121" : [ "live.dial[72]", "n_ampDec", 0 ],
-			"obj-127" : [ "live.dial[1]", "n_ampAtk", 0 ],
-			"obj-13" : [ "b_pitchEnvDec", "b_pitchEnvDec", 0 ],
-			"obj-130" : [ "live.dial[2]", "n_ampVel", 0 ],
-			"obj-132" : [ "live.dial[3]", "n_ampDec", 0 ],
-			"obj-15" : [ "b_pitchEnv", "b_pitchEnv", 0 ],
-			"obj-16" : [ "live.tab[6]", "live.tab[2]", 0 ],
-			"obj-17" : [ "live.tab[7]", "live.tab[2]", 0 ],
-			"obj-2" : [ "b_wt", "b_wt", 0 ],
-			"obj-20" : [ "live.dial[50]", "c_unison", 0 ],
-			"obj-22" : [ "live.dial[37]", "c_wtVel", 0 ],
-			"obj-24" : [ "live.dial[23]", "c_wt", 0 ],
-			"obj-26" : [ "live.dial[41]", "c_warp2Vel", 0 ],
-			"obj-28" : [ "live.dial[40]", "c_warp2", 0 ],
-			"obj-30" : [ "live.dial[33]", "c_warp1Vel", 0 ],
-			"obj-32" : [ "live.dial[38]", "c_warp1", 0 ],
-			"obj-34" : [ "live.dial[44]", "c_fine", 0 ],
-			"obj-40" : [ "live.dial[29]", "n_pitch", 0 ],
-			"obj-43" : [ "live.dial[42]", "n_start", 0 ],
-			"obj-46" : [ "live.dial[35]", "n_fine", 0 ],
-			"obj-47" : [ "live.dial[69]", "n_ampCrv", 0 ],
-			"obj-49" : [ "live.dial[28]", "n_rand", 0 ],
-			"obj-5" : [ "live.tab[5]", "live.tab[2]", 0 ],
-			"obj-52" : [ "live.dial[51]", "c_unisonBlend", 0 ],
-			"obj-54" : [ "live.dial[52]", "c_unisonDetune", 0 ],
-			"obj-55" : [ "live.dial[70]", "n_ampAtk", 0 ],
-			"obj-68" : [ "b_fine", "b_fine", 0 ],
-			"obj-70" : [ "live.tab[4]", "live.tab[2]", 0 ],
-			"obj-72" : [ "live.dial[26]", "b_warp2Vel", 0 ],
-			"obj-74" : [ "b_warp2", "b_warp2", 0 ],
-			"obj-76" : [ "live.dial[39]", "b_warp1Vel", 0 ],
-			"obj-78" : [ "b_warp1", "b_warp1", 0 ],
-			"obj-80" : [ "b_pitchCrv", "b_pitchCrv", 0 ],
-			"obj-83" : [ "b_unisonDetune", "b_unisonDetune", 0 ],
-			"obj-85" : [ "b_unisonBlend", "b_unisonBlend", 0 ],
-			"obj-90" : [ "b_semi", "b_semi", 0 ],
-			"obj-92" : [ "b_oct", "b_oct", 0 ],
-			"obj-94" : [ "live.dial[61]", "c_semi", 0 ],
-			"obj-96" : [ "live.dial[62]", "c_oct", 0 ],
-			"parameterbanks" : 			{
-				"0" : 				{
-					"index" : 0,
-					"name" : "",
-					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-				}
-
-			}
-,
-			"inherited_shortname" : 1
-		}
-,
-		"dependency_cache" : [  ],
-		"autosave" : 0
+ ]
 	}
 
 }
