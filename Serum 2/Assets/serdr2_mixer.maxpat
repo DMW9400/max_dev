@@ -14,6 +14,18 @@
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 6,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 390.0, 149.0, 100.0, 22.0 ],
+					"text" : "scale 0. 1. 0. 0.5"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "newobj",
 					"numinlets" : 6,
@@ -65,7 +77,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "mstr_lvl",
+							"parameter_longname" : "live.gain~[4]",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
@@ -250,7 +262,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_pan",
+							"parameter_longname" : "live.dial[57]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "b_pan",
@@ -284,7 +296,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "b_lvl",
+							"parameter_longname" : "live.gain~[2]",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
@@ -319,7 +331,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_pan",
+							"parameter_longname" : "live.dial[55]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "n_pan",
@@ -353,7 +365,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "n_lvl",
+							"parameter_longname" : "live.gain~[1]",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
@@ -388,7 +400,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_pan",
+							"parameter_longname" : "live.dial[56]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "a_pan",
@@ -422,7 +434,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "a_lvl",
+							"parameter_longname" : "live.gain~",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
@@ -476,6 +488,13 @@
 					"hidden" : 1,
 					"midpoints" : [ 37.250000178813934, 120.0, 45.0, 120.0, 45.0, 237.0, 189.5, 237.0 ],
 					"source" : [ "obj-10", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}
@@ -593,9 +612,9 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
+					"destination" : [ "obj-12", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 172.333337604999542, 615.0, 150.0, 615.0, 150.0, 813.0, 372.0, 813.0, 372.0, 807.0, 384.5, 807.0 ],
+					"midpoints" : [ 172.333337604999542, 168.0, 390.0, 168.0, 390.0, 144.0, 399.5, 144.0 ],
 					"source" : [ "obj-35", 3 ]
 				}
 
