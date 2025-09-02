@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 1660.0, 983.0 ],
+		"rect" : [ 34.0, 100.0, 796.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -325,6 +325,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.43 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[11]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -348,8 +350,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 361.133595705032349, 80.971658229827881, 30.0, 20.0 ],
-					"text" : "Res"
+					"patching_rect" : [ 363.753028869628906, 80.971658229827881, 25.0, 20.0 ],
+					"text" : "res"
 				}
 
 			}
@@ -359,8 +361,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 321.862341463565826, 80.971658229827881, 28.0, 20.0 ],
-					"text" : "HP "
+					"patching_rect" : [ 327.172058045864105, 80.971658229827881, 18.0, 20.0 ],
+					"text" : "lp"
 				}
 
 			}
@@ -380,6 +382,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 1.0 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[12]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -413,6 +417,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[13]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -446,6 +452,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[14]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -479,6 +487,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[15]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -512,6 +522,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.43 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[16]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -535,8 +547,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 276.923071146011353, 80.971658229827881, 30.0, 20.0 ],
-					"text" : "Res"
+					"patching_rect" : [ 279.29250431060791, 80.971658229827881, 25.5, 20.0 ],
+					"text" : "res"
 				}
 
 			}
@@ -546,8 +558,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 237.65181690454483, 80.566799938678741, 28.0, 20.0 ],
-					"text" : "HP "
+					"patching_rect" : [ 239.996958613395691, 80.971658229827881, 21.5, 20.0 ],
+					"text" : "hp"
 				}
 
 			}
@@ -590,8 +602,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 338.857158005237579, 43.428573369979858, 30.97345381975174, 20.0 ],
-					"presentation_linecount" : 3,
+					"patching_rect" : [ 338.857158005237579, 43.428573369979858, 35.0, 20.0 ],
 					"text" : "gain "
 				}
 
@@ -613,8 +624,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 255.714297145605087, 43.428573369979858, 28.761064261198044, 20.0 ],
-					"presentation_linecount" : 2,
+					"patching_rect" : [ 255.714297145605087, 43.428573369979858, 29.0, 20.0 ],
 					"text" : "freq"
 				}
 
@@ -635,6 +645,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.43 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[9]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -658,8 +670,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 359.734542220830917, 5.752212852239609, 30.0, 20.0 ],
-					"text" : "Res"
+					"patching_rect" : [ 362.504453867673874, 5.752212852239609, 25.0, 20.0 ],
+					"text" : "res"
 				}
 
 			}
@@ -669,8 +681,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 320.354008078575134, 5.752212852239609, 28.0, 20.0 ],
-					"text" : "HP "
+					"patching_rect" : [ 325.738963901996613, 5.752212852239609, 18.0, 20.0 ],
+					"text" : "lp"
 				}
 
 			}
@@ -690,6 +702,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 1.0 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[10]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -723,6 +737,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[6]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -756,6 +772,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[7]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -789,6 +807,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.5 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[8]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -822,6 +842,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.43 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt[2]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -845,8 +867,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 275.663738995790482, 5.752212852239609, 29.942538499832153, 20.0 ],
-					"text" : "Res"
+					"patching_rect" : [ 277.491172730922699, 5.30973494052887, 26.0, 20.0 ],
+					"text" : "res"
 				}
 
 			}
@@ -856,8 +878,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 236.283204853534698, 5.30973494052887, 25.8620685338974, 20.0 ],
-					"text" : "HP "
+					"patching_rect" : [ 238.590726941823959, 5.30973494052887, 21.5, 20.0 ],
+					"text" : "hp"
 				}
 
 			}
@@ -985,6 +1007,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "live.gain~[4]",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
