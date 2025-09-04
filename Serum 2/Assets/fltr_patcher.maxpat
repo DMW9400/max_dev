@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 1660.0, 983.0 ],
+		"rect" : [ 34.0, 100.0, 1203.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -180,10 +180,10 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "off", "on" ],
-							"parameter_longname" : "live.toggle",
+							"parameter_longname" : "f3_active",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
-							"parameter_shortname" : "live.toggle",
+							"parameter_shortname" : "f3_active",
 							"parameter_type" : 2
 						}
 
@@ -202,18 +202,6 @@
 					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "" ],
 					"patching_rect" : [ 865.217398524284363, 140.000000298023224, 399.0, 22.0 ],
 					"text" : "route 90 91 92 93 94 95 96 97 98 99 100"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-16",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 19.0, 252.0, 50.0, 22.0 ],
-					"text" : "id 265"
 				}
 
 			}
@@ -409,11 +397,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.370079 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[7]",
+							"parameter_longname" : "f3_freqModRate",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f3_freqModRate",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -456,11 +444,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[8]",
+							"parameter_longname" : "f3_freqMod",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f3_res",
+							"parameter_shortname" : "f3_freqMod",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -503,11 +491,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[9]",
+							"parameter_longname" : "f3_freqVel",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f3_freqVel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -574,7 +562,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f2_pan[1]",
+							"parameter_longname" : "f3_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -622,7 +610,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f2_mix[1]",
+							"parameter_longname" : "f3_mix",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -667,7 +655,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "f2_var[1]",
+							"parameter_longname" : "f3_var",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -712,7 +700,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "f2_drive[1]",
+							"parameter_longname" : "f3_drive",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -757,7 +745,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "f2_res[1]",
+							"parameter_longname" : "f3_res",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -804,7 +792,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f2_freq[1]",
+							"parameter_longname" : "f3_freq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -924,11 +912,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.370079 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[4]",
+							"parameter_longname" : "f2_freqModRate",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f2_freqModRate",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -971,11 +959,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[5]",
+							"parameter_longname" : "f2_freqMod",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f2_freqMod",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1018,11 +1006,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[6]",
+							"parameter_longname" : "f2_freqVel",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f2_freqVel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1077,7 +1065,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_lvl[1]",
+							"parameter_longname" : "f2_lvl",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1124,7 +1112,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_pan[1]",
+							"parameter_longname" : "f2_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1172,7 +1160,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_mix[1]",
+							"parameter_longname" : "f2_mix",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1217,7 +1205,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "f1_var[1]",
+							"parameter_longname" : "f2_var",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1262,7 +1250,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "f1_drive[1]",
+							"parameter_longname" : "f2_drive",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1354,7 +1342,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_freq[1]",
+							"parameter_longname" : "f2_freq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1462,11 +1450,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.370079 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[3]",
+							"parameter_longname" : "f1_freqModRate",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f1_freqModRate",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1509,11 +1497,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[2]",
+							"parameter_longname" : "f1_freqMod",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f1_freqMod",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1556,11 +1544,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_res[1]",
+							"parameter_longname" : "f1_freqVel",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_res",
+							"parameter_shortname" : "f1_freqVel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1893,7 +1881,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[16]",
+							"parameter_longname" : "f1_lvl",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1940,7 +1928,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[14]",
+							"parameter_longname" : "f1_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1988,7 +1976,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[15]",
+							"parameter_longname" : "f1_mix",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2033,7 +2021,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[13]",
+							"parameter_longname" : "f1_var",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2078,7 +2066,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[12]",
+							"parameter_longname" : "f1_drive",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2123,7 +2111,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[11]",
+							"parameter_longname" : "f1_res",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2170,7 +2158,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[73]",
+							"parameter_longname" : "f1_freq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2925,7 +2913,6 @@
 					"destination" : [ "obj-120", 1 ],
 					"hidden" : 1,
 					"midpoints" : [ 68.5, 279.0, 570.0, 279.0, 570.0, 318.0, 690.500000476837158, 318.0 ],
-					"order" : 0,
 					"source" : [ "obj-88", 0 ]
 				}
 
@@ -2986,14 +2973,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-16", 1 ],
-					"order" : 1,
-					"source" : [ "obj-88", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"hidden" : 1,
 					"midpoints" : [ 604.5, 129.0, 576.0, 129.0, 576.0, 237.0, 1008.0, 237.0, 1008.0, 294.0, 1030.51450127363205, 294.0 ],
@@ -3019,7 +2998,14 @@
 				}
 
 			}
- ]
+ ],
+		"saved_attribute_attributes" : 		{
+			"default_plcolor" : 			{
+				"expression" : ""
+			}
+
+		}
+
 	}
 
 }

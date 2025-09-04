@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -130,11 +130,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "n_ampAtk",
+							"parameter_longname" : "b_ampAtk",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "n_ampAtk",
+							"parameter_shortname" : "b_ampAtk",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -189,11 +189,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_ampVel",
+							"parameter_longname" : "b_ampVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "n_ampVel",
+							"parameter_shortname" : "b_ampVel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -236,11 +236,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_ampDec",
+							"parameter_longname" : "b_ampDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "n_ampDec",
+							"parameter_shortname" : "b_ampDec",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -400,7 +400,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "n_ampAtk[1]",
+							"parameter_longname" : "n_ampAtk",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -459,7 +459,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_ampVel[1]",
+							"parameter_longname" : "n_ampVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -506,7 +506,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_ampDec[1]",
+							"parameter_longname" : "n_ampDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
