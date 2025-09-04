@@ -72,7 +72,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.menu[6]",
+							"parameter_longname" : "a_pitchCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1338,7 +1338,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498898 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[8]",
+							"parameter_longname" : "a_warp2Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -1383,7 +1383,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[9]",
+							"parameter_longname" : "a_warp2",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1430,7 +1430,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[7]",
+							"parameter_longname" : "a_warp1Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -1475,7 +1475,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[6]",
+							"parameter_longname" : "a_warp1",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1522,7 +1522,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[4]",
+							"parameter_longname" : "a_pitchDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1569,7 +1569,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795275 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[5]",
+							"parameter_longname" : "a_pitchEnv",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
