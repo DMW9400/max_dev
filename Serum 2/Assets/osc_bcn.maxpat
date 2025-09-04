@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -130,7 +130,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[1]",
+							"parameter_longname" : "n_ampAtk",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -189,7 +189,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[2]",
+							"parameter_longname" : "n_ampVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -236,7 +236,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[3]",
+							"parameter_longname" : "n_ampDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -367,7 +367,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[69]",
+							"parameter_longname" : "n_ampCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -400,7 +400,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[70]",
+							"parameter_longname" : "n_ampAtk[1]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -459,7 +459,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[71]",
+							"parameter_longname" : "n_ampVel[1]",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -506,7 +506,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[72]",
+							"parameter_longname" : "n_ampDec[1]",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -865,7 +865,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 13.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[61]",
+							"parameter_longname" : "c_semi",
 							"parameter_mmax" : 26.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "c_semi",
@@ -911,7 +911,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 4 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[62]",
+							"parameter_longname" : "c_oct",
 							"parameter_mmax" : 8.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "c_oct",
@@ -957,7 +957,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 13.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[54]",
+							"parameter_longname" : "b_semi",
 							"parameter_mmax" : 26.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_semi",
@@ -1003,7 +1003,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 4 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[60]",
+							"parameter_longname" : "b_oct",
 							"parameter_mmax" : 8.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_oct",
@@ -1167,7 +1167,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[59]",
+							"parameter_longname" : "b_pitchCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1401,7 +1401,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[50]",
+							"parameter_longname" : "c_unison",
 							"parameter_mmax" : 16.0,
 							"parameter_mmin" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -1458,7 +1458,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[51]",
+							"parameter_longname" : "c_unisonBlend",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1503,7 +1503,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[52]",
+							"parameter_longname" : "c_unisonDetune",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1630,7 +1630,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[45]",
+							"parameter_longname" : "b_unison",
 							"parameter_mmax" : 16.0,
 							"parameter_mmin" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -1687,7 +1687,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[46]",
+							"parameter_longname" : "b_unisonBlend",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1732,7 +1732,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[47]",
+							"parameter_longname" : "b_unisonDetune",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1779,7 +1779,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.3 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[48]",
+							"parameter_longname" : "b_pitchEnvDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1826,7 +1826,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795275 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[49]",
+							"parameter_longname" : "b_pitchEnv",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1988,7 +1988,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[28]",
+							"parameter_longname" : "n_rand",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2023,7 +2023,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[35]",
+							"parameter_longname" : "n_fine",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2083,7 +2083,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[29]",
+							"parameter_longname" : "n_pitch",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2129,7 +2129,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[42]",
+							"parameter_longname" : "n_start",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2176,7 +2176,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[37]",
+							"parameter_longname" : "c_wtVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2221,7 +2221,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[23]",
+							"parameter_longname" : "c_wt",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2268,7 +2268,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498898 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[41]",
+							"parameter_longname" : "c_warp2Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2313,7 +2313,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[40]",
+							"parameter_longname" : "c_warp2",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2360,7 +2360,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[33]",
+							"parameter_longname" : "c_warp1Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2405,7 +2405,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[38]",
+							"parameter_longname" : "c_warp1",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2452,7 +2452,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[44]",
+							"parameter_longname" : "c_fine",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "c_fine",
@@ -2522,7 +2522,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[34]",
+							"parameter_longname" : "b_wtVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2567,7 +2567,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[32]",
+							"parameter_longname" : "b_wt",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2614,7 +2614,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498898 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[26]",
+							"parameter_longname" : "b_warp2Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2659,7 +2659,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[27]",
+							"parameter_longname" : "b_warp2",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2706,7 +2706,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[39]",
+							"parameter_longname" : "b_warp1Vel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 0.99,
 							"parameter_modmode" : 4,
@@ -2751,7 +2751,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[43]",
+							"parameter_longname" : "b_warp1",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -2798,7 +2798,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[25]",
+							"parameter_longname" : "b_fine",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_fine",
@@ -3844,7 +3844,14 @@
 				}
 
 			}
- ]
+ ],
+		"saved_attribute_attributes" : 		{
+			"default_plcolor" : 			{
+				"expression" : ""
+			}
+
+		}
+
 	}
 
 }

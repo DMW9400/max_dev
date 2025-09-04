@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 1196.0, 983.0 ],
+		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -1140,7 +1140,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.43 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[11]",
+							"parameter_longname" : "eqB_lpRes",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1197,7 +1197,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[12]",
+							"parameter_longname" : "eqB_lp",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1232,7 +1232,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[13]",
+							"parameter_longname" : "eqB_bellGain",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1267,7 +1267,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[14]",
+							"parameter_longname" : "eqB_bellQ",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1302,7 +1302,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[15]",
+							"parameter_longname" : "eqB_bellFreq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1337,7 +1337,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.43 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[16]",
+							"parameter_longname" : "eqB_hpRes",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1392,7 +1392,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "a_wt[17]",
+							"parameter_longname" : "eqB_hp",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1460,7 +1460,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.43 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[9]",
+							"parameter_longname" : "eqA_lpRes",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1517,7 +1517,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[10]",
+							"parameter_longname" : "eqA_lp",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1552,7 +1552,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[6]",
+							"parameter_longname" : "eqA_bellGain",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1587,7 +1587,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[7]",
+							"parameter_longname" : "eqA_bellQ",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1622,7 +1622,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[8]",
+							"parameter_longname" : "eqA_bellFreq",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1657,7 +1657,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.43 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_wt[2]",
+							"parameter_longname" : "eqA_hpRes",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1712,7 +1712,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "a_wt[1]",
+							"parameter_longname" : "eqA_hp",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1822,11 +1822,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.gain~[4]",
+							"parameter_longname" : "mxr-mstr_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "mstr_lvl",
+							"parameter_shortname" : "mxr-mstr_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -2007,10 +2007,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[57]",
+							"parameter_longname" : "mxr-b_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "b_pan",
+							"parameter_shortname" : "mxr-b_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -2043,11 +2043,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.gain~[2]",
+							"parameter_longname" : "mxr-b_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "b_lvl",
+							"parameter_shortname" : "mxr-b_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -2078,10 +2078,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[55]",
+							"parameter_longname" : "mxr-n_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "n_pan",
+							"parameter_shortname" : "mxr-n_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -2114,11 +2114,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ -70 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.gain~[1]",
+							"parameter_longname" : "mxr-n_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "n_lvl",
+							"parameter_shortname" : "mxr-n_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}
@@ -2149,10 +2149,10 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[56]",
+							"parameter_longname" : "mxr-a_pan",
 							"parameter_mmax" : 1.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "a_pan",
+							"parameter_shortname" : "mxr-a_pan",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -2183,11 +2183,11 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.gain~",
+							"parameter_longname" : "mxr-a_lvl",
 							"parameter_mmax" : 6.0,
 							"parameter_mmin" : -70.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "a_lvl",
+							"parameter_shortname" : "mxr-a_lvl",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 4
 						}

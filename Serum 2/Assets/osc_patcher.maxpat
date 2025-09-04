@@ -794,7 +794,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.5 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[31]",
+							"parameter_longname" : "a_ampCrv",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -827,7 +827,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[22]",
+							"parameter_longname" : "a_ampAtk",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -886,7 +886,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[21]",
+							"parameter_longname" : "a_unison",
 							"parameter_mmax" : 16.0,
 							"parameter_mmin" : 1.0,
 							"parameter_modmax" : 1.0,
@@ -1039,7 +1039,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[30]",
+							"parameter_longname" : "a_unisonBlend",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1084,7 +1084,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_longname" : "live.dial[18]",
+							"parameter_longname" : "a_unisonDetune",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1616,7 +1616,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.498897637795276 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[53]",
+							"parameter_longname" : "a_ampVel",
 							"parameter_mmax" : 0.99,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1681,7 +1681,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0.37007874250412 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[10]",
+							"parameter_longname" : "a_ampDec",
 							"parameter_mmax" : 1.0,
 							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
@@ -1758,7 +1758,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 13.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.dial[63]",
+							"parameter_longname" : "a_semi",
 							"parameter_mmax" : 26.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "a_semi",
