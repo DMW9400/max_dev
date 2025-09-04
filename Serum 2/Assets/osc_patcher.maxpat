@@ -10,9 +10,33 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 100.0, 1196.0, 983.0 ],
+		"rect" : [ 34.0, 87.0, 1587.0, 959.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-51",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 683.840000000000032, 73.5, 62.0, 22.0 ],
+					"text" : "live.banks"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 6,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 565.220000000000027, 632.129999999999995, 103.0, 22.0 ],
+					"text" : "scale 0. 127. 0. 1."
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-42",
 					"maxclass" : "newobj",
@@ -1122,18 +1146,19 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 8.697002679109573, 20.666667282581329, 27.0, 28.0 ],
+					"patching_rect" : [ 9.081233590841293, 20.666667282581329, 27.0, 28.0 ],
 					"saved_attribute_attributes" : 					{
 						"focusbordercolor" : 						{
 							"expression" : ""
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 0.0 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_wt",
-							"parameter_mmax" : 1.0,
-							"parameter_modmax" : 1.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "a_wt",
+							"parameter_steps" : 140,
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -2211,10 +2236,17 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-89", 0 ],
+					"destination" : [ "obj-46", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 18.197002679109573, 51.0, -3.0, 51.0, -3.0, 168.0, 0.0, 168.0, 0.0, 522.0, 550.914114952087402, 522.0 ],
+					"midpoints" : [ 18.581233590841293, 51.0, 25.15041533310432, 51.0, 25.15041533310432, 179.424442662391812, 0.0, 179.424442662391812, 0.0, 522.0, 574.720000000000027, 522.0 ],
 					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-89", 0 ],
+					"source" : [ "obj-46", 0 ]
 				}
 
 			}
@@ -2435,7 +2467,8 @@
 			}
 
 		}
-
+,
+		"oscreceiveudpport" : 0
 	}
 
 }

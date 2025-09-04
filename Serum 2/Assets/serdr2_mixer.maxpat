@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 100.0, 332.0, 983.0 ],
+		"rect" : [ 34.0, 87.0, 956.0, 959.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -2880,7 +2880,8 @@
 			}
 
 		}
-
+,
+		"oscreceiveudpport" : 0
 	}
 
 }
