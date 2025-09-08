@@ -2271,7 +2271,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_initial" : [ 35 ],
+							"parameter_initial" : [ 63 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "b_ampDec",
 							"parameter_modmode" : 4,
@@ -2533,7 +2533,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_initial" : [ 35.0 ],
+							"parameter_initial" : [ 63.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "n_ampDec",
 							"parameter_modmode" : 4,
@@ -3753,7 +3753,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ -0.502512574195862, 245.728648781776428, 48.941474683582783, 20.0 ],
+					"patching_rect" : [ -0.502512574195862, 245.728648781776428, 49.0, 20.0 ],
 					"text" : "p mod4",
 					"textjustification" : 1
 				}

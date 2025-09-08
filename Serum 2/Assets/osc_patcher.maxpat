@@ -1369,7 +1369,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 570.0, 90.0, 50.0, 22.0 ],
-									"text" : "2 1"
+									"text" : "0 0"
 								}
 
 							}
@@ -1614,7 +1614,7 @@
 					"name" : "osc_bcn.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"offset" : [ -380.0, 0.0 ],
+					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 379.333344638347626, -0.399998724460602, 181.0, 162.757719218730927 ],
 					"viewvisibility" : 1
@@ -2407,7 +2407,7 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_initial" : [ 36 ],
+							"parameter_initial" : [ 63 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_pitchDec",
 							"parameter_modmode" : 4,
