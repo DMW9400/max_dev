@@ -50,7 +50,6 @@
 						"classnamespace" : "box",
 						"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"comment" : "",
@@ -214,9 +213,9 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 63.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_ampAtk[2]",
+							"parameter_longname" : "a_ampAtkVel",
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_ampAtk",
+							"parameter_shortname" : "a_ampAtkVel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -259,9 +258,9 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 63.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_ampAtk[1]",
+							"parameter_longname" : "a_ampAtkCrv",
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_ampAtk",
+							"parameter_shortname" : "a_ampAtkCrv",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 1
 						}
@@ -1655,7 +1654,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 570.0, 90.0, 50.0, 22.0 ],
-									"text" : "2 0"
+									"text" : "0 0"
 								}
 
 							}
@@ -1900,7 +1899,7 @@
 					"name" : "osc_bcn.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"offset" : [ -380.0, 0.0 ],
+					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 379.333344638347626, -0.399998724460602, 181.0, 162.757719218730927 ],
 					"viewvisibility" : 1
