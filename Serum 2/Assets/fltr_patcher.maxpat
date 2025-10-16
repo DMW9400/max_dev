@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 898.0, 96.0, 481.0, 987.0 ],
+		"rect" : [ 34.0, 96.0, 1352.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -267,17 +267,17 @@
 							"parameter_initial" : [ 510 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "f3_freq",
-							"parameter_mmax" : 255.0,
+							"parameter_mmax" : 510.0,
 							"parameter_modmax" : 510.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "f3_freq",
-							"parameter_type" : 1,
+							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
 
 					}
 ,
-					"size" : 256.0,
+					"size" : 511.0,
 					"thickness" : 60.0,
 					"varname" : "dial[11]"
 				}
@@ -1759,7 +1759,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 962.0, 307.419999999999959, 55.0, 35.0 ],
-									"text" : "scale 0 126 0. 1."
+									"text" : "scale 0 100 0. 1."
 								}
 
 							}
