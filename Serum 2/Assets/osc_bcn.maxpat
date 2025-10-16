@@ -14,6 +14,43 @@
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
+					"bgcolor" : [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
+					"id" : "obj-160",
+					"maxclass" : "dial",
+					"min" : -100.0,
+					"mode" : 5,
+					"needlecolor" : [ 0.4, 0.92156862745098, 1.0, 1.0 ],
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "float" ],
+					"outlinecolor" : [ 0.066666666666667, 0.070588235294118, 0.07843137254902, 1.0 ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 56.691489011049271, 122.191489011049271, 33.617021977901459, 33.617021977901459 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 0 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "b_warp1Vel",
+							"parameter_mmax" : 100.0,
+							"parameter_mmin" : -100.0,
+							"parameter_modmax" : 100.0,
+							"parameter_modmin" : -100.0,
+							"parameter_modmode" : 4,
+							"parameter_shortname" : "b_warp1Vel",
+							"parameter_type" : 1,
+							"parameter_unitstyle" : 0
+						}
+
+					}
+,
+					"size" : 201.0,
+					"thickness" : 60.0,
+					"varname" : "dial[23]"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-34",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -1589,43 +1626,6 @@
 					}
 ,
 					"varname" : "live.button[1]"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
-					"id" : "obj-104",
-					"maxclass" : "dial",
-					"min" : -100.0,
-					"mode" : 5,
-					"needlecolor" : [ 0.4, 0.92156862745098, 1.0, 1.0 ],
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "float" ],
-					"outlinecolor" : [ 0.066666666666667, 0.070588235294118, 0.07843137254902, 1.0 ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 56.691489011049271, 122.191489011049271, 33.617021977901459, 33.617021977901459 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_initial" : [ 0 ],
-							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_warp1Vel",
-							"parameter_mmax" : 100.0,
-							"parameter_mmin" : -100.0,
-							"parameter_modmax" : 100.0,
-							"parameter_modmin" : -100.0,
-							"parameter_modmode" : 4,
-							"parameter_shortname" : "b_warp1Vel",
-							"parameter_type" : 1,
-							"parameter_unitstyle" : 0
-						}
-
-					}
-,
-					"size" : 201.0,
-					"thickness" : 60.0,
-					"varname" : "dial[1]"
 				}
 
 			}
@@ -3942,15 +3942,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-213", 0 ],
-					"hidden" : 1,
-					"midpoints" : [ 66.191489011049271, 177.0, 540.0, 177.0, 540.0, 570.0, 1340.5, 570.0 ],
-					"source" : [ "obj-104", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-139", 0 ],
 					"hidden" : 1,
 					"midpoints" : [ 73.493589133024216, 177.0, 183.0, 177.0, 183.0, 402.0, 117.0, 402.0, 117.0, 450.0, 66.722224950790405, 450.0 ],
@@ -4161,7 +4152,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-104", 0 ],
+					"destination" : [ "obj-160", 0 ],
 					"hidden" : 1,
 					"midpoints" : [ 66.722224950790405, 486.0, 42.0, 486.0, 42.0, 366.0, 48.0, 366.0, 48.0, 267.0, 51.0, 267.0, 51.0, 213.0, 48.0, 213.0, 48.0, 117.0, 66.191489011049271, 117.0 ],
 					"source" : [ "obj-139", 0 ]
@@ -4358,6 +4349,15 @@
 					"hidden" : 1,
 					"midpoints" : [ 679.500019967556, 87.0, 561.0, 87.0, 561.0, 168.0, 366.0, 168.0, 366.0, 39.0, 393.891489326953888, 39.0 ],
 					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-213", 0 ],
+					"hidden" : 1,
+					"midpoints" : [ 66.191489011049271, 177.0, 540.0, 177.0, 540.0, 570.0, 1340.5, 570.0 ],
+					"source" : [ "obj-160", 0 ]
 				}
 
 			}
