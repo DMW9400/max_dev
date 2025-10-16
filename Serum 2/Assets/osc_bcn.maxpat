@@ -2729,7 +2729,7 @@
 				"box" : 				{
 					"comment" : "thisPatcher",
 					"id" : "obj-59",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -2871,13 +2871,15 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_initial" : [ 0.0 ],
+							"parameter_initial" : [ 50 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "b_unisonBlend",
+							"parameter_mmax" : 100.0,
+							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_unisonBlend",
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 1
+							"parameter_type" : 1,
+							"parameter_unitstyle" : 0
 						}
 
 					}
@@ -2916,13 +2918,15 @@
 						}
 ,
 						"valueof" : 						{
-							"parameter_initial" : [ 0.0 ],
+							"parameter_initial" : [ 50 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "b_unisonDetune",
+							"parameter_mmax" : 100.0,
+							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
 							"parameter_shortname" : "b_unisonDetune",
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 1
+							"parameter_type" : 1,
+							"parameter_unitstyle" : 0
 						}
 
 					}
@@ -3019,7 +3023,7 @@
 				"box" : 				{
 					"comment" : "handleTab",
 					"id" : "obj-4",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3513,7 +3517,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3639.0, 583.0, 73.0, 35.0 ],
-					"text" : "scale 0 510 0. 1."
+					"text" : "scale 0 510 0.5 1."
 				}
 
 			}
@@ -3552,7 +3556,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3129.0, 583.0, 77.0, 35.0 ],
-					"text" : "scale 0 127. 0. 1."
+					"text" : "scale 0 100 0. 1."
 				}
 
 			}
@@ -3565,7 +3569,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 3039.0, 583.0, 73.0, 35.0 ],
-					"text" : "scale 0 127 0. 1."
+					"text" : "scale 0 100 0. 1."
 				}
 
 			}
@@ -3630,7 +3634,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2499.0, 583.0, 73.0, 35.0 ],
-					"text" : "scale 0 510 0. 1."
+					"text" : "scale 0 510 0.5 1."
 				}
 
 			}
@@ -5305,80 +5309,13 @@
 
 			}
  ],
-		"parameters" : 		{
-			"obj-102" : [ "b_unison", "b_unison", 0 ],
-			"obj-104" : [ "b_wtVel[1]", "b_warp1Vel", 0 ],
-			"obj-106" : [ "a_ampVel[3]", "a_ampVel", 0 ],
-			"obj-111" : [ "a_ampVel[16]", "a_ampVel", 0 ],
-			"obj-112" : [ "b_pitchCrv", "b_pitchCrv", 0 ],
-			"obj-119" : [ "a_ampVel[17]", "a_ampVel", 0 ],
-			"obj-121" : [ "n_ampDec[1]", "a_ampVel", 0 ],
-			"obj-127" : [ "n_ampDecVel", "n_ampDecVel", 0 ],
-			"obj-13" : [ "a_ampVel[18]", "a_ampVel", 0 ],
-			"obj-130" : [ "n_ampDecVel[1]", "n_ampDecVel", 0 ],
-			"obj-132" : [ "a_ampVel[14]", "a_ampVel", 0 ],
-			"obj-140" : [ "b_warp2Vel", "b_warp2Vel", 0 ],
-			"obj-142" : [ "a_ampVel[4]", "a_ampVel", 0 ],
-			"obj-146" : [ "a_ampVel[5]", "a_ampVel", 0 ],
-			"obj-148" : [ "c_warp2Vel", "c_warp2Vel", 0 ],
-			"obj-15" : [ "a_ampVel[10]", "a_ampVel", 0 ],
-			"obj-150" : [ "n_ampCrv", "n_ampCrv", 0 ],
-			"obj-151" : [ "a_ampVel[6]", "a_ampVel", 0 ],
-			"obj-152" : [ "c_warp1Vel", "c_warp1Vel", 0 ],
-			"obj-155" : [ "a_ampVel[7]", "a_ampVel", 0 ],
-			"obj-157" : [ "c_wtVel", "c_wtVel", 0 ],
-			"obj-158" : [ "live.button[7]", "live.button", 0 ],
-			"obj-162" : [ "live.button[8]", "live.button", 0 ],
-			"obj-164" : [ "b_ampDec", "b_ampDec", 0 ],
-			"obj-166" : [ "b_ampAtk", "b_ampAtk", 0 ],
-			"obj-167" : [ "a_ampVel[8]", "a_ampVel", 0 ],
-			"obj-169" : [ "b_ampVel", "b_ampVel", 0 ],
-			"obj-17" : [ "live.tab[7]", "live.tab[2]", 0 ],
-			"obj-172" : [ "a_ampVel[9]", "a_ampVel", 0 ],
-			"obj-173" : [ "b_pitchEnv", "b_pitchEnv", 0 ],
-			"obj-178" : [ "a_ampVel[15]", "a_ampVel", 0 ],
-			"obj-2" : [ "n_ampAtkVel", "n_ampAtkVel", 0 ],
-			"obj-22" : [ "n_pitch", "n_pitch", 0 ],
-			"obj-24" : [ "live.button[23]", "live.button", 0 ],
-			"obj-26" : [ "a_ampVel[11]", "a_ampVel", 0 ],
-			"obj-28" : [ "c_warp2", "c_warp2", 0 ],
-			"obj-32" : [ "c_warp1", "c_warp1", 0 ],
-			"obj-40" : [ "n_ampAtk_", "n_ampAtk", 0 ],
-			"obj-43" : [ "n_start", "n_start", 0 ],
-			"obj-46" : [ "b_pitchEnvDec", "b_pitchEnvDec", 0 ],
-			"obj-47" : [ "b_fine", "b_fine", 0 ],
-			"obj-51" : [ "c_wt", "c_wt", 0 ],
-			"obj-52" : [ "b_wt", "b_wt", 0 ],
-			"obj-53" : [ "b_wtVel", "b_wtVel", 0 ],
-			"obj-55" : [ "n_ampAtk", "a_ampVel", 0 ],
-			"obj-68" : [ "a_ampVel[19]", "a_ampVel", 0 ],
-			"obj-70" : [ "live.tab[4]", "live.tab[2]", 0 ],
-			"obj-74" : [ "b_warp2", "b_warp2", 0 ],
-			"obj-76" : [ "n_ampDec", "n_ampDec", 0 ],
-			"obj-78" : [ "b_warp1", "b_warp1", 0 ],
-			"obj-80" : [ "c_fine", "c_fine", 0 ],
-			"obj-83" : [ "b_unisonDetune", "b_unisonDetune", 0 ],
-			"obj-85" : [ "b_unisonBlend", "b_unisonBlend", 0 ],
-			"obj-89" : [ "a_ampVel[2]", "a_ampVel", 0 ],
-			"obj-90" : [ "b_semi", "b_semi", 0 ],
-			"obj-92" : [ "b_oct", "b_oct", 0 ],
-			"obj-94" : [ "c_semi", "c_semi", 0 ],
-			"obj-96" : [ "c_oct", "c_oct", 0 ],
-			"parameterbanks" : 			{
-				"0" : 				{
-					"index" : 0,
-					"name" : "",
-					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-					"buttons" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-				}
-
+		"saved_attribute_attributes" : 		{
+			"default_plcolor" : 			{
+				"expression" : ""
 			}
-,
-			"inherited_shortname" : 1
+
 		}
-,
-		"dependency_cache" : [  ],
-		"autosave" : 0
+
 	}
 
 }

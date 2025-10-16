@@ -2798,6 +2798,8 @@
 						}
 ,
 						"valueof" : 						{
+							"parameter_initial" : [ 50 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "a_unisonDetune",
 							"parameter_mmax" : 100.0,
 							"parameter_modmax" : 100.0,
@@ -3528,8 +3530,8 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1036.6666419506073, 387.755322456359863, 59.0, 35.0 ],
-					"text" : "scale 0 510 0. 1."
+					"patching_rect" : [ 1036.6666419506073, 387.755322456359863, 61.666665196418762, 35.0 ],
+					"text" : "scale 0 510 0.5 1."
 				}
 
 			}
