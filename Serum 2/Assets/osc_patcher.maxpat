@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 796.0, 987.0 ],
+		"rect" : [ 34.0, 96.0, 1345.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -337,13 +337,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "m10_dec[2]",
+							"parameter_longname" : "m10_decCurve",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "m10_dec",
+							"parameter_shortname" : "m10_decCurve",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -479,13 +479,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "m10_dec[1]",
+							"parameter_longname" : "m9_decCurve",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "m10_dec",
+							"parameter_shortname" : "m9_decCurve",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -672,13 +672,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp1_m9_",
+							"parameter_longname" : "a_warp2_m10",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_warp1_m9",
+							"parameter_shortname" : "a_warp2_m10",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -1179,11 +1179,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp1[1]",
+							"parameter_longname" : "a_warp2",
 							"parameter_mmax" : 100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_warp1",
+							"parameter_shortname" : "a_warp2",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -3530,7 +3530,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1036.6666419506073, 387.755322456359863, 61.666665196418762, 35.0 ],
+					"patching_rect" : [ 1036.6666419506073, 387.755322456359863, 62.0, 35.0 ],
 					"text" : "scale 0 510 0.5 1."
 				}
 
