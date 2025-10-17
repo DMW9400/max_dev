@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 1342.0, 987.0 ],
+		"rect" : [ 898.0, 96.0, 485.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -959,11 +959,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "env3_release[1]",
+							"parameter_longname" : "env4_release",
 							"parameter_mmax" : 511.0,
 							"parameter_modmax" : 511.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "env3_release",
+							"parameter_shortname" : "env4_release",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
@@ -993,11 +993,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "env3_sustain[1]",
+							"parameter_longname" : "env4_sustain",
 							"parameter_mmax" : 511.0,
 							"parameter_modmax" : 511.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "env3_sustain",
+							"parameter_shortname" : "env4_sustain",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
@@ -1027,11 +1027,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "env3_decay[1]",
+							"parameter_longname" : "env4_decay",
 							"parameter_mmax" : 511.0,
 							"parameter_modmax" : 511.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "env3_decay",
+							"parameter_shortname" : "env4_decay",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
@@ -1073,11 +1073,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "env3_attack[1]",
+							"parameter_longname" : "env4_attack",
 							"parameter_mmax" : 511.0,
 							"parameter_modmax" : 511.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "env3_attack",
+							"parameter_shortname" : "env4_attack",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}

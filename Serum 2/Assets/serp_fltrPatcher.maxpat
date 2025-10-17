@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 1345.0, 987.0 ],
+		"rect" : [ 898.0, 96.0, 488.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -206,13 +206,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f2_freqMod_env2",
+							"parameter_longname" : "f2_freqMod_env3",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f2_freqMod_env2",
+							"parameter_shortname" : "f2_freqMod_env3",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -1232,11 +1232,11 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 50 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "f1_pan[1]",
+							"parameter_longname" : "f2_pan",
 							"parameter_mmax" : 100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "f1_pan",
+							"parameter_shortname" : "f2_pan",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}

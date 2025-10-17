@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 1345.0, 987.0 ],
+		"rect" : [ 34.0, 96.0, 279.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -197,13 +197,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "c_warp2Vel",
+							"parameter_longname" : "c_warp2Mod_vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "c_warp2Vel",
+							"parameter_shortname" : "c_warp2Mod_vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -265,13 +265,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "c_warp1Vel[1]",
+							"parameter_longname" : "c_warp1Mod_m1",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "c_warp1Vel",
+							"parameter_shortname" : "c_warp1Mod_m1",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -333,13 +333,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "c_warp1Vel",
+							"parameter_longname" : "c_warp1Mod_Vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "c_warp1Vel",
+							"parameter_shortname" : "c_warp1Mod_Vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -843,13 +843,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_warp2Vel",
+							"parameter_longname" : "b_warp2Mod_vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "b_warp2Vel",
+							"parameter_shortname" : "b_warp2Mod_vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -979,13 +979,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "b_warp1Vel",
+							"parameter_longname" : "b_warp1Mod_vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "b_warp1Vel",
+							"parameter_shortname" : "b_warp1Mod_vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -1741,13 +1741,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp2Vel",
+							"parameter_longname" : "a_warp2Mod_vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_warp2Vel",
+							"parameter_shortname" : "a_warp2Mod_vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -1901,13 +1901,13 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp1Vel",
+							"parameter_longname" : "a_warp1Mod_vel",
 							"parameter_mmax" : 100.0,
 							"parameter_mmin" : -100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmin" : -100.0,
 							"parameter_modmode" : 4,
-							"parameter_shortname" : "a_warp1Vel",
+							"parameter_shortname" : "a_warp1Mod_vel",
 							"parameter_type" : 1,
 							"parameter_unitstyle" : 0
 						}
@@ -2289,18 +2289,6 @@
 					}
 ,
 					"text" : "live.remote~"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-242",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 164.0, 914.0, 50.0, 22.0 ],
-					"text" : "id 6"
 				}
 
 			}
@@ -3217,7 +3205,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 908.403307199478149, 80.672264099121094, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 908.379852533340454, 88.268152952194214, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -3243,7 +3231,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 908.403307199478149, 58.823525905609131, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 908.379852533340454, 66.480444312095642, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -4400,7 +4388,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 496.638625860214233, 81.512600183486938, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 496.648025155067444, 89.385471343994141, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -4426,7 +4414,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 496.638625860214233, 58.823525905609131, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 496.648025155067444, 66.480444312095642, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -5422,7 +5410,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 64.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp2Vel[3]",
+							"parameter_longname" : "a_blend",
 							"parameter_mmax" : 100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
@@ -5457,7 +5445,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 50 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_warp2[2]",
+							"parameter_longname" : "a_detune",
 							"parameter_mmax" : 100.0,
 							"parameter_modmax" : 100.0,
 							"parameter_modmode" : 4,
@@ -5492,7 +5480,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "a_semi[1]",
+							"parameter_longname" : "a_unison",
 							"parameter_mmax" : 16.0,
 							"parameter_mmin" : 1.0,
 							"parameter_modmode" : 4,
@@ -5577,7 +5565,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 84.11765056848526, 81.166667908430099, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 83.798879384994507, 88.826812148094177, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -5603,7 +5591,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 84.11765056848526, 59.666667073965073, 50.666662693023682, 15.0 ],
+					"patching_rect" : [ 83.798879384994507, 67.597762703895569, 50.666662693023682, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
@@ -5878,7 +5866,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-91", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 93.61765056848526, 75.0, 141.0, 75.0, 141.0, 189.0, 189.0, 189.0, 189.0, 282.0, 212.5, 282.0 ],
+					"midpoints" : [ 93.298879384994507, 75.0, 141.0, 75.0, 141.0, 189.0, 189.0, 189.0, 189.0, 282.0, 212.5, 282.0 ],
 					"source" : [ "obj-1", 0 ]
 				}
 
@@ -6031,16 +6019,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-242", 1 ],
-					"order" : 0,
-					"source" : [ "obj-115", 12 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-247", 1 ],
-					"order" : 1,
 					"source" : [ "obj-115", 12 ]
 				}
 
@@ -6260,7 +6239,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-89", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 506.138625860214233, 99.666666582226753, 563.555555507540703, 99.666666582226753, 563.555555507540703, 189.666666582226753, 704.555555507540703, 189.666666582226753, 704.555555507540703, 282.666666582226753, 717.5, 282.666666582226753 ],
+					"midpoints" : [ 506.148025155067444, 99.666666582226753, 563.555555507540703, 99.666666582226753, 563.555555507540703, 189.666666582226753, 704.555555507540703, 189.666666582226753, 704.555555507540703, 282.666666582226753, 717.5, 282.666666582226753 ],
 					"source" : [ "obj-140", 0 ]
 				}
 
@@ -6269,7 +6248,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-92", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 506.138625860214233, 75.666666582226753, 554.555555507540703, 75.666666582226753, 554.555555507540703, 189.666666582226753, 602.555555507540703, 189.666666582226753, 602.555555507540703, 282.666666582226753, 616.5, 282.666666582226753 ],
+					"midpoints" : [ 506.148025155067444, 75.666666582226753, 554.555555507540703, 75.666666582226753, 554.555555507540703, 189.666666582226753, 602.555555507540703, 189.666666582226753, 602.555555507540703, 282.666666582226753, 616.5, 282.666666582226753 ],
 					"source" : [ "obj-141", 0 ]
 				}
 
@@ -6638,7 +6617,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-94", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 93.61765056848526, 99.0, 150.0, 99.0, 150.0, 180.80859350587707, 291.0, 180.80859350587707, 291.0, 282.0, 313.0, 282.0 ],
+					"midpoints" : [ 93.298879384994507, 99.0, 150.0, 99.0, 150.0, 180.80859350587707, 291.0, 180.80859350587707, 291.0, 282.0, 313.0, 282.0 ],
 					"source" : [ "obj-2", 0 ]
 				}
 
@@ -6695,7 +6674,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-193", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 917.903307199478149, 99.666666582226753, 986.555555507540703, 99.666666582226753, 986.555555507540703, 189.666666582226753, 1127.555555507540703, 189.666666582226753, 1127.555555507540703, 282.666666582226753, 1140.5, 282.666666582226753 ],
+					"midpoints" : [ 917.879852533340454, 99.666666582226753, 986.555555507540703, 99.666666582226753, 986.555555507540703, 189.666666582226753, 1127.555555507540703, 189.666666582226753, 1127.555555507540703, 282.666666582226753, 1140.5, 282.666666582226753 ],
 					"source" : [ "obj-219", 0 ]
 				}
 
@@ -6704,7 +6683,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-194", 0 ],
 					"hidden" : 1,
-					"midpoints" : [ 917.903307199478149, 75.666666582226753, 977.555555507540703, 75.666666582226753, 977.555555507540703, 189.666666582226753, 1025.555555507540703, 189.666666582226753, 1025.555555507540703, 282.666666582226753, 1039.5, 282.666666582226753 ],
+					"midpoints" : [ 917.879852533340454, 75.666666582226753, 977.555555507540703, 75.666666582226753, 977.555555507540703, 189.666666582226753, 1025.555555507540703, 189.666666582226753, 1025.555555507540703, 282.666666582226753, 1039.5, 282.666666582226753 ],
 					"source" : [ "obj-220", 0 ]
 				}
 
