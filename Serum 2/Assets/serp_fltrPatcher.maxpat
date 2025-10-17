@@ -1463,6 +1463,7 @@
 			}
 , 			{
 				"box" : 				{
+					"focusbordercolor" : [ 0.631372549019608, 0.63921568627451, 0.662745098039216, 0.0 ],
 					"id" : "obj-196",
 					"maxclass" : "live.menu",
 					"numinlets" : 1,
@@ -1471,6 +1472,10 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 647.154471158981323, 136.585365772247314, 71.774194061756134, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"focusbordercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_enum" : [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
 							"parameter_invisible" : 1,
@@ -2211,6 +2216,7 @@
 			}
 , 			{
 				"box" : 				{
+					"focusbordercolor" : [ 0.631372549019608, 0.63921568627451, 0.662745098039216, 0.0 ],
 					"id" : "obj-66",
 					"maxclass" : "live.menu",
 					"numinlets" : 1,
@@ -2219,6 +2225,10 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 88.095239460468292, 136.507938623428345, 71.774194061756134, 15.0 ],
 					"saved_attribute_attributes" : 					{
+						"focusbordercolor" : 						{
+							"expression" : ""
+						}
+,
 						"valueof" : 						{
 							"parameter_enum" : [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
 							"parameter_invisible" : 1,
