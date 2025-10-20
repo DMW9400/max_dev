@@ -1188,7 +1188,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 898.0, 100.0, 796.0, 983.0 ],
+						"rect" : [ 34.0, 96.0, 796.0, 987.0 ],
 						"gridsize" : [ 15.0, 15.0 ],
 						"boxes" : [ 							{
 								"box" : 								{
@@ -2412,7 +2412,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 120.0, 255.0, 60.0, 35.0 ],
-									"text" : "scale 0. 1. 0.5 1."
+									"text" : "scale 0. 1. 0. 1."
 								}
 
 							}
