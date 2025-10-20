@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 5,
+			"revision" : 9,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -21,18 +21,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 400.0, 61.0, 90.0, 22.0 ],
 					"text" : "scale 0 127 0 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 625.0, 51.0, 86.0, 22.0 ],
-					"text" : "param velocity"
 				}
 
 			}
@@ -62,18 +50,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 855.0, 51.0, 48.0, 22.0 ],
-					"text" : "data z2"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"code" : "Param f1;\r\nParam nModes;\r\nParam t60;\r\nParam slope;\r\nParam ringGain;\r\nParam dryMix;\r\nParam ratioSet;\r\n//Param velocity;\r\n\r\nHistory env(0);\r\nHistory cnt(0);\r\n\r\nData bessel(20);\r\nData plate(10);\r\nData z1(64);\r\nData z2(64);\r\n\r\ntrig = in1;\r\n\r\nfs = samplerate;\r\ntwoPi  = 6.28318530718;\r\n\r\nburst = noise();\r\nburstLen = .005 * fs;\r\ndecayEnv = exp(-1 / burstLen);\r\n\r\nif (trig > 0){\r\n\tenv = 1; \r\n\tcnt = burstLen;\r\n}\r\nif (cnt > 0){\r\n\tenv = env * decayEnv;\r\n}\r\nif (cnt <= 0){\r\n\tenv = 0;\r\n}\r\ncnt = max(cnt - 1, 0);\r\n//excitation = burst * env * velocity;\r\nexcitation = burst * env * .7;\r\n\r\n\r\nsum = 0;\r\n\r\nfor (i = 0; i < nModes; i += 1){\r\n\tratio = 0;\r\n\tif (ratioSet == 0) {\r\n\t\t// set bessel ratio\r\n\t\tratio = peek(bessel, i);\r\n\t};\r\n\tif (ratioSet == 1) {\r\n\t\t// set plate ratio\r\n\t\tclampIndex = clamp(i, 0, 9);\r\n\t\tratio = peek(plate, clampIndex);\r\n\t};\r\n\tif (ratioSet == 2) {\r\n\t\t// set rect ratio\r\n\t\tm = floor(sqrt(i)) + 1;\r\n\t\tn = i - (m-1)*(m-1) + 1;\r\n\t\tratio = sqrt((m+1)*(m+1) + (n+1)*(n+1));\r\n\t};\r\n\tif (ratioSet == 3) {\r\n\t\t// set harmonic ratio\r\n\t\tratio = i + 1;\r\n\t}\r\n\t\r\n\tif (ratio <= 0)  continue;\r\n\t\r\n\tf = f1 * ratio;\r\n\tw0  = twoPi * f / fs;\r\n\t\r\n\tt60_i = t60 * pow(10, (slope / 6) * log2(f / f1));\r\n\tr_i   = pow(10, -3 / (t60_i * fs));\r\n\t\r\n\ta1 = -2 * r_i * cos(w0);\r\n\ta2 =  r_i * r_i;\r\n\t\r\n\tyPrev1 = peek(z1, i);\r\n\tyPrev2 = peek(z2, i);\r\n\t\r\n\ty = excitation - a1 * yPrev1 - a2 * yPrev2;\r\n\t\r\n\tpoke(z2, i, yPrev1);\r\n\tpoke(z1, i, y);\r\n\t\r\n\tsum += y;\r\n}\r\n\r\n\r\nout1 = dryMix * excitation + ringGain * sum;",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
@@ -89,30 +65,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-23",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 855.0, 14.0, 48.0, 22.0 ],
-					"text" : "data z1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-22",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 941.0, 90.263158321380615, 61.0, 22.0 ],
-					"text" : "data plate"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"code" : "Data plate(10);\r\n\r\npoke(plate, 1, 0);\r\npoke(plate, 1.220, 1);\r\npoke(plate, 1.536, 2);\r\npoke(plate, 1.854, 3);\r\npoke(plate, 2.173, 4);\r\npoke(plate, 2.479, 5);\r\npoke(plate, 2.825, 6);\r\npoke(plate, 3.155, 7);\r\npoke(plate, 3.492, 8);\r\npoke(plate, 3.829, 9);\r\n\r\n\r\nout1 = peek(bessel,7);",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
@@ -123,18 +75,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 855.0, 569.210522174835205, 225.0, 255.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-17",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 855.0, 90.263158321380615, 70.0, 22.0 ],
-					"text" : "data bessel"
 				}
 
 			}
@@ -167,18 +107,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-13",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 739.0, 180.0, 81.0, 22.0 ],
-					"text" : "param dryMix"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-12",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
@@ -191,59 +119,11 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 742.0, 135.0, 75.0, 22.0 ],
-					"text" : "param slope"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 630.0, 135.0, 63.0, 22.0 ],
-					"text" : "param t60"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-9",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1106.0, 226.0, 150.0, 20.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-7",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 735.0, 90.0, 89.0, 22.0 ],
-					"text" : "param nModes"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-6",
-					"maxclass" : "newobj",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 630.0, 90.0, 56.0, 22.0 ],
-					"text" : "param f1"
 				}
 
 			}
@@ -312,7 +192,6 @@
 
 			}
  ],
-		"originid" : "pat-12",
 		"saved_attribute_attributes" : 		{
 			"default_plcolor" : 			{
 				"expression" : ""
