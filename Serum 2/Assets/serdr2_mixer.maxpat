@@ -2412,7 +2412,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 120.0, 255.0, 60.0, 35.0 ],
-									"text" : "scale 0. 1. 0. 1."
+									"text" : "scale 0. 1. 0.5 1."
 								}
 
 							}
