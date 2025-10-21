@@ -690,7 +690,7 @@
 					"outlettype" : [ "float" ],
 					"outlinecolor" : [ 0.066666666666667, 0.070588235294118, 0.07843137254902, 1.0 ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 391.666685342788696, 118.888894557952881, 33.617021977901459, 33.617021977901459 ],
+					"patching_rect" : [ 391.666685342788696, 122.222228050231934, 33.617021977901459, 33.617021977901459 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
@@ -1159,7 +1159,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 170.078749179840088, 747.244134128093719, 50.0, 22.0 ],
-					"text" : "256"
+					"text" : "100"
 				}
 
 			}
@@ -1180,7 +1180,7 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "n_ampRel",
+							"parameter_longname" : "b_ampAtk",
 							"parameter_mmax" : 510.0,
 							"parameter_modmax" : 510.0,
 							"parameter_modmode" : 4,
@@ -3465,7 +3465,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 2679.0, 583.0, 73.0, 35.0 ],
-					"text" : "scale -100 100 0. 1."
+					"text" : "scale -100 100 1. 0."
 				}
 
 			}

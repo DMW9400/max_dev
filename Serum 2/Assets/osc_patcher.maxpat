@@ -2580,7 +2580,7 @@
 					"name" : "osc_bcn.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"offset" : [ -380.0, 0.0 ],
+					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 477.6470787525177, 0.588235318660736, 181.0, 162.757719218730927 ],
 					"viewvisibility" : 1
@@ -3602,7 +3602,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1206.666637897491455, 387.755322456359863, 59.0, 49.0 ],
-					"text" : "scale -100 100 0. 1."
+					"text" : "scale -100 100 1. 0."
 				}
 
 			}
