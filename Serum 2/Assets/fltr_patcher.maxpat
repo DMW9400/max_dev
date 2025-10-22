@@ -3418,7 +3418,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 504.000015020370483, 0.0, 177.333338618278503, 166.000004947185516 ],
+					"patching_rect" : [ 504.0, 0.0, 177.0, 170.0 ],
 					"proportion" : 0.39,
 					"saved_attribute_attributes" : 					{
 						"bgfillcolor" : 						{
@@ -3802,7 +3802,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 253.333340883255005, 0.0, 177.333338618278503, 166.000004947185516 ],
+					"patching_rect" : [ 253.0, 0.0, 177.0, 170.0 ],
 					"proportion" : 0.39,
 					"saved_attribute_attributes" : 					{
 						"bgfillcolor" : 						{
@@ -4514,7 +4514,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1.333333373069763, 0.0, 177.333338618278503, 166.000004947185516 ],
+					"patching_rect" : [ 1.0, 0.0, 177.0, 170.0 ],
 					"proportion" : 0.39,
 					"saved_attribute_attributes" : 					{
 						"bgfillcolor" : 						{
