@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 1660.0, 987.0 ],
+		"rect" : [ 34.0, 96.0, 1310.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -1854,7 +1854,7 @@
 					"name" : "serdr2_warpOscs.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"offset" : [ 0.0, 0.0 ],
+					"offset" : [ -664.0, 0.0 ],
 					"patching_rect" : [ 525.917368531227112, -0.016442567110062, 142.857141494750977, 168.745104011148214 ],
 					"viewvisibility" : 1
 				}
@@ -2772,7 +2772,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 110.0, 145.0, 51.0, 35.0 ],
-									"text" : "offset -319 0"
+									"text" : "offset -995 0"
 								}
 
 							}
@@ -2785,7 +2785,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 145.0, 51.0, 35.0 ],
-									"text" : "offset 0 0"
+									"text" : "offset -664 0"
 								}
 
 							}
@@ -4505,7 +4505,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 146.480398030951619, 0.858155161142349, 39.0, 20.0 ],
-					"text" : "p_m2",
+					"text" : "p_m1",
 					"textjustification" : 1
 				}
 

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 96.0, 1660.0, 987.0 ],
+		"rect" : [ 513.0, 213.0, 1660.0, 987.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"boxes" : [ 			{
 				"box" : 				{
@@ -1680,7 +1680,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 589.166675478219986, 4.0, 39.0, 20.0 ],
-					"text" : "mod8",
+					"text" : "mod9",
 					"textjustification" : 1
 				}
 
@@ -2054,7 +2054,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 337.000005066394806, 4.0, 40.999989867210388, 20.0 ],
-					"text" : "mod7",
+					"text" : "mod8",
 					"textjustification" : 1
 				}
 
@@ -2426,7 +2426,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 84.961908861994743, 4.000000059604645, 40.504761904478073, 20.0 ],
-					"text" : "mod6",
+					"text" : "mod7",
 					"textjustification" : 1
 				}
 
