@@ -13,6 +13,68 @@
         "boxes": [
             {
                 "box": {
+                    "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
+                    "id": "obj-5",
+                    "maxclass": "dial",
+                    "mode": 5,
+                    "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "outlinecolor": [ 0.066666666666667, 0.070588235294118, 0.07843137254902, 1.0 ],
+                    "parameter_enable": 1,
+                    "patching_rect": [ 328.69148901104927, 19.0, 33.61702197790146, 33.61702197790146 ],
+                    "saved_attribute_attributes": {
+                        "valueof": {
+                            "parameter_initial": [ 0 ],
+                            "parameter_initial_enable": 1,
+                            "parameter_longname": "b_warp2",
+                            "parameter_mmax": 100.0,
+                            "parameter_modmax": 100.0,
+                            "parameter_modmode": 4,
+                            "parameter_shortname": "b_warp2",
+                            "parameter_type": 1,
+                            "parameter_unitstyle": 0
+                        }
+                    },
+                    "size": 101.0,
+                    "thickness": 60.0,
+                    "varname": "dial[2]"
+                }
+            },
+            {
+                "box": {
+                    "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
+                    "id": "obj-4",
+                    "maxclass": "dial",
+                    "mode": 5,
+                    "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "float" ],
+                    "outlinecolor": [ 0.066666666666667, 0.070588235294118, 0.07843137254902, 1.0 ],
+                    "parameter_enable": 1,
+                    "patching_rect": [ 9.69148901104927, 19.0, 33.61702197790146, 33.61702197790146 ],
+                    "saved_attribute_attributes": {
+                        "valueof": {
+                            "parameter_initial": [ 0 ],
+                            "parameter_initial_enable": 1,
+                            "parameter_longname": "b_warp1",
+                            "parameter_mmax": 100.0,
+                            "parameter_modmax": 100.0,
+                            "parameter_modmode": 4,
+                            "parameter_shortname": "b_warp1",
+                            "parameter_type": 1,
+                            "parameter_unitstyle": 0
+                        }
+                    },
+                    "size": 101.0,
+                    "thickness": 60.0,
+                    "varname": "dial[1]"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-3",
                     "maxclass": "newobj",
                     "numinlets": 1,
@@ -775,37 +837,6 @@
             },
             {
                 "box": {
-                    "focusbordercolor": [ 0.631372549019608, 0.63921568627451, 0.662745098039216, 0.0 ],
-                    "id": "obj-142",
-                    "maxclass": "live.dial",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "float" ],
-                    "parameter_enable": 1,
-                    "patching_rect": [ 13.0, 22.0, 27.0, 28.0 ],
-                    "saved_attribute_attributes": {
-                        "focusbordercolor": {
-                            "expression": ""
-                        },
-                        "valueof": {
-                            "parameter_initial": [ 0 ],
-                            "parameter_initial_enable": 1,
-                            "parameter_longname": "b_warp1[1]",
-                            "parameter_mmax": 100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmode": 4,
-                            "parameter_shortname": "b_warp1",
-                            "parameter_type": 1,
-                            "parameter_unitstyle": 0
-                        }
-                    },
-                    "showname": 0,
-                    "shownumber": 0,
-                    "varname": "live.dial[3]"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-143",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -1310,37 +1341,6 @@
             },
             {
                 "box": {
-                    "focusbordercolor": [ 0.631372549019608, 0.63921568627451, 0.662745098039216, 0.0 ],
-                    "id": "obj-109",
-                    "maxclass": "live.dial",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "float" ],
-                    "parameter_enable": 1,
-                    "patching_rect": [ 332.0, 21.80851098895073, 27.0, 28.0 ],
-                    "saved_attribute_attributes": {
-                        "focusbordercolor": {
-                            "expression": ""
-                        },
-                        "valueof": {
-                            "parameter_initial": [ 0 ],
-                            "parameter_initial_enable": 1,
-                            "parameter_longname": "b_warp2",
-                            "parameter_mmax": 100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmode": 4,
-                            "parameter_shortname": "b_warp2",
-                            "parameter_type": 1,
-                            "parameter_unitstyle": 0
-                        }
-                    },
-                    "showname": 0,
-                    "shownumber": 0,
-                    "varname": "live.dial[4]"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-110",
                     "maxclass": "comment",
                     "numinlets": 1,
@@ -1422,14 +1422,6 @@
                     "destination": [ "obj-153", 0 ],
                     "midpoints": [ 450.5, 435.0, 423.0, 435.0, 423.0, 645.0, 571.8404221534729, 645.0 ],
                     "source": [ "obj-108", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-111", 0 ],
-                    "hidden": 1,
-                    "midpoints": [ 341.5, 66.0, 330.0, 66.0, 330.0, 360.0, 359.5, 360.0 ],
-                    "source": [ "obj-109", 0 ]
                 }
             },
             {
@@ -1613,14 +1605,6 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-144", 0 ],
-                    "hidden": 1,
-                    "midpoints": [ 22.5, 66.0, 3.0, 66.0, 3.0, 360.0, 28.5, 360.0 ],
-                    "source": [ "obj-142", 0 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-80", 0 ],
                     "midpoints": [ 28.5, 438.0, 93.0, 438.0, 93.0, 645.0, 156.9468080997467, 645.0 ],
                     "source": [ "obj-144", 0 ]
@@ -1630,6 +1614,22 @@
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-144", 0 ],
+                    "hidden": 1,
+                    "midpoints": [ 19.19148901104927, 66.0, 3.0, 66.0, 3.0, 360.0, 28.5, 360.0 ],
+                    "source": [ "obj-4", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-111", 0 ],
+                    "hidden": 1,
+                    "midpoints": [ 338.19148901104927, 66.0, 330.0, 66.0, 330.0, 360.0, 359.5, 360.0 ],
+                    "source": [ "obj-5", 0 ]
                 }
             },
             {
