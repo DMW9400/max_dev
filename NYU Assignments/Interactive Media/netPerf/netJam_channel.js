@@ -1,12 +1,17 @@
 autowatch = 1;
 inlets = 2;
-outlets = 3;
+outlets = 6;
 devIDs = [];
 devNames = [];
 devParams = [];
 dialIndex = null;
+paramDefault = null;
 
 var t = new Global("trackData"); // name must match exactly
+
+function setDialIndex(index){
+    dialIndex = index;
+}
 
 function formatIDarr(idArr){
     if (!Array.isArray(idArr) || idArr.length === 0) return [];
@@ -93,5 +98,12 @@ function paramSelect(index){
     paramLow = selParam.get('min');
     paramHigh = selParam.get('max');
     paramValue = selParam.get('value');
+    paramDefault = selParam.get('default_value');
+    outlet(3, 'setminmax', paramLow, paramHigh);
     outlet(2, 'id', paramID);
+    outlet(4, 'set', paramValue);
+}
+
+function setDefault(){
+    outlet(4, 'set', paramDefault);
 }
