@@ -1,8 +1,11 @@
 autowatch = 1;
 inlets = 2;
-outlets = 2;
+outlets = 3;
 devIDs = [];
 devNames = [];
+devParams = [];
+dialIndex = null;
+
 var t = new Global("trackData"); // name must match exactly
 
 function formatIDarr(idArr){
@@ -70,6 +73,7 @@ function outputDevices(){
 }
 
 function getParams(devIndex){
+    devParams = [];
     var devID = devIDs[devIndex];
     var dev = new LiveAPI('id ' + devID);
     var params = formatIDarr(dev.get("parameters"));
@@ -77,10 +81,17 @@ function getParams(devIndex){
     // remove first param - dev on
     params.shift();
     params.forEach((param, i) => {
-        outlet(1, 'append', param);
+        paramName = new LiveAPI('id ' + param).get('name');
+        devParams.push(param);
+        outlet(1, 'append', paramName);
     });
 }
 
 function paramSelect(index){
-    
+    var paramID = devParams[index];
+    selParam = new LiveAPI('id ' + paramID);
+    paramLow = selParam.get('min');
+    paramHigh = selParam.get('max');
+    paramValue = selParam.get('value');
+    outlet(2, 'id', paramID);
 }
