@@ -68,3 +68,19 @@ function outputDevices(){
         outlet(0, 'append', name);
     })
 }
+
+function getParams(devIndex){
+    var devID = devIDs[devIndex];
+    var dev = new LiveAPI('id ' + devID);
+    var params = formatIDarr(dev.get("parameters"));
+    outlet(1, 'clear');
+    // remove first param - dev on
+    params.shift();
+    params.forEach((param, i) => {
+        outlet(1, 'append', param);
+    });
+}
+
+function paramSelect(index){
+    
+}
