@@ -1,10 +1,35 @@
 autowatch = 1;
 inlets = 2;
 outlets = 2;
+devIDs = [];
+devNames = [];
+var t = new Global("trackData"); // name must match exactly
+
+function formatIDarr(idArr){
+    if (!Array.isArray(idArr) || idArr.length === 0) return [];
+    var out = [];
+    for (var i = 0; i < idArr.length; i++){
+        var v = idArr[i];
+        if (v === 'id' || v == null) continue;
+
+        if (typeof v === 'string'){
+            v = v.trim();
+            if (v === '' || v === 'id') continue;
+            v = Number(v);
+        }
+        if (typeof v !== 'number' || !isFinite(v)) continue;
+
+        var n = Math.floor(v);
+        if (n <= 0) continue;
+        out.push(n);
+    }
+    return out;
+}
 
 function getDevices(trackIndex){
-    parentID = trackIDs[trackIndex]
-    devices = []
+    parentID = t.IDs[trackIndex]
+    devIDs = []
+    devNames = []
     parentTrack = new LiveAPI('id ' + parentID);
     trackName = parentTrack.get('name')
     var deviceArr = formatIDarr(parentTrack.get('devices'))
@@ -15,8 +40,8 @@ function getDevices(trackIndex){
             canHaveDrumPads = currentDev.get('can_have_drum_pads')
             currentName = currentDev.get('name')
             if(currentName != 'hapticOmni' && currentName != 'mixer_haptic' && currentName != 'MTS-ESP MIDI Client MPE'){
-                devices.push(value)
-                outlet(0, 'append ' + currentName)
+                devIDs.push(value)
+                devNames.push(currentName)
             }
             if(canHaveChains == 1 && canHaveDrumPads == 0){
                 chains = formatIDarr(currentDev.get('chains'))
@@ -26,12 +51,20 @@ function getDevices(trackIndex){
                     chainDevs.forEach(function (value, i){
                         chainDevName = new LiveAPI('id ' + value).get('name')
                         if(chainDevName != 'hapticOmni' && chainDevName != 'mixer_haptic'&& currentName != 'MTS-ESP MIDI Client MPE' ){
-                            devices.push(value)
-                            outlet(0, 'append ' + chainDevName)
+                            devIDs.push(value)
+                            devNames.push(chainDevName)
                         }
                     })
                 })  
             }
         })
     }
+    outputDevices();
+}
+
+function outputDevices(){
+    outlet(0, 'clear');
+    devNames.forEach(function (name, i){
+        outlet(0, 'append', name);
+    })
 }
