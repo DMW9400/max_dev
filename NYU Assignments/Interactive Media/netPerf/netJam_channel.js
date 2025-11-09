@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 2;
-outlets = 6;
+outlets = 4;
 devIDs = [];
 devNames = [];
 devParams = [];
@@ -83,7 +83,6 @@ function getParams(devIndex){
     var dev = new LiveAPI('id ' + devID);
     var params = formatIDarr(dev.get("parameters"));
     outlet(1, 'clear');
-    // remove first param - dev on
     params.shift();
     params.forEach((param, i) => {
         paramName = new LiveAPI('id ' + param).get('name');
@@ -101,9 +100,9 @@ function paramSelect(index){
     paramDefault = selParam.get('default_value');
     outlet(3, 'setminmax', paramLow, paramHigh);
     outlet(2, 'id', paramID);
-    outlet(4, 'set', paramValue);
+    outlet(3, 'set', paramValue);
 }
 
 function setDefault(){
-    outlet(4, 'set', paramDefault);
+    outlet(3, 'set', paramDefault);
 }
