@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 2;
-outlets = 4;
+outlets = 5;
 devIDs = [];
 devNames = [];
 devParams = [];
@@ -98,9 +98,11 @@ function paramSelect(index){
     paramHigh = selParam.get('max');
     paramValue = selParam.get('value');
     paramDefault = selParam.get('default_value');
+    post('paramLow: ' + paramLow + ', paramHigh: ' + paramHigh + ', paramValue: ' + paramValue + ', paramDefault: ' + paramDefault + '\n');
     outlet(3, 'setminmax', paramLow, paramHigh);
     outlet(2, 'id', paramID);
     outlet(3, 'set', paramValue);
+    outlet(4, paramLow, paramHigh)
 }
 
 function setDefault(){
