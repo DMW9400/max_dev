@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 96.0, 1310.0, 987.0 ],
+        "rect": [ 898.0, 96.0, 453.0, 987.0 ],
         "boxes": [
             {
                 "box": {
@@ -36,17 +36,18 @@
             {
                 "box": {
                     "id": "obj-19",
+                    "linecount": 2,
                     "maxclass": "newobj",
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 636.0, 634.6300000000001, 100.0, 22.0 ],
+                    "patching_rect": [ 636.0, 634.6300000000001, 100.0, 35.0 ],
                     "saved_object_attributes": {
                         "_persistence": 1,
-                        "depth": 0.0,
-                        "smoothing": 1.0
+                        "depth": 1.0,
+                        "smoothing": 10.0
                     },
-                    "text": "live.modulate~"
+                    "text": "live.modulate~ @smoothing 10"
                 }
             },
             {
@@ -323,7 +324,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-19", 0 ],
-                    "midpoints": [ 489.5, 427.390625, 645.5, 427.390625 ],
+                    "midpoints": [ 489.5, 555.0, 645.5, 555.0 ],
                     "source": [ "obj-10", 0 ]
                 }
             },
@@ -472,7 +473,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-19", 0 ],
-                    "midpoints": [ 384.5, 622.01171875, 645.5, 622.01171875 ],
+                    "midpoints": [ 384.5, 621.0, 645.5, 621.0 ],
                     "source": [ "obj-37", 0 ]
                 }
             },
@@ -483,6 +484,11 @@
                     "source": [ "obj-4", 0 ]
                 }
             }
-        ]
+        ],
+        "saved_attribute_attributes": {
+            "default_plcolor": {
+                "expression": ""
+            }
+        }
     }
 }
