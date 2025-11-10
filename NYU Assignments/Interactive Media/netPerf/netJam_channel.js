@@ -78,9 +78,8 @@ function outputDevices(){
     if(initGate == 1){
         outlet(2, 'devicesLoaded');
     } else if (initGate == 0){
-
+        outlet(0, 0)
     }
-    outlet(5, 'devicesLoaded');
 }
 
 function getParams(devIndex){
@@ -95,7 +94,12 @@ function getParams(devIndex){
         devParams.push(param);
         outlet(1, 'append', paramName);
     });
-    outlet(5, 'paramsLoaded');
+
+    if (initGate == 1){
+        outlet(2, 'paramsLoaded');
+    } else if (initGate == 0){
+        outlet(1, 0);
+    }
 }
 
 function paramSelect(index){
