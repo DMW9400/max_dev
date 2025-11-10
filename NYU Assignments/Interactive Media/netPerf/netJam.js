@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 2;
-outlets = 2;
+outlets = 3;
 
 var t = new Global("trackData");   // shared across v8 JS instances
 
@@ -70,6 +70,7 @@ function outputTracks(){
     names.forEach(function (value){
         outlet(0, 'append', value);
     });
+    outlet(2, 'tracksLoaded')
 }
 
 function init(){

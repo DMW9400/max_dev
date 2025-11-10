@@ -44,7 +44,7 @@
                     "patching_rect": [ 636.0, 634.6300000000001, 100.0, 35.0 ],
                     "saved_object_attributes": {
                         "_persistence": 1,
-                        "depth": 1.0,
+                        "depth": 0.3100000023841858,
                         "smoothing": 10.0
                     },
                     "text": "live.modulate~ @smoothing 10"
@@ -205,8 +205,8 @@
                     "id": "obj-17",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 5,
-                    "outlettype": [ "", "", "", "", "" ],
+                    "numoutlets": 6,
+                    "outlettype": [ "", "", "", "", "", "" ],
                     "patching_rect": [ 66.5, 228.0, 125.0, 22.0 ],
                     "saved_object_attributes": {
                         "parameter_enable": 0

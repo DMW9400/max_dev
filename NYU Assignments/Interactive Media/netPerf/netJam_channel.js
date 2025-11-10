@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 2;
-outlets = 5;
+outlets = 6;
 devIDs = [];
 devNames = [];
 devParams = [];
@@ -75,6 +75,7 @@ function outputDevices(){
     devNames.forEach(function (name, i){
         outlet(0, 'append', name);
     })
+    outlet(5, 'devicesLoaded');
 }
 
 function getParams(devIndex){
@@ -89,6 +90,7 @@ function getParams(devIndex){
         devParams.push(param);
         outlet(1, 'append', paramName);
     });
+    outlet(5, 'paramsLoaded');
 }
 
 function paramSelect(index){
