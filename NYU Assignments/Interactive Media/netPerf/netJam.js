@@ -1,6 +1,6 @@
 autowatch = 1;
 inlets = 2;
-outlets = 3;
+outlets = 4;
 
 var t = new Global("trackData");   // shared across v8 JS instances
 
@@ -74,8 +74,10 @@ function outputTracks(){
 }
 
 function init(){
+    outlet(3, 'initGate', 1)
     t.IDs = [];
     t.Names = [];
     getTracksAndChains();
     outputTracks();
+    outlet(3, 'initGate', 0)
 }

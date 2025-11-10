@@ -6,7 +6,7 @@ devNames = [];
 devParams = [];
 dialIndex = null;
 paramDefault = null;
-
+initGate = null;
 var t = new Global("trackData"); // name must match exactly
 
 function setDialIndex(index){
@@ -75,6 +75,11 @@ function outputDevices(){
     devNames.forEach(function (name, i){
         outlet(0, 'append', name);
     })
+    if(initGate == 1){
+        outlet(2, 'devicesLoaded');
+    } else if (initGate == 0){
+
+    }
     outlet(5, 'devicesLoaded');
 }
 
@@ -108,5 +113,9 @@ function paramSelect(index){
 }
 
 function setDefault(){
-    outlet(3, 'set', paramDefault);
+    outlet(3, paramDefault);
+}
+
+function initGate(value){
+    initGate = value;
 }
