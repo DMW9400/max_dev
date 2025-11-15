@@ -1,7 +1,7 @@
 // clientSession.js
 const OSC = require('osc-js');
 const Max = require('max-api');
-const dataFunctions = require('./dataFunctions');
+const dataFunctions = require('./dataFunctions_nj');
 class clientSession {
     constructor(clientIP, nodePort, clientPort, socket) {
       this.clientIP = clientIP;

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bonjour": "^3.5.0",
+    "osc-js": "^2.4.1"
+  }
+}

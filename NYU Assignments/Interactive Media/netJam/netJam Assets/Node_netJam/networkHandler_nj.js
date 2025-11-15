@@ -2,7 +2,7 @@
 const dgram = require('node:dgram');
 const Max = require('max-api');
 const OSC = require('osc-js');
-const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSockets } = require('./Utils/networkUtils');
+const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSockets } = require('./Utils/networkUtils_nj');
 
 let serverRunning = false;
 let serverStopping = false;
