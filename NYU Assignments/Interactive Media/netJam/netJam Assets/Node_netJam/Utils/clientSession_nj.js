@@ -4,13 +4,14 @@ const Max = require('max-api');
 const dataFunctions = require('./dataFunctions_nj');
 
 class clientSession {
-    constructor(clientIP, nodePort, clientPort, socket, userNumber, routingCallback) {
+    constructor(clientIP, nodePort, clientPort, socket, userNumber, routingCallback, broadcastCallback) {
       this.clientIP = clientIP;
       this.nodePort = nodePort;
       this.clientPort = clientPort;
       this.socket = socket;
       this.userNumber = userNumber; // User number 0-3
-      this.routingCallback = routingCallback; // Function to call for OSC routing
+      this.routingCallback = routingCallback; // Function to call for local OSC routing
+      this.broadcastCallback = broadcastCallback; // Function to forward messages to other clients
       this.tab = null;
       this.page = 0;
     }
@@ -65,7 +66,11 @@ class clientSession {
         // Check for bundled mod message: /<sender_index>/mods
         // Example: /0/mods with 4 float args
         if (pathParts.length >= 2 && pathParts[1] === 'mods') {
-          // Call routing callback with all args for internal filtering and outlet mapping
+          // Forward to all other clients (server-side broadcast)
+          if (this.broadcastCallback) {
+            this.broadcastCallback(oscPath, oscMsg.args);
+          }
+          // Also process locally for the server (if filter matches)
           if (this.routingCallback) {
             this.routingCallback(oscPath, oscMsg.args);
           }
@@ -74,7 +79,11 @@ class clientSession {
         // Example: /0/m4 0.543307
         else if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
           const value = oscMsg.args[0];
-          // Call routing callback for internal filtering and outlet mapping
+          // Forward to all other clients (server-side broadcast)
+          if (this.broadcastCallback) {
+            this.broadcastCallback(oscPath, [value]);
+          }
+          // Also process locally for the server (if filter matches)
           if (this.routingCallback) {
             this.routingCallback(oscPath, value);
           }

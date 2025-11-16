@@ -149,29 +149,6 @@ Max.addHandler('getUserStatus', () => {
   Max.outlet('user_list', JSON.stringify(connectedUsers));
 });
 
-// Send message to specific user: sendToUser <userNumber> <path> <args...>
-// Only works in server mode
-Max.addHandler('sendToUser', (userNumber, path, ...args) => {
-  if (isClient()) {
-    Max.post('⚠️ sendToUser only works in server mode');
-    return;
-  }
-
-  const safeArgs = sanitizeOscArgs(args);
-  const oscPath = path.startsWith("/") ? path : `/${path}`;
-
-  // Find the session for this user number
-  for (const ip in ephemeralSockets) {
-    const { session, userNumber: sessionUserNum } = ephemeralSockets[ip];
-    if (sessionUserNum === userNumber) {
-      session.sendMessage(oscPath, safeArgs);
-      Max.post(`Sent to user ${userNumber}:`, oscPath, safeArgs);
-      return;
-    }
-  }
-  Max.post(`⚠️ User ${userNumber} not found`);
-});
-
 // Set my sender/host index (who I am when sending messages)
 Max.addHandler('setHost', (index) => {
   mySenderIndex = parseInt(index, 10);

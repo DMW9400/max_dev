@@ -685,7 +685,18 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
       }
     });
 
-    const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber, routeIncomingOsc);
+    // Create broadcast function that forwards messages to all OTHER clients (not sender)
+    const broadcastToOthers = (oscPath, oscArgs) => {
+      for (const ip in ephemeralSockets) {
+        // Skip the sender - don't echo back
+        if (ip === clientIP) continue;
+
+        const { session: targetSession } = ephemeralSockets[ip];
+        targetSession.sendMessage(oscPath, oscArgs);
+      }
+    };
+
+    const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber, routeIncomingOsc, broadcastToOthers);
     Max.post(`✓ User ${userNumber} connected (${clientIP})`);
 
     // Notify Max that a user has connected
