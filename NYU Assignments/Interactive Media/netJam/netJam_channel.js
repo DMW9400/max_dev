@@ -164,16 +164,41 @@ function paramSelect(index){
         return;
     }
 
-    selParam = new LiveAPI('id ' + paramID);
-    paramLow = selParam.get('min');
-    paramHigh = selParam.get('max');
-    paramValue = selParam.get('value');
-    paramDefault = selParam.get('default_value');
-    post('paramLow: ' + paramLow + ', paramHigh: ' + paramHigh + ', paramValue: ' + paramValue + ', paramDefault: ' + paramDefault + '\n');
-    outlet(3, 'setminmax', paramLow, paramHigh);
-    outlet(2, 'id', paramID);
-    outlet(3, 'set', paramValue);
-    outlet(4, paramLow, paramHigh)
+    // Try to create LiveAPI object and validate it's a proper parameter
+    try {
+        selParam = new LiveAPI('id ' + paramID);
+
+        // Check if the LiveAPI object is valid
+        if (!selParam || !selParam.id) {
+            return;
+        }
+
+        // Check if parameter is enabled and can be automated (required for live.modulate~)
+        var isEnabled = selParam.get('is_enabled');
+        if (isEnabled === null || isEnabled === undefined || isEnabled == 0) {
+            return;
+        }
+
+        paramLow = selParam.get('min');
+        paramHigh = selParam.get('max');
+        paramValue = selParam.get('value');
+        paramDefault = selParam.get('default_value');
+
+        // Validate that we got valid min/max values
+        if (paramLow === null || paramLow === undefined ||
+            paramHigh === null || paramHigh === undefined) {
+            return;
+        }
+
+        post('paramLow: ' + paramLow + ', paramHigh: ' + paramHigh + ', paramValue: ' + paramValue + ', paramDefault: ' + paramDefault + '\n');
+        outlet(3, 'setminmax', paramLow, paramHigh);
+        outlet(2, 'id', paramID);
+        outlet(3, 'set', paramValue);
+        outlet(4, paramLow, paramHigh);
+    } catch (err) {
+        // Silently fail if LiveAPI object creation fails
+        return;
+    }
 }
 
 function setDefault(){
