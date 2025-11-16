@@ -48,11 +48,10 @@ function forceCleanupBonjour() {
   isCleaningUp = false;
 }
 
-// User number management (0-3)
+// User number management (0-3) - for connection tracking only
 const MAX_USERS = 4;
-let claimedUserNumbers = new Set(); // Set of claimed user numbers (0-3)
+let availableUserNumbers = [0, 1, 2, 3];
 let userNumberToIP = {}; // Maps user number -> IP address
-let myServerUserNumber = null; // Server's own user number (set via setHost)
 
 // Client mode variables
 let isClient = false;
@@ -194,24 +193,17 @@ function connectAsClient(serverHost, serverPort, localPort) {
       return;
     }
 
-    // Handle USER_NUMBER_ASSIGNED confirmation from server
-    if (msgString.startsWith('USER_NUMBER_ASSIGNED')) {
+    // Handle YOUR_USER_NUMBER assignment from server (connection tracking only)
+    if (msgString.startsWith('YOUR_USER_NUMBER')) {
       const parts = msgString.split(' ');
       if (parts.length === 2) {
         const assignedUserNumber = parseInt(parts[1], 10);
         if (!isNaN(assignedUserNumber)) {
           clientAssignedUserNumber = assignedUserNumber;
-          Max.post(`✓ User number ${assignedUserNumber} confirmed by server`);
+          Max.post(`✓ Connected as user ${assignedUserNumber} (connection slot only)`);
           Max.outlet('user_number_assigned', clientAssignedUserNumber);
         }
       }
-      return;
-    }
-
-    // Handle USER_NUMBER_TAKEN rejection from server
-    if (msgString.startsWith('USER_NUMBER_TAKEN')) {
-      Max.post(`⚠️ User number claim rejected: ${msgString}`);
-      Max.outlet('user_number_rejected', msgString);
       return;
     }
 
@@ -443,9 +435,8 @@ function startAsServer(port, globalIP) {
   Max.post(`🖥️  Starting as SERVER on ${globalIP}:${port}`);
 
   // Reset user numbers and connections
-  claimedUserNumbers.clear();
+  availableUserNumbers = [0, 1, 2, 3];
   userNumberToIP = {};
-  myServerUserNumber = null;
 
   for (const key in ephemeralSockets) {
     delete ephemeralSockets[key];
@@ -522,12 +513,6 @@ function createMainServer(port, globalIP) {
       Max.post(`Received HELLO_IPAD from ${clientIP}`);
       if (!ephemeralSockets[clientIP]) {
         createEphemeralSocketForClient(clientIP, mainServer, rinfo.port, rinfo.address);
-      }
-    } else if (msgString.startsWith('CLAIM_USER_NUMBER')) {
-      const parts = msgString.split(' ');
-      if (parts.length === 2) {
-        const requestedNumber = parseInt(parts[1], 10);
-        handleUserNumberClaim(rinfo.address, requestedNumber);
       }
     } else {
       // Max.Post('msgString:', msgString);
@@ -637,44 +622,11 @@ function unpublishBonjour(cb) {
 }
 
 /**
- * Claim a user number for a client or server
- */
-function claimUserNumber(requestedNumber, clientIP = null) {
-  const num = parseInt(requestedNumber, 10);
-
-  if (isNaN(num) || num < 0 || num > 3) {
-    return { success: false, reason: 'Invalid user number (must be 0-3)' };
-  }
-
-  if (claimedUserNumbers.has(num)) {
-    return { success: false, reason: `User number ${num} already claimed` };
-  }
-
-  claimedUserNumbers.add(num);
-  if (clientIP) {
-    userNumberToIP[num] = clientIP;
-  }
-
-  return { success: true, userNumber: num };
-}
-
-/**
- * Release a user number
- */
-function releaseUserNumber(userNumber, clientIP) {
-  claimedUserNumbers.delete(userNumber);
-  if (userNumberToIP[userNumber] === clientIP) {
-    delete userNumberToIP[userNumber];
-  }
-  Max.post(`✓ User number ${userNumber} released`);
-}
-
-/**
  * Create ephemeral socket for the iPad client and send EPHEMERAL_PORT.
  */
 function createEphemeralSocketForClient(clientIP, mainServer, clientPort, clientAddress) {
   // Check if we've reached max capacity
-  if (claimedUserNumbers.size >= MAX_USERS) {
+  if (availableUserNumbers.length === 0) {
     Max.post(`⚠️ Connection rejected: Maximum ${MAX_USERS} users already connected`);
     const rejectMsg = 'SERVER_FULL';
     mainServer.send(rejectMsg, 0, rejectMsg.length, clientPort, clientAddress, (err) => {
@@ -685,8 +637,8 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
     return;
   }
 
-  // Don't assign user number yet - wait for CLAIM_USER_NUMBER message
-  const userNumber = null;
+  // Auto-assign next available user number (connection tracking only)
+  const userNumber = availableUserNumbers.shift();
 
   const socket = dgram.createSocket('udp4');
 
@@ -695,7 +647,10 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
     socket.close();
     const session = ephemeralSockets[clientIP];
     if (session && session.userNumber !== null) {
-      releaseUserNumber(session.userNumber, clientIP);
+      // Return user number to pool
+      availableUserNumbers.push(session.userNumber);
+      availableUserNumbers.sort();
+      delete userNumberToIP[session.userNumber];
     }
     delete ephemeralSockets[clientIP];
   });
@@ -727,7 +682,10 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
     };
 
     const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber, routeIncomingOsc, broadcastToOthers);
-    Max.post(`✓ Client connected (${clientIP}) - waiting for user number claim`);
+
+    // Track user number to IP mapping (connection tracking only)
+    userNumberToIP[userNumber] = clientIP;
+    Max.post(`✓ Client connected (${clientIP}) - assigned user number ${userNumber}`);
 
     socket.on('message', (data, rinfo) => {
       session.handleMessage(data, rinfo);
@@ -736,52 +694,17 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
     socket.on('close', () => {
       Max.post(`Client ${clientIP} socket closed`);
       if (session.userNumber !== null) {
-        releaseUserNumber(session.userNumber, clientIP);
+        // Return user number to pool
+        availableUserNumbers.push(session.userNumber);
+        availableUserNumbers.sort();
+        delete userNumberToIP[session.userNumber];
         Max.outlet('user_status', 'disconnected', session.userNumber, clientIP);
       }
     });
 
-    ephemeralSockets[clientIP] = { socket, session, userNumber: null };
+    ephemeralSockets[clientIP] = { socket, session, userNumber };
   });
 }
-
-/**
- * Handle user number claim request from a client
- */
-function handleUserNumberClaim(clientIP, requestedNumber) {
-  const session = ephemeralSockets[clientIP];
-  if (!session) {
-    Max.post(`⚠️ No session found for ${clientIP}`);
-    return;
-  }
-
-  const result = claimUserNumber(requestedNumber, clientIP);
-
-  if (result.success) {
-    // Update session with claimed user number
-    session.session.userNumber = result.userNumber;
-    session.userNumber = result.userNumber;
-    ephemeralSockets[clientIP] = session;
-
-    // Send confirmation to client
-    const confirmMsg = `USER_NUMBER_ASSIGNED ${result.userNumber}`;
-    session.socket.send(confirmMsg, 0, confirmMsg.length, session.session.clientPort, clientIP, (err) => {
-      if (!err) {
-        Max.post(`✓ User number ${result.userNumber} assigned to ${clientIP}`);
-        Max.outlet('user_status', 'connected', result.userNumber, clientIP);
-      }
-    });
-  } else {
-    // Send rejection to client
-    const rejectMsg = `USER_NUMBER_TAKEN ${result.reason}`;
-    session.socket.send(rejectMsg, 0, rejectMsg.length, session.session.clientPort, clientIP, (err) => {
-      if (!err) {
-        Max.post(`✗ User number ${requestedNumber} rejected for ${clientIP}: ${result.reason}`);
-      }
-    });
-  }
-}
-
 
 /**
  * Sends data from Node for Max to a host/port, then closes the socket.
@@ -822,9 +745,5 @@ module.exports = {
   getMyUserNumber, // Get assigned user number (client mode)
   setTargetReceiver, // Set which sender to listen to
   getTargetReceiver, // Get current target
-  routeIncomingOsc, // OSC routing function
-  claimUserNumber, // Claim a user number (server-side)
-  getClientSocket: () => clientSocket, // Get client socket for sending claims
-  getClientServerIP: () => clientServerIP, // Get server IP
-  getClientServerPort: () => clientServerPort // Get server port
+  routeIncomingOsc // OSC routing function
 };
