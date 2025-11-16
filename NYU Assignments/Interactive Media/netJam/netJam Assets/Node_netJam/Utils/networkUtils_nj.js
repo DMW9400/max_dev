@@ -11,6 +11,43 @@ let localIP = '';
 let bonjour = null;
 let bonjourService = null;
 
+// Track cleanup state to prevent multiple cleanups
+let isCleaningUp = false;
+
+// Add process exit handler for cleanup
+process.on('exit', () => {
+  if (bonjourService || bonjour) {
+    Max.post('🧹 Process exiting - forcing Bonjour cleanup');
+    forceCleanupBonjour();
+  }
+});
+
+// Force immediate Bonjour cleanup (synchronous)
+function forceCleanupBonjour() {
+  if (isCleaningUp) return;
+  isCleaningUp = true;
+
+  try {
+    if (bonjourService) {
+      bonjourService.stop();
+      bonjourService = null;
+    }
+  } catch (err) {
+    // Ignore errors during forced cleanup
+  }
+
+  try {
+    if (bonjour) {
+      bonjour.destroy();
+      bonjour = null;
+    }
+  } catch (err) {
+    // Ignore errors during forced cleanup
+  }
+
+  isCleaningUp = false;
+}
+
 // User number management (0-3)
 const MAX_USERS = 4;
 let claimedUserNumbers = new Set(); // Set of claimed user numbers (0-3)
@@ -463,16 +500,17 @@ function createMainServer(port, globalIP) {
 
     Max.post(`Main server listening on ${localIP}:${actualPort}`);
 
-    // Publish Bonjour with a fixed port or actualPort if ephemeral
-    // If you want a stable 9999, just put port: 9999
+    // Publish Bonjour with unique name to avoid cached DNS records
+    // Include timestamp to make it unique each time
+    const uniqueName = `MyAbletonService_${Date.now()}`;
     bonjourService = bonjour.publish({
-      name: 'MyAbletonService',
+      name: uniqueName,
       type: 'myableton',
       protocol: 'udp',
       port: actualPort,
       txt: {}
     });
-    Max.post(`Bonjour published for main server on port ${actualPort}`);
+    Max.post(`Bonjour published: ${uniqueName} on port ${actualPort}`);
   });
 
   mainServer.on('message', (data, rinfo) => {
@@ -588,72 +626,14 @@ function stopHost(onStopped) {
 function unpublishBonjour(cb) {
   Max.post('Unpublishing Bonjour...');
 
-  let serviceStopHandled = false;
-  const handleServiceStop = () => {
-    if (serviceStopHandled) return;
-    serviceStopHandled = true;
-    Max.post('✓ Bonjour service stopped');
-    bonjourService = null;
-    finalize();
-  };
+  // Force synchronous cleanup immediately
+  forceCleanupBonjour();
+  Max.post('✓ Bonjour force-cleaned');
 
-  if (bonjourService) {
-    try {
-      // Set timeout in case stop callback never fires
-      const serviceTimeout = setTimeout(() => {
-        if (!serviceStopHandled) {
-          Max.post('⚠️ Bonjour service stop timeout, forcing cleanup');
-          handleServiceStop();
-        }
-      }, 500);
-
-      bonjourService.stop(() => {
-        clearTimeout(serviceTimeout);
-        handleServiceStop();
-      });
-    } catch (err) {
-      Max.post(`Error stopping bonjourService: ${err.message}`);
-      handleServiceStop();
-    }
-  } else {
-    Max.post('No Bonjour service to stop');
-    finalize();
-  }
-
-  function finalize() {
-    let bonjourDestroyHandled = false;
-    const handleBonjourDestroy = () => {
-      if (bonjourDestroyHandled) return;
-      bonjourDestroyHandled = true;
-      Max.post('✓ Bonjour instance destroyed');
-      bonjour = null;
-      if (cb) cb();
-    };
-
-    if (bonjour) {
-      try {
-        // Set timeout in case destroy callback never fires
-        const destroyTimeout = setTimeout(() => {
-          if (!bonjourDestroyHandled) {
-            Max.post('⚠️ Bonjour destroy timeout, forcing cleanup');
-            handleBonjourDestroy();
-          }
-        }, 500);
-
-        bonjour.unpublishAll(() => {
-          bonjour.destroy();
-          clearTimeout(destroyTimeout);
-          handleBonjourDestroy();
-        });
-      } catch (err) {
-        Max.post(`Error destroying Bonjour: ${err.message}`);
-        handleBonjourDestroy();
-      }
-    } else {
-      Max.post('No Bonjour instance to destroy');
-      if (cb) cb();
-    }
-  }
+  // Also try async cleanup (belt and suspenders)
+  setTimeout(() => {
+    if (cb) cb();
+  }, 100);
 }
 
 /**

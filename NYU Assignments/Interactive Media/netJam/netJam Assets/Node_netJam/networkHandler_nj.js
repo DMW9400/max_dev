@@ -40,15 +40,16 @@ Max.addHandler("udp", (cmd, port) => {
   } else if (cmd === 'stop') {
     if (serverRunning && !serverStopping) {
       serverStopping = true;
+      Max.post('🛑 Stopping server and cleaning up...');
       stopHost(() => {
+        // Wait longer to ensure OS clears mDNS cache
         setTimeout(() => {
-
-			serverRunning = false;
-			serverStopping = false;
-			myUserNumber = null; // Reset user number on stop
-			Max.outlet('udp-recv', 'stop');
-			Max.post('Server fully stopped');
-		  }, 200);
+          serverRunning = false;
+          serverStopping = false;
+          myUserNumber = null; // Reset user number on stop
+          Max.outlet('udp-recv', 'stop');
+          Max.post('✅ Server fully stopped - wait 2 seconds before restarting');
+        }, 500);
       });
     } else {
       Max.post(`No server running or already stopping (serverRunning=${serverRunning}, serverStopping=${serverStopping})`);
