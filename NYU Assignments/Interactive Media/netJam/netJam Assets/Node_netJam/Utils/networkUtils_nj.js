@@ -349,11 +349,11 @@ function routeIncomingOsc(oscPath, value) {
       if (debugEnabled) {
         Max.post(`[RCV] From sender ${senderIndex}: m1=${value[0].toFixed(3)} m2=${value[1].toFixed(3)} m3=${value[2].toFixed(3)} m4=${value[3].toFixed(3)}`);
       }
-      // Send to outlet 0 with format: "m1 value", "m2 value", etc.
-      Max.outlet(0, 'm1', value[0]);
-      Max.outlet(0, 'm2', value[1]);
-      Max.outlet(0, 'm3', value[2]);
-      Max.outlet(0, 'm4', value[3]);
+      // Send with format: "m1 value", "m2 value", etc. (no outlet index in message)
+      Max.outlet('m1', value[0]);
+      Max.outlet('m2', value[1]);
+      Max.outlet('m3', value[2]);
+      Max.outlet('m4', value[3]);
     }
     return;
   }
@@ -367,9 +367,9 @@ function routeIncomingOsc(oscPath, value) {
   if (debugEnabled) {
     Max.post(`[RCV] From sender ${senderIndex}: ${modIndex}=${value.toFixed(3)}`);
   }
-  // Output: modIndex value (e.g., "m1 0.543") to outlet 0
+  // Output: modIndex value (e.g., "m1 0.543")
   // Max can route with [route m1 m2 m3 m4]
-  Max.outlet(0, modIndex, value);
+  Max.outlet(modIndex, value);
 }
 
 /**
