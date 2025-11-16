@@ -9,6 +9,9 @@ const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSocket
 let serverRunning = false;
 let serverStopping = false;
 
+// Debug logging control
+let debugOSC = false; // Toggle OSC message logging
+
 // Mod message routing state
 let myUserNumber = null; // Set when connected as client (auto-assigned by server)
 let mySenderIndex = 0; // Manually set via setHost (0-3) - who I am when sending
@@ -52,6 +55,25 @@ Max.addHandler("udp", (cmd, port) => {
     }
   }
 });
+
+// Toggle OSC debug logging: debug 1 (on) or debug 0 (off)
+Max.addHandler('debug', (state) => {
+  debugOSC = !!state; // Convert to boolean
+  Max.post(`OSC debug logging: ${debugOSC ? 'ON' : 'OFF'}`);
+});
+
+// Get debug state
+Max.addHandler('getDebug', () => {
+  Max.post(`OSC debug logging: ${debugOSC ? 'ON' : 'OFF'}`);
+});
+
+// Export debug state getter for use in networkUtils
+function getDebugState() {
+  return debugOSC;
+}
+
+// Make it available globally for networkUtils
+global.getOSCDebugState = getDebugState;
 
 // Poll for user number updates (called when user_number_assigned outlet fires from Max patch)
 Max.addHandler('update_my_user_number', () => {
@@ -214,15 +236,8 @@ Max.addHandler('sendModBundle', (val1, val2, val3, val4) => {
   const oscPath = `/${mySenderIndex}/mods`;
   const safeValues = sanitizeOscArgs([val1, val2, val3, val4]);
 
-  // Check for loopback: sending to myself
-  if (mySenderIndex === receiveFromIndex) {
-    // Loopback: route internally without network send
-    // Output each value to outlet 0 with format: "m1 value", "m2 value", etc.
-    Max.outlet(0, 'm1', safeValues[0]);
-    Max.outlet(0, 'm2', safeValues[1]);
-    Max.outlet(0, 'm3', safeValues[2]);
-    Max.outlet(0, 'm4', safeValues[3]);
-    return;
+  if (debugOSC) {
+    Max.post(`[SEND] As ${mySenderIndex} → To ${receiveFromIndex}: m1=${safeValues[0].toFixed(3)} m2=${safeValues[1].toFixed(3)} m3=${safeValues[2].toFixed(3)} m4=${safeValues[3].toFixed(3)}`);
   }
 
   if (isClient()) {
@@ -241,100 +256,6 @@ Max.addHandler('sendModBundle', (val1, val2, val3, val4) => {
     }
     if (!sent) {
       Max.post(`⚠️ Receiver ${receiveFromIndex} not connected`);
-    }
-  }
-});
-
-// Simple mod send: sendMod <mod_index> <value>
-// Automatically uses mySenderIndex (who I am) and receiveFromIndex (who to send to)
-// OSC format: /<mySenderIndex>/<mod_index> <value>
-Max.addHandler('sendMod', (modIndex, value) => {
-  // Ensure modIndex has 'm' prefix
-  const mod = String(modIndex).startsWith('m') ? modIndex : `m${modIndex}`;
-
-  // OSC path uses mySenderIndex (who I am)
-  const oscPath = `/${mySenderIndex}/${mod}`;
-  const safeValue = sanitizeOscArgs([value]);
-
-  // Check for loopback: sending to myself
-  if (mySenderIndex === receiveFromIndex) {
-    // Loopback: route internally without network send
-    routeIncomingOsc(oscPath, safeValue[0]);
-    return;
-  }
-
-  if (isClient()) {
-    // Client mode: send to server (server will route to receiveFromIndex)
-    sendClientMessage(oscPath, safeValue);
-  } else {
-    // Server mode: send to specific user by receiveFromIndex
-    let sent = false;
-    for (const ip in ephemeralSockets) {
-      const { session, userNumber } = ephemeralSockets[ip];
-      if (userNumber === receiveFromIndex) {
-        session.sendMessage(oscPath, safeValue);
-        sent = true;
-        break;
-      }
-    }
-    if (!sent) {
-      Max.post(`⚠️ Receiver ${receiveFromIndex} not connected`);
-    }
-  }
-});
-
-// Advanced mod send (for backward compatibility and explicit control):
-// send_mod <mod_index> <value>              → Uses stored receiveFromIndex, mySenderIndex in path
-// send_mod <receiver_index> <mod_index> <value> → Explicit receiver, mySenderIndex in path
-// OSC format: /<mySenderIndex>/<mod_index> <value>
-Max.addHandler('send_mod', (...args) => {
-  let receiverIndex, modIndex, value;
-
-  if (args.length === 2) {
-    // Two args: send_mod <mod_index> <value>
-    receiverIndex = receiveFromIndex;
-    modIndex = args[0];
-    value = args[1];
-  } else if (args.length === 3) {
-    // Three args: send_mod <receiver_index> <mod_index> <value>
-    receiverIndex = args[0];
-    modIndex = args[1];
-    value = args[2];
-  } else {
-    Max.post(`⚠️ send_mod requires 2 or 3 arguments, got ${args.length}`);
-    return;
-  }
-
-  // Ensure modIndex has 'm' prefix
-  const mod = String(modIndex).startsWith('m') ? modIndex : `m${modIndex}`;
-
-  // OSC path uses mySenderIndex (who I am), not receiver
-  const oscPath = `/${mySenderIndex}/${mod}`;
-  const safeValue = sanitizeOscArgs([value]);
-
-  // Check for loopback: sending to myself
-  if (mySenderIndex === receiverIndex) {
-    // Loopback: route internally without network send
-    routeIncomingOsc(oscPath, safeValue[0]);
-    return;
-  }
-
-  if (isClient()) {
-    // Client mode: send to server (server will route to specific user)
-    sendClientMessage(oscPath, safeValue);
-  } else {
-    // Server mode: send to specific user by receiver index
-    let sent = false;
-    for (const ip in ephemeralSockets) {
-      const { session, userNumber } = ephemeralSockets[ip];
-      if (userNumber === receiverIndex) {
-        session.sendMessage(oscPath, safeValue);
-        sent = true;
-        break;
-      }
-    }
-    if (!sent) {
-      Max.post(`⚠️ Receiver ${receiverIndex} not connected`);
     }
   }
 });

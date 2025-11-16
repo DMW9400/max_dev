@@ -298,13 +298,20 @@ function routeIncomingOsc(oscPath, value) {
 
   // Filter by targetReceiverIndex - only process messages from the sender we're listening to
   if (senderIndex !== targetReceiverIndex) {
+    // Silently reject messages not from our designated sender
     return;
   }
+
+  // Only log ACCEPTED messages (from designated receive index) if debug is enabled
+  const debugEnabled = global.getOSCDebugState && global.getOSCDebugState();
 
   // Handle bundled message: /mods with array of 4 values
   if (modIndex === 'mods') {
     // Value should be an array [v1, v2, v3, v4]
     if (Array.isArray(value) && value.length === 4) {
+      if (debugEnabled) {
+        Max.post(`[RCV] From sender ${senderIndex}: m1=${value[0].toFixed(3)} m2=${value[1].toFixed(3)} m3=${value[2].toFixed(3)} m4=${value[3].toFixed(3)}`);
+      }
       // Send to outlet 0 with format: "m1 value", "m2 value", etc.
       Max.outlet(0, 'm1', value[0]);
       Max.outlet(0, 'm2', value[1]);
@@ -320,6 +327,9 @@ function routeIncomingOsc(oscPath, value) {
     return;
   }
 
+  if (debugEnabled) {
+    Max.post(`[RCV] From sender ${senderIndex}: ${modIndex}=${value.toFixed(3)}`);
+  }
   // Output: modIndex value (e.g., "m1 0.543") to outlet 0
   // Max can route with [route m1 m2 m3 m4]
   Max.outlet(0, modIndex, value);
