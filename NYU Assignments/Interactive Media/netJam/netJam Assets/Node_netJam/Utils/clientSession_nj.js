@@ -59,8 +59,6 @@ class clientSession {
           oscPath = '/' + oscPath;
         }
 
-        Max.post(`Received OSC:`, oscPath, oscMsg.args);
-
         // Parse and route based on message type
         const pathParts = oscPath.split('/').filter(p => p.length > 0);
 
@@ -72,7 +70,6 @@ class clientSession {
           if (this.routingCallback) {
             this.routingCallback(oscPath, value);
           }
-          Max.post(`📨 OSC received: ${oscPath} ${value}`);
         }
         // Route macro messages to macroAPI
         else if (oscPath.startsWith('/macro')) {

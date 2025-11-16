@@ -184,7 +184,6 @@ function connectAsClient(serverHost, serverPort, localPort) {
       const dv = new DataView(data.buffer, data.byteOffset, data.byteLength);
       oscMsg = new OSC.Message();
       oscMsg.unpack(dv);
-      Max.post('Client received OSC:', oscMsg.address, oscMsg.args);
 
       // Parse and route based on message type
       const oscPath = String(oscMsg.address);
@@ -196,7 +195,6 @@ function connectAsClient(serverHost, serverPort, localPort) {
         const value = oscMsg.args[0];
         // Route directly internally (filter & map to outlets)
         routeIncomingOsc(oscPath, value);
-        Max.post(`📨 Client OSC received: ${oscPath} ${value}`);
       }
       // Route macro messages
       else if (oscPath.startsWith('/macro')) {
@@ -262,7 +260,6 @@ function getMyUserNumber() {
  */
 function setTargetReceiver(index) {
   targetReceiverIndex = index;
-  Max.post(`🎯 Target receiver set to: ${targetReceiverIndex}`);
 }
 
 /**
@@ -282,7 +279,6 @@ function routeIncomingOsc(oscPath, value) {
   const pathParts = oscPath.split('/').filter(p => p.length > 0);
 
   if (pathParts.length < 2) {
-    Max.post(`⚠️ Invalid OSC path: ${oscPath}`);
     return;
   }
 
@@ -291,19 +287,16 @@ function routeIncomingOsc(oscPath, value) {
 
   // Validate sender index
   if (isNaN(senderIndex) || senderIndex < 0 || senderIndex > 3) {
-    Max.post(`⚠️ Invalid sender index: ${senderIndex}`);
     return;
   }
 
   // Filter by targetReceiverIndex - only process messages from the sender we're listening to
   if (senderIndex !== targetReceiverIndex) {
-    Max.post(`⏭️ Filtered: sender ${senderIndex} doesn't match target ${targetReceiverIndex}`);
     return;
   }
 
   // Validate mod index (m1-m4)
   if (!modIndex.match(/^m[1-4]$/)) {
-    Max.post(`⚠️ Invalid mod index: ${modIndex}`);
     return;
   }
 
@@ -313,7 +306,6 @@ function routeIncomingOsc(oscPath, value) {
 
   // Send to appropriate outlet
   Max.outlet(outletIndex, value);
-  Max.post(`🎛️ Routed: sender ${senderIndex}, ${modIndex} → outlet ${outletIndex}, value ${value}`);
 }
 
 /**

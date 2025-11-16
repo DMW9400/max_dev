@@ -4,6 +4,9 @@ const Max = require('max-api');
 const OSC = require('osc-js');
 const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSockets, sendClientMessage, isClient, getMyUserNumber, setTargetReceiver, getTargetReceiver } = require('./Utils/networkUtils_nj');
 
+// Declare 4 outlets for m1-m4 (outlets 0-3 output float values)
+Max.outlets = 4;
+
 let serverRunning = false;
 let serverStopping = false;
 
@@ -203,7 +206,38 @@ Max.addHandler('get_my_user_number', () => {
   }
 });
 
-// Send mod message with flexible arguments:
+// Simple mod send: sendMod <mod_index> <value>
+// Automatically uses mySenderIndex (who I am) and receiveFromIndex (who to send to)
+// OSC format: /<mySenderIndex>/<mod_index> <value>
+Max.addHandler('sendMod', (modIndex, value) => {
+  // Ensure modIndex has 'm' prefix
+  const mod = String(modIndex).startsWith('m') ? modIndex : `m${modIndex}`;
+
+  // OSC path uses mySenderIndex (who I am)
+  const oscPath = `/${mySenderIndex}/${mod}`;
+  const safeValue = sanitizeOscArgs([value]);
+
+  if (isClient()) {
+    // Client mode: send to server (server will route to receiveFromIndex)
+    sendClientMessage(oscPath, safeValue);
+  } else {
+    // Server mode: send to specific user by receiveFromIndex
+    let sent = false;
+    for (const ip in ephemeralSockets) {
+      const { session, userNumber } = ephemeralSockets[ip];
+      if (userNumber === receiveFromIndex) {
+        session.sendMessage(oscPath, safeValue);
+        sent = true;
+        break;
+      }
+    }
+    if (!sent) {
+      Max.post(`⚠️ Receiver ${receiveFromIndex} not connected`);
+    }
+  }
+});
+
+// Advanced mod send (for backward compatibility and explicit control):
 // send_mod <mod_index> <value>              → Uses stored receiveFromIndex, mySenderIndex in path
 // send_mod <receiver_index> <mod_index> <value> → Explicit receiver, mySenderIndex in path
 // OSC format: /<mySenderIndex>/<mod_index> <value>
@@ -232,8 +266,6 @@ Max.addHandler('send_mod', (...args) => {
   const oscPath = `/${mySenderIndex}/${mod}`;
   const safeValue = sanitizeOscArgs([value]);
 
-  Max.post(`Sending mod: ${oscPath} → receiver ${receiverIndex}`, safeValue[0]);
-
   if (isClient()) {
     // Client mode: send to server (server will route to specific user)
     sendClientMessage(oscPath, safeValue);
@@ -244,7 +276,6 @@ Max.addHandler('send_mod', (...args) => {
       const { session, userNumber } = ephemeralSockets[ip];
       if (userNumber === receiverIndex) {
         session.sendMessage(oscPath, safeValue);
-        Max.post(`✓ Sent ${oscPath} ${safeValue[0]} to user ${userNumber}`);
         sent = true;
         break;
       }
@@ -273,6 +304,5 @@ Max.addHandler('broadcast_mod', (modIndex, value) => {
   for (const ip in ephemeralSockets) {
     const { session, userNumber } = ephemeralSockets[ip];
     session.sendMessage(oscPath, safeValue);
-    Max.post(`✓ Sent ${oscPath} ${safeValue[0]} to user ${userNumber}`);
   }
 });
