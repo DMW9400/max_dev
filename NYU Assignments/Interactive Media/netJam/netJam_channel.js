@@ -205,6 +205,11 @@ function setDefault(){
     outlet(3, paramDefault);
 }
 
+function clearParamID(){
+    // Clear the live.modulate~ parameter ID to prevent save errors
+    outlet(2, 'id', 0);
+}
+
 function initGate(value){
     initGateState = value;
 }
