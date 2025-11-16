@@ -3,11 +3,12 @@ const OSC = require('osc-js');
 const Max = require('max-api');
 const dataFunctions = require('./dataFunctions_nj');
 class clientSession {
-    constructor(clientIP, nodePort, clientPort, socket) {
+    constructor(clientIP, nodePort, clientPort, socket, userNumber) {
       this.clientIP = clientIP;
       this.nodePort = nodePort;
       this.clientPort = clientPort;
       this.socket = socket;
+      this.userNumber = userNumber; // User number 0-3
       this.tab = null;
       this.page = 0;
     }
@@ -39,13 +40,22 @@ class clientSession {
         return;
       }
       try {
-        Max.post('received OSC message:', oscMsg.address, oscMsg.args);
+        // Transform OSC path to include user number prefix
+        // Example: /mod1/filter -> /0/mod1/filter (for user 0)
+        let transformedPath = oscMsg.address;
+        if (!transformedPath.startsWith('/')) {
+          transformedPath = '/' + transformedPath;
+        }
+        // Prepend user number to path
+        transformedPath = `/${this.userNumber}${transformedPath}`;
+
+        Max.post(`User ${this.userNumber} OSC:`, transformedPath, oscMsg.args);
 
         // Route macro messages to macroAPI, everything else to mixer
         if (String(oscMsg.address).startsWith('/macro')) {
-          Max.outlet('v8', 'macro_', String(oscMsg.address), oscMsg.args[0]);
+          Max.outlet('v8', 'macro_', transformedPath, oscMsg.args[0]);
         } else {
-          Max.outlet('v8', 'mixer_', String(oscMsg.address), oscMsg.args[0]);
+          Max.outlet('v8', 'mixer_', transformedPath, oscMsg.args[0]);
         }
       } catch (err) {
         Max.post(`Error routing OSC message => ${err.message}`);

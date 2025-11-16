@@ -11,7 +11,21 @@ let localIP = '';
 let bonjour = null;
 let bonjourService = null;
 
+// User number management (0-3)
+const MAX_USERS = 4;
+let availableUserNumbers = [0, 1, 2, 3];
+let userNumberToIP = {}; // Maps user number -> IP address
+
+// Client mode variables
+let isClient = false;
+let clientSocket = null;
+let clientServerIP = null;
+let clientServerPort = null;
+let clientListeningPort = null;
+let discoveryTimeout = null;
+
 const dataMode = 'utf8';
+const DISCOVERY_TIMEOUT_MS = 2000; // Wait 2 seconds for Bonjour discovery
 
 /** 
  * Returns the first private (RFC1918) or non-internal IPv4 address, if any.
@@ -51,13 +65,223 @@ function isPrivateIPv4(ip) {
 }
 
 /**
+ * Discover existing servers via Bonjour.
+ * Returns a Promise that resolves with server info or null if none found.
+ */
+function discoverServer() {
+  return new Promise((resolve) => {
+    Max.post('🔍 Searching for existing servers via Bonjour...');
+
+    if (!bonjour) {
+      bonjour = Bonjour();
+    }
+
+    const browser = bonjour.find({ type: 'myableton', protocol: 'udp' });
+    let foundServer = null;
+
+    browser.on('up', (service) => {
+      // Ignore our own service if we're also publishing
+      const serviceIP = service.referer?.address || service.host;
+      Max.post(`📡 Found server: ${service.name} at ${serviceIP}:${service.port}`);
+
+      if (!foundServer) {
+        foundServer = {
+          name: service.name,
+          host: serviceIP,
+          port: service.port
+        };
+      }
+    });
+
+    // Wait for discovery timeout
+    setTimeout(() => {
+      browser.stop();
+      if (foundServer) {
+        Max.post(`✓ Will connect to server at ${foundServer.host}:${foundServer.port}`);
+      } else {
+        Max.post('✗ No existing servers found - will start as server');
+      }
+      resolve(foundServer);
+    }, DISCOVERY_TIMEOUT_MS);
+  });
+}
+
+/**
+ * Connect to discovered server as a client.
+ * Performs the handshake protocol: HELLO_IPAD -> EPHEMERAL_PORT -> HELLO_NODE
+ */
+function connectAsClient(serverHost, serverPort, localPort) {
+  Max.post(`🔌 Connecting to server at ${serverHost}:${serverPort} as client...`);
+
+  isClient = true;
+  clientServerIP = serverHost;
+  clientServerPort = serverPort;
+
+  // Create client socket for listening
+  clientSocket = dgram.createSocket('udp4');
+
+  clientSocket.on('error', (err) => {
+    Max.post(`Client socket error: ${err.message}`);
+  });
+
+  clientSocket.on('message', (data, rinfo) => {
+    const msgString = data.toString('utf8').trim();
+
+    // Handle EPHEMERAL_PORT response
+    if (msgString.startsWith('EPHEMERAL_PORT')) {
+      const parts = msgString.split(' ');
+      if (parts.length === 2) {
+        const ephemeralPort = parseInt(parts[1], 10);
+        if (!isNaN(ephemeralPort)) {
+          Max.post(`✓ Received ephemeral port: ${ephemeralPort}`);
+          clientServerPort = ephemeralPort; // Update to use ephemeral port
+
+          // Send HELLO_NODE with our listening port
+          const helloNode = `HELLO_NODE ${clientListeningPort}`;
+          clientSocket.send(helloNode, 0, helloNode.length, ephemeralPort, serverHost, (err) => {
+            if (err) {
+              Max.post(`Error sending HELLO_NODE: ${err.message}`);
+            } else {
+              Max.post(`✓ Sent HELLO_NODE with port ${clientListeningPort}`);
+              Max.post('✓ Client connected successfully!');
+              Max.outlet('client_connected', serverHost, ephemeralPort);
+            }
+          });
+        }
+      }
+      return;
+    }
+
+    // Handle SERVER_FULL rejection
+    if (msgString === 'SERVER_FULL') {
+      Max.post('⚠️ Server is full (4/4 users) - connection rejected');
+      Max.outlet('connection_rejected', 'SERVER_FULL');
+      stopClient();
+      return;
+    }
+
+    // Handle OSC messages from server
+    let oscMsg;
+    try {
+      const dv = new DataView(data.buffer, data.byteOffset, data.byteLength);
+      oscMsg = new OSC.Message();
+      oscMsg.unpack(dv);
+      Max.post('Client received OSC:', oscMsg.address, oscMsg.args);
+
+      // Route to Max outlets
+      if (String(oscMsg.address).startsWith('/macro')) {
+        Max.outlet('v8', 'macro_', String(oscMsg.address), oscMsg.args[0]);
+      } else {
+        Max.outlet('v8', 'mixer_', String(oscMsg.address), oscMsg.args[0]);
+      }
+    } catch (err) {
+      // Not OSC, might be other message
+      Max.post(`Client received non-OSC: ${msgString}`);
+    }
+  });
+
+  // Bind to local port
+  clientSocket.bind(localPort, '0.0.0.0', () => {
+    clientListeningPort = clientSocket.address().port;
+    Max.post(`Client listening on port ${clientListeningPort}`);
+
+    // Send initial HELLO_IPAD to server
+    const helloMsg = 'HELLO_IPAD';
+    clientSocket.send(helloMsg, 0, helloMsg.length, serverPort, serverHost, (err) => {
+      if (err) {
+        Max.post(`Error sending HELLO_IPAD: ${err.message}`);
+      } else {
+        Max.post(`✓ Sent HELLO_IPAD to ${serverHost}:${serverPort}`);
+      }
+    });
+  });
+}
+
+/**
+ * Stop client mode and cleanup
+ */
+function stopClient() {
+  if (clientSocket) {
+    try {
+      clientSocket.close();
+      clientSocket = null;
+      Max.post('Client socket closed');
+    } catch (err) {
+      Max.post(`Error closing client socket: ${err.message}`);
+    }
+  }
+  isClient = false;
+  clientServerIP = null;
+  clientServerPort = null;
+  clientListeningPort = null;
+  Max.outlet('client_disconnected');
+}
+
+/**
+ * Send OSC message from client to server
+ */
+function sendClientMessage(path, args) {
+  if (!isClient || !clientSocket || !clientServerIP || !clientServerPort) {
+    Max.post('⚠️ Not connected as client - cannot send message');
+    return;
+  }
+
+  let message;
+  try {
+    message = new OSC.Message(path, ...args);
+  } catch (err) {
+    Max.post(`Error constructing OSC Message => ${err.message}`);
+    return;
+  }
+
+  let binary;
+  try {
+    binary = message.pack();
+  } catch (err) {
+    Max.post(`Error packing OSC => ${err.message}`);
+    return;
+  }
+
+  clientSocket.send(Buffer.from(binary), 0, binary.byteLength, clientServerPort, clientServerIP, (err) => {
+    if (err) {
+      Max.post(`Error sending to server => ${err.message}`);
+    } else {
+      Max.post(`Client sent: ${path}`, args);
+    }
+  });
+}
+
+/**
+ * Smart start: Discovers existing servers first, connects as client if found,
+ * otherwise starts as server. This is the main entry point.
+ */
+async function startWithDiscovery(port, globalIP) {
+  Max.post(`🚀 Starting with auto-discovery on port ${port}...`);
+
+  // First, try to discover existing servers
+  const server = await discoverServer();
+
+  if (server) {
+    // Found a server - connect as client
+    connectAsClient(server.host, server.port, 0); // 0 = ephemeral port for client
+  } else {
+    // No server found - start as server
+    startAsServer(port, globalIP);
+  }
+}
+
+/**
  * Start our main handshake server, binding to `port` at `globalIP`.
  * If port = 9999 and globalIP = e.g. '192.168.1.226', we do mainServer.bind(9999, '192.168.1.226').
  *
  * After successful bind => we publish Bonjour on that port.
  */
-function startHost(port, globalIP) {
-  Max.post(`startHost called with port=${port}, IP=${globalIP}`);
+function startAsServer(port, globalIP) {
+  Max.post(`🖥️  Starting as SERVER on ${globalIP}:${port}`);
+
+  // Reset user numbers and connections
+  availableUserNumbers = [0, 1, 2, 3];
+  userNumberToIP = {};
 
   for (const key in ephemeralSockets) {
     delete ephemeralSockets[key];
@@ -148,13 +372,22 @@ function startHost(port, globalIP) {
 }
 
 function stopHost(onStopped) {
+  // Handle client mode
+  if (isClient) {
+    Max.post('Stopping client mode...');
+    stopClient();
+    if (onStopped) onStopped();
+    return;
+  }
+
+  // Handle server mode
   // if no mainServer or it's already closed, just do final steps
   if (!mainServer) {
     unpublishBonjour(() => {
       for (const key in ephemeralSockets) {
         delete ephemeralSockets[key];
       }
-      if (onStopped) onStopped(); 
+      if (onStopped) onStopped();
     });
     return;
   }
@@ -222,11 +455,28 @@ function unpublishBonjour(cb) {
  * Create ephemeral socket for the iPad client and send EPHEMERAL_PORT.
  */
 function createEphemeralSocketForClient(clientIP, mainServer, clientPort, clientAddress) {
+  // Check if we've reached max capacity
+  if (availableUserNumbers.length === 0) {
+    Max.post(`⚠️ Connection rejected: Maximum ${MAX_USERS} users already connected`);
+    const rejectMsg = 'SERVER_FULL';
+    mainServer.send(rejectMsg, 0, rejectMsg.length, clientPort, clientAddress, (err) => {
+      if (err) {
+        Max.post(`Error sending rejection => ${err.message}`);
+      }
+    });
+    return;
+  }
+
+  // Assign next available user number
+  const userNumber = availableUserNumbers.shift();
+  userNumberToIP[userNumber] = clientIP;
+
   const socket = dgram.createSocket('udp4');
 
   socket.on('error', (err) => {
     Max.post(`Ephemeral socket error for ${clientIP}: ${err.message}`);
     socket.close();
+    releaseUserNumber(userNumber, clientIP);
     delete ephemeralSockets[clientIP];
   });
 
@@ -245,15 +495,36 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
       }
     });
 
-    const session = new clientSession(clientIP, nodePort, clientPort, socket);
-    Max.post('new clientSession created', session)
+    const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber);
+    Max.post(`✓ User ${userNumber} connected (${clientIP})`);
+
+    // Notify Max that a user has connected
+    Max.outlet('user_status', 'connected', userNumber, clientIP);
 
     socket.on('message', (data, rinfo) => {
       session.handleMessage(data, rinfo);
-    })
+    });
 
-    ephemeralSockets[clientIP] = { socket, session };
+    socket.on('close', () => {
+      Max.post(`User ${userNumber} socket closed`);
+      releaseUserNumber(userNumber, clientIP);
+    });
+
+    ephemeralSockets[clientIP] = { socket, session, userNumber };
   });
+}
+
+/**
+ * Release a user number back to the available pool
+ */
+function releaseUserNumber(userNumber, clientIP) {
+  if (userNumberToIP[userNumber] === clientIP) {
+    delete userNumberToIP[userNumber];
+    availableUserNumbers.push(userNumber);
+    availableUserNumbers.sort(); // Keep sorted
+    Max.post(`✓ User ${userNumber} disconnected - slot available`);
+    Max.outlet('user_status', 'disconnected', userNumber, clientIP);
+  }
 }
 
 /**
@@ -284,9 +555,12 @@ function sanitizeOscArgs(args) {
 module.exports = {
   getLocalIpAddress,
   isPrivateIPv4,
-  startHost,
+  startHost: startWithDiscovery, // Main entry point with auto-discovery
+  startAsServer, // Force server mode
   stopHost,
   createEphemeralSocketForClient,
   sanitizeOscArgs,
-  ephemeralSockets
+  ephemeralSockets,
+  sendClientMessage, // For sending OSC from client to server
+  isClient: () => isClient // Getter to check if running as client
 };
