@@ -150,14 +150,48 @@ Max.addHandler('getUserStatus', () => {
 });
 
 // Set my sender/host index (who I am when sending messages)
+// Also claims this user number on the server
 Max.addHandler('setHost', (index) => {
   mySenderIndex = parseInt(index, 10);
   if (mySenderIndex < 0 || mySenderIndex > 3) {
     Max.post(`⚠️ Host index must be 0-3, got ${index}`);
     mySenderIndex = 0;
+    return;
+  }
+
+  Max.post(`✓ Requesting user number: ${mySenderIndex}`);
+
+  // If we're a client, send user number claim request to server
+  if (isClient()) {
+    const { getClientSocket, getClientServerIP, getClientServerPort } = require('./Utils/networkUtils_nj');
+    const claimMsg = `CLAIM_USER_NUMBER ${mySenderIndex}`;
+
+    const socket = getClientSocket();
+    const serverIP = getClientServerIP();
+    const serverPort = getClientServerPort();
+
+    if (socket && serverIP && serverPort) {
+      socket.send(claimMsg, 0, claimMsg.length, serverPort, serverIP, (err) => {
+        if (err) {
+          Max.post(`⚠️ Error claiming user number: ${err.message}`);
+        } else {
+          Max.post(`→ Sent user number claim to server: ${mySenderIndex}`);
+        }
+      });
+    } else {
+      Max.post(`⚠️ Not connected to server - cannot claim user number`);
+    }
   } else {
-    Max.post(`✓ My sender index set to: ${mySenderIndex}`);
-    Max.outlet('host_changed', mySenderIndex);
+    // Server mode: claim user number locally
+    const { claimUserNumber } = require('./Utils/networkUtils_nj');
+    const result = claimUserNumber(mySenderIndex);
+
+    if (result.success) {
+      Max.post(`✓ User number ${mySenderIndex} claimed (server mode)`);
+      Max.outlet('host_changed', mySenderIndex);
+    } else {
+      Max.post(`⚠️ Cannot claim user number ${mySenderIndex}: ${result.reason}`);
+    }
   }
 });
 
