@@ -189,9 +189,15 @@ function connectAsClient(serverHost, serverPort, localPort) {
       const oscPath = String(oscMsg.address);
       const pathParts = oscPath.split('/').filter(p => p.length > 0);
 
-      // Check for mod messages: /<sender_index>/m<1-4>
+      // Check for bundled mod message: /<sender_index>/mods
+      // Example: /0/mods with 4 float args
+      if (pathParts.length >= 2 && pathParts[1] === 'mods') {
+        // Route directly internally (filter & map to outlets)
+        routeIncomingOsc(oscPath, oscMsg.args);
+      }
+      // Check for single mod messages: /<sender_index>/m<1-4>
       // Example: /0/m4 0.543307
-      if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
+      else if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
         const value = oscMsg.args[0];
         // Route directly internally (filter & map to outlets)
         routeIncomingOsc(oscPath, value);
@@ -271,11 +277,11 @@ function getTargetReceiver() {
 
 /**
  * Route incoming OSC internally
- * Filters by targetReceiverIndex and routes to outlets 0-3
- * Format: /<sender_index>/<mod_index> <value>
+ * Filters by targetReceiverIndex and routes to outlets
+ * Format: /<sender_index>/<mod_index> <value>  OR  /<sender_index>/mods <v1> <v2> <v3> <v4>
  */
 function routeIncomingOsc(oscPath, value) {
-  // Parse OSC path: /<sender>/<mod>
+  // Parse OSC path: /<sender>/<mod> or /<sender>/mods
   const pathParts = oscPath.split('/').filter(p => p.length > 0);
 
   if (pathParts.length < 2) {
@@ -295,17 +301,27 @@ function routeIncomingOsc(oscPath, value) {
     return;
   }
 
+  // Handle bundled message: /mods with array of 4 values
+  if (modIndex === 'mods') {
+    // Value should be an array [v1, v2, v3, v4]
+    if (Array.isArray(value) && value.length === 4) {
+      Max.outlet('m1', value[0]);
+      Max.outlet('m2', value[1]);
+      Max.outlet('m3', value[2]);
+      Max.outlet('m4', value[3]);
+    }
+    return;
+  }
+
+  // Handle single mod message: /m1, /m2, etc.
   // Validate mod index (m1-m4)
   if (!modIndex.match(/^m[1-4]$/)) {
     return;
   }
 
-  // Map mod to outlet: m1→0, m2→1, m3→2, m4→3
-  const modNumber = parseInt(modIndex.substring(1), 10);
-  const outletIndex = modNumber - 1;
-
-  // Send to appropriate outlet
-  Max.outlet(outletIndex, value);
+  // Output: modIndex value (e.g., "m1 0.543")
+  // Max can route with [route m1 m2 m3 m4]
+  Max.outlet(modIndex, value);
 }
 
 /**
@@ -377,7 +393,17 @@ function startAsServer(port, globalIP) {
   for (const key in ephemeralSockets) {
     delete ephemeralSockets[key];
   }
-  // If there's an existing server or Bonjour instance, forcibly stop them 
+
+  // Cleanup function that properly waits for async operations
+  const cleanupAndStart = () => {
+    // Create new bonjour instance (old one destroyed in unpublishBonjour)
+    bonjour = Bonjour();
+
+    // Continue with server creation
+    createMainServer(port, globalIP);
+  };
+
+  // If there's an existing server or Bonjour instance, forcibly stop them
   if (mainServer) {
     try {
       mainServer.close();
@@ -388,33 +414,21 @@ function startAsServer(port, globalIP) {
     }
   }
 
-  if (bonjourService) {
-    try {
-      bonjourService.stop(() => {
-        Max.post('Stopped previous Bonjour service in startHost');
-      });
-      bonjourService = null;
-    } catch (err) {
-      Max.post(`Error stopping bonjourService: ${err.message}`);
-    }
+  // Properly cleanup Bonjour before creating new instance
+  if (bonjourService || bonjour) {
+    unpublishBonjour(() => {
+      Max.post('✓ Previous Bonjour cleaned up, starting new server');
+      cleanupAndStart();
+    });
+  } else {
+    cleanupAndStart();
   }
+}
 
-  if (bonjour) {
-    try {
-      bonjour.unpublishAll(() => {
-        bonjour.destroy();
-        bonjour = null;
-        Max.post('Destroyed previous Bonjour instance in startHost');
-      });
-    } catch (err) {
-      Max.post(`Error destroying previous Bonjour: ${err.message}`);
-      bonjour = null;
-    }
-  }
-
-  // Create new bonjour
-  bonjour = Bonjour();
-
+/**
+ * Helper function to create the main server socket
+ */
+function createMainServer(port, globalIP) {
   // Create the main server
   mainServer = dgram.createSocket('udp4');
 

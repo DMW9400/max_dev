@@ -35,7 +35,32 @@ function formatIDarr(idArr){
 }
 
 function getDevices(trackIndex){
+    // Safety checks: ensure Global data exists (silent - this is expected before user selects tracks)
+    if (!t || !t.IDs || !Array.isArray(t.IDs)) {
+        devIDs = []
+        devNames = []
+        outputDevices();
+        return;
+    }
+
+    // Validate trackIndex (silent - expected if user hasn't selected valid track)
+    if (typeof trackIndex !== 'number' || trackIndex < 0 || trackIndex >= t.IDs.length) {
+        devIDs = []
+        devNames = []
+        outputDevices();
+        return;
+    }
+
     parentID = t.IDs[trackIndex]
+
+    // Validate parentID (silent - expected during initialization)
+    if (!parentID || parentID <= 0) {
+        devIDs = []
+        devNames = []
+        outputDevices();
+        return;
+    }
+
     devIDs = []
     devNames = []
     parentTrack = new LiveAPI('id ' + parentID);
@@ -47,7 +72,12 @@ function getDevices(trackIndex){
             canHaveChains = currentDev.get('can_have_chains')
             canHaveDrumPads = currentDev.get('can_have_drum_pads')
             currentName = currentDev.get('name')
-            if(currentName != 'hapticOmni' && currentName != 'mixer_haptic' && currentName != 'MTS-ESP MIDI Client MPE'){
+            // Filter out excluded devices
+            var isExcluded = currentName == 'hapticOmni' ||
+                             currentName == 'mixer_haptic' ||
+                             currentName == 'MTS-ESP MIDI Client MPE' ||
+                             (currentName && currentName.toString().indexOf('netJam') !== -1);
+            if(!isExcluded){
                 devIDs.push(value)
                 devNames.push(currentName)
             }
@@ -58,7 +88,12 @@ function getDevices(trackIndex){
                     chainDevs = formatIDarr(currentChain.get('devices'))
                     chainDevs.forEach(function (value, i){
                         chainDevName = new LiveAPI('id ' + value).get('name')
-                        if(chainDevName != 'hapticOmni' && chainDevName != 'mixer_haptic'&& currentName != 'MTS-ESP MIDI Client MPE' ){
+                        // Filter out excluded devices from chains
+                        var isChainExcluded = chainDevName == 'hapticOmni' ||
+                                              chainDevName == 'mixer_haptic' ||
+                                              chainDevName == 'MTS-ESP MIDI Client MPE' ||
+                                              (chainDevName && chainDevName.toString().indexOf('netJam') !== -1);
+                        if(!isChainExcluded){
                             devIDs.push(value)
                             devNames.push(chainDevName)
                         }
@@ -84,7 +119,21 @@ function outputDevices(){
 
 function getParams(devIndex){
     devParams = [];
+
+    // Validate devIndex (silent - expected if no devices loaded yet)
+    if (typeof devIndex !== 'number' || devIndex < 0 || devIndex >= devIDs.length) {
+        outlet(1, 'clear');
+        return;
+    }
+
     var devID = devIDs[devIndex];
+
+    // Validate devID (silent - expected during initialization)
+    if (!devID || devID <= 0) {
+        outlet(1, 'clear');
+        return;
+    }
+
     var dev = new LiveAPI('id ' + devID);
     var params = formatIDarr(dev.get("parameters"));
     outlet(1, 'clear');
@@ -103,7 +152,18 @@ function getParams(devIndex){
 }
 
 function paramSelect(index){
+    // Validate index (silent - expected if no params loaded yet)
+    if (typeof index !== 'number' || index < 0 || index >= devParams.length) {
+        return;
+    }
+
     var paramID = devParams[index];
+
+    // Validate paramID (silent - expected during initialization)
+    if (!paramID || paramID <= 0) {
+        return;
+    }
+
     selParam = new LiveAPI('id ' + paramID);
     paramLow = selParam.get('min');
     paramHigh = selParam.get('max');

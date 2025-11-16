@@ -62,9 +62,17 @@ class clientSession {
         // Parse and route based on message type
         const pathParts = oscPath.split('/').filter(p => p.length > 0);
 
-        // Check for mod messages: /<sender_index>/m<1-4>
+        // Check for bundled mod message: /<sender_index>/mods
+        // Example: /0/mods with 4 float args
+        if (pathParts.length >= 2 && pathParts[1] === 'mods') {
+          // Call routing callback with all args for internal filtering and outlet mapping
+          if (this.routingCallback) {
+            this.routingCallback(oscPath, oscMsg.args);
+          }
+        }
+        // Check for single mod messages: /<sender_index>/m<1-4>
         // Example: /0/m4 0.543307
-        if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
+        else if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
           const value = oscMsg.args[0];
           // Call routing callback for internal filtering and outlet mapping
           if (this.routingCallback) {

@@ -2,10 +2,9 @@
 const dgram = require('node:dgram');
 const Max = require('max-api');
 const OSC = require('osc-js');
-const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSockets, sendClientMessage, isClient, getMyUserNumber, setTargetReceiver, getTargetReceiver } = require('./Utils/networkUtils_nj');
+const { startHost, getLocalIpAddress, stopHost, sanitizeOscArgs, ephemeralSockets, sendClientMessage, isClient, getMyUserNumber, setTargetReceiver, getTargetReceiver, routeIncomingOsc } = require('./Utils/networkUtils_nj');
 
-// Declare 4 outlets for m1-m4 (outlets 0-3 output float values)
-Max.outlets = 4;
+// Single outlet - outputs "m1 0.543" format for Max routing
 
 let serverRunning = false;
 let serverStopping = false;
@@ -206,6 +205,46 @@ Max.addHandler('get_my_user_number', () => {
   }
 });
 
+// Bundled mod send: sendModBundle <val1> <val2> <val3> <val4>
+// Sends all 4 oscillator values in a single OSC message (4x more efficient!)
+// OSC format: /<mySenderIndex>/mods <val1> <val2> <val3> <val4>
+// From Max: [pak f f f f] -> sendModBundle $1 $2 $3 $4
+Max.addHandler('sendModBundle', (val1, val2, val3, val4) => {
+  // OSC path for bundled mods
+  const oscPath = `/${mySenderIndex}/mods`;
+  const safeValues = sanitizeOscArgs([val1, val2, val3, val4]);
+
+  // Check for loopback: sending to myself
+  if (mySenderIndex === receiveFromIndex) {
+    // Loopback: route internally without network send
+    // Output each value to its respective outlet
+    Max.outlet('m1', safeValues[0]);
+    Max.outlet('m2', safeValues[1]);
+    Max.outlet('m3', safeValues[2]);
+    Max.outlet('m4', safeValues[3]);
+    return;
+  }
+
+  if (isClient()) {
+    // Client mode: send to server
+    sendClientMessage(oscPath, safeValues);
+  } else {
+    // Server mode: send to specific user by receiveFromIndex
+    let sent = false;
+    for (const ip in ephemeralSockets) {
+      const { session, userNumber } = ephemeralSockets[ip];
+      if (userNumber === receiveFromIndex) {
+        session.sendMessage(oscPath, safeValues);
+        sent = true;
+        break;
+      }
+    }
+    if (!sent) {
+      Max.post(`⚠️ Receiver ${receiveFromIndex} not connected`);
+    }
+  }
+});
+
 // Simple mod send: sendMod <mod_index> <value>
 // Automatically uses mySenderIndex (who I am) and receiveFromIndex (who to send to)
 // OSC format: /<mySenderIndex>/<mod_index> <value>
@@ -216,6 +255,13 @@ Max.addHandler('sendMod', (modIndex, value) => {
   // OSC path uses mySenderIndex (who I am)
   const oscPath = `/${mySenderIndex}/${mod}`;
   const safeValue = sanitizeOscArgs([value]);
+
+  // Check for loopback: sending to myself
+  if (mySenderIndex === receiveFromIndex) {
+    // Loopback: route internally without network send
+    routeIncomingOsc(oscPath, safeValue[0]);
+    return;
+  }
 
   if (isClient()) {
     // Client mode: send to server (server will route to receiveFromIndex)
@@ -265,6 +311,13 @@ Max.addHandler('send_mod', (...args) => {
   // OSC path uses mySenderIndex (who I am), not receiver
   const oscPath = `/${mySenderIndex}/${mod}`;
   const safeValue = sanitizeOscArgs([value]);
+
+  // Check for loopback: sending to myself
+  if (mySenderIndex === receiverIndex) {
+    // Loopback: route internally without network send
+    routeIncomingOsc(oscPath, safeValue[0]);
+    return;
+  }
 
   if (isClient()) {
     // Client mode: send to server (server will route to specific user)
