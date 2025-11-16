@@ -217,11 +217,11 @@ Max.addHandler('sendModBundle', (val1, val2, val3, val4) => {
   // Check for loopback: sending to myself
   if (mySenderIndex === receiveFromIndex) {
     // Loopback: route internally without network send
-    // Output each value to its respective outlet
-    Max.outlet('m1', safeValues[0]);
-    Max.outlet('m2', safeValues[1]);
-    Max.outlet('m3', safeValues[2]);
-    Max.outlet('m4', safeValues[3]);
+    // Output each value to outlet 0 with format: "m1 value", "m2 value", etc.
+    Max.outlet(0, 'm1', safeValues[0]);
+    Max.outlet(0, 'm2', safeValues[1]);
+    Max.outlet(0, 'm3', safeValues[2]);
+    Max.outlet(0, 'm4', safeValues[3]);
     return;
   }
 

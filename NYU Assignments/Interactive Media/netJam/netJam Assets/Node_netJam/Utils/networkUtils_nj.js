@@ -305,10 +305,11 @@ function routeIncomingOsc(oscPath, value) {
   if (modIndex === 'mods') {
     // Value should be an array [v1, v2, v3, v4]
     if (Array.isArray(value) && value.length === 4) {
-      Max.outlet('m1', value[0]);
-      Max.outlet('m2', value[1]);
-      Max.outlet('m3', value[2]);
-      Max.outlet('m4', value[3]);
+      // Send to outlet 0 with format: "m1 value", "m2 value", etc.
+      Max.outlet(0, 'm1', value[0]);
+      Max.outlet(0, 'm2', value[1]);
+      Max.outlet(0, 'm3', value[2]);
+      Max.outlet(0, 'm4', value[3]);
     }
     return;
   }
@@ -319,9 +320,9 @@ function routeIncomingOsc(oscPath, value) {
     return;
   }
 
-  // Output: modIndex value (e.g., "m1 0.543")
+  // Output: modIndex value (e.g., "m1 0.543") to outlet 0
   // Max can route with [route m1 m2 m3 m4]
-  Max.outlet(modIndex, value);
+  Max.outlet(0, modIndex, value);
 }
 
 /**
@@ -477,6 +478,8 @@ function createMainServer(port, globalIP) {
 }
 
 function stopHost(onStopped) {
+  Max.post('🛑 Stopping host...');
+
   // Handle client mode
   if (isClient) {
     Max.post('Stopping client mode...');
@@ -485,72 +488,144 @@ function stopHost(onStopped) {
     return;
   }
 
+  // Close all ephemeral sockets first
+  const ephemeralKeys = Object.keys(ephemeralSockets);
+  Max.post(`Closing ${ephemeralKeys.length} ephemeral socket(s)...`);
+  ephemeralKeys.forEach(key => {
+    try {
+      if (ephemeralSockets[key] && ephemeralSockets[key].socket) {
+        ephemeralSockets[key].socket.close();
+        Max.post(`✓ Closed ephemeral socket for ${key}`);
+      }
+    } catch (err) {
+      Max.post(`Error closing ephemeral socket ${key}: ${err.message}`);
+    }
+    delete ephemeralSockets[key];
+  });
+
+  // Reset user management
+  availableUserNumbers = [0, 1, 2, 3];
+  userNumberToIP = {};
+
   // Handle server mode
   // if no mainServer or it's already closed, just do final steps
   if (!mainServer) {
+    Max.post('No main server to close, cleaning up Bonjour...');
     unpublishBonjour(() => {
-      for (const key in ephemeralSockets) {
-        delete ephemeralSockets[key];
-      }
+      Max.post('✓ Cleanup complete (no server)');
       if (onStopped) onStopped();
     });
     return;
   }
 
+  // Set up close handler
   mainServer.removeAllListeners('close');
+  mainServer.removeAllListeners('message');
+  mainServer.removeAllListeners('error');
 
-  mainServer.once('close', () => {
-    Max.post('Main server truly closed event');
+  let closeHandled = false;
+  const handleClose = () => {
+    if (closeHandled) return;
+    closeHandled = true;
+
+    Max.post('✓ Main server socket closed');
+    mainServer = null;
+
     unpublishBonjour(() => {
-      for (const key in ephemeralSockets) {
-        delete ephemeralSockets[key];
-      }
+      Max.post('✓ Server fully stopped and Bonjour unpublished');
       if (onStopped) onStopped();
     });
-  });
+  };
+
+  mainServer.once('close', handleClose);
+
+  // Safety timeout in case close event doesn't fire
+  const closeTimeout = setTimeout(() => {
+    if (!closeHandled) {
+      Max.post('⚠️ Close timeout reached, forcing cleanup');
+      handleClose();
+    }
+  }, 1000);
 
   try {
-    mainServer.close();
-    mainServer = null;
-    Max.post('Called mainServer.close() in stopHost');
+    mainServer.close(() => {
+      clearTimeout(closeTimeout);
+      Max.post('Main server close callback fired');
+    });
+    Max.post('Called mainServer.close()');
   } catch (err) {
+    clearTimeout(closeTimeout);
     Max.post(`Error closing main server: ${err.message}`);
-    if (onStopped) onStopped();
+    handleClose();
   }
 }
 
 function unpublishBonjour(cb) {
+  Max.post('Unpublishing Bonjour...');
+
+  let serviceStopHandled = false;
+  const handleServiceStop = () => {
+    if (serviceStopHandled) return;
+    serviceStopHandled = true;
+    Max.post('✓ Bonjour service stopped');
+    bonjourService = null;
+    finalize();
+  };
+
   if (bonjourService) {
     try {
+      // Set timeout in case stop callback never fires
+      const serviceTimeout = setTimeout(() => {
+        if (!serviceStopHandled) {
+          Max.post('⚠️ Bonjour service stop timeout, forcing cleanup');
+          handleServiceStop();
+        }
+      }, 500);
+
       bonjourService.stop(() => {
-        Max.post('Stopped Bonjour service');
-        bonjourService = null;
-        finalize();
+        clearTimeout(serviceTimeout);
+        handleServiceStop();
       });
     } catch (err) {
       Max.post(`Error stopping bonjourService: ${err.message}`);
-      bonjourService = null;
-      finalize();
+      handleServiceStop();
     }
   } else {
+    Max.post('No Bonjour service to stop');
     finalize();
   }
 
   function finalize() {
+    let bonjourDestroyHandled = false;
+    const handleBonjourDestroy = () => {
+      if (bonjourDestroyHandled) return;
+      bonjourDestroyHandled = true;
+      Max.post('✓ Bonjour instance destroyed');
+      bonjour = null;
+      if (cb) cb();
+    };
+
     if (bonjour) {
       try {
+        // Set timeout in case destroy callback never fires
+        const destroyTimeout = setTimeout(() => {
+          if (!bonjourDestroyHandled) {
+            Max.post('⚠️ Bonjour destroy timeout, forcing cleanup');
+            handleBonjourDestroy();
+          }
+        }, 500);
+
         bonjour.unpublishAll(() => {
           bonjour.destroy();
-          bonjour = null;
-          Max.post('Destroyed Bonjour instance');
-          if (cb) cb();
+          clearTimeout(destroyTimeout);
+          handleBonjourDestroy();
         });
       } catch (err) {
         Max.post(`Error destroying Bonjour: ${err.message}`);
-        bonjour = null;
-        if (cb) cb();
+        handleBonjourDestroy();
       }
     } else {
+      Max.post('No Bonjour instance to destroy');
       if (cb) cb();
     }
   }
