@@ -22,7 +22,11 @@ let clientSocket = null;
 let clientServerIP = null;
 let clientServerPort = null;
 let clientListeningPort = null;
+let clientAssignedUserNumber = null; // User number assigned by server
 let discoveryTimeout = null;
+
+// OSC routing state
+let targetReceiverIndex = 0; // Which sender to listen to (0-3)
 
 const dataMode = 'utf8';
 const DISCOVERY_TIMEOUT_MS = 2000; // Wait 2 seconds for Bonjour discovery
@@ -152,6 +156,20 @@ function connectAsClient(serverHost, serverPort, localPort) {
       return;
     }
 
+    // Handle YOUR_USER_NUMBER assignment from server
+    if (msgString.startsWith('YOUR_USER_NUMBER')) {
+      const parts = msgString.split(' ');
+      if (parts.length === 2) {
+        const assignedUserNumber = parseInt(parts[1], 10);
+        if (!isNaN(assignedUserNumber)) {
+          clientAssignedUserNumber = assignedUserNumber;
+          Max.post(`✓ Assigned user number: ${clientAssignedUserNumber}`);
+          Max.outlet('user_number_assigned', clientAssignedUserNumber);
+        }
+      }
+      return;
+    }
+
     // Handle SERVER_FULL rejection
     if (msgString === 'SERVER_FULL') {
       Max.post('⚠️ Server is full (4/4 users) - connection rejected');
@@ -168,11 +186,25 @@ function connectAsClient(serverHost, serverPort, localPort) {
       oscMsg.unpack(dv);
       Max.post('Client received OSC:', oscMsg.address, oscMsg.args);
 
-      // Route to Max outlets
-      if (String(oscMsg.address).startsWith('/macro')) {
-        Max.outlet('v8', 'macro_', String(oscMsg.address), oscMsg.args[0]);
-      } else {
-        Max.outlet('v8', 'mixer_', String(oscMsg.address), oscMsg.args[0]);
+      // Parse and route based on message type
+      const oscPath = String(oscMsg.address);
+      const pathParts = oscPath.split('/').filter(p => p.length > 0);
+
+      // Check for mod messages: /<sender_index>/m<1-4>
+      // Example: /0/m4 0.543307
+      if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
+        const value = oscMsg.args[0];
+        // Route directly internally (filter & map to outlets)
+        routeIncomingOsc(oscPath, value);
+        Max.post(`📨 Client OSC received: ${oscPath} ${value}`);
+      }
+      // Route macro messages
+      else if (oscPath.startsWith('/macro')) {
+        Max.outlet('v8', 'macro_', oscPath, oscMsg.args[0]);
+      }
+      // Everything else to mixer
+      else {
+        Max.outlet('v8', 'mixer_', oscPath, oscMsg.args[0]);
       }
     } catch (err) {
       // Not OSC, might be other message
@@ -214,7 +246,74 @@ function stopClient() {
   clientServerIP = null;
   clientServerPort = null;
   clientListeningPort = null;
+  clientAssignedUserNumber = null;
   Max.outlet('client_disconnected');
+}
+
+/**
+ * Get the client's assigned user number (if connected as client)
+ */
+function getMyUserNumber() {
+  return clientAssignedUserNumber;
+}
+
+/**
+ * Set target receiver index (which sender to listen to)
+ */
+function setTargetReceiver(index) {
+  targetReceiverIndex = index;
+  Max.post(`🎯 Target receiver set to: ${targetReceiverIndex}`);
+}
+
+/**
+ * Get target receiver index
+ */
+function getTargetReceiver() {
+  return targetReceiverIndex;
+}
+
+/**
+ * Route incoming OSC internally
+ * Filters by targetReceiverIndex and routes to outlets 0-3
+ * Format: /<sender_index>/<mod_index> <value>
+ */
+function routeIncomingOsc(oscPath, value) {
+  // Parse OSC path: /<sender>/<mod>
+  const pathParts = oscPath.split('/').filter(p => p.length > 0);
+
+  if (pathParts.length < 2) {
+    Max.post(`⚠️ Invalid OSC path: ${oscPath}`);
+    return;
+  }
+
+  const senderIndex = parseInt(pathParts[0], 10);
+  const modIndex = pathParts[1];
+
+  // Validate sender index
+  if (isNaN(senderIndex) || senderIndex < 0 || senderIndex > 3) {
+    Max.post(`⚠️ Invalid sender index: ${senderIndex}`);
+    return;
+  }
+
+  // Filter by targetReceiverIndex - only process messages from the sender we're listening to
+  if (senderIndex !== targetReceiverIndex) {
+    Max.post(`⏭️ Filtered: sender ${senderIndex} doesn't match target ${targetReceiverIndex}`);
+    return;
+  }
+
+  // Validate mod index (m1-m4)
+  if (!modIndex.match(/^m[1-4]$/)) {
+    Max.post(`⚠️ Invalid mod index: ${modIndex}`);
+    return;
+  }
+
+  // Map mod to outlet: m1→0, m2→1, m3→2, m4→3
+  const modNumber = parseInt(modIndex.substring(1), 10);
+  const outletIndex = modNumber - 1;
+
+  // Send to appropriate outlet
+  Max.outlet(outletIndex, value);
+  Max.post(`🎛️ Routed: sender ${senderIndex}, ${modIndex} → outlet ${outletIndex}, value ${value}`);
 }
 
 /**
@@ -495,7 +594,7 @@ function createEphemeralSocketForClient(clientIP, mainServer, clientPort, client
       }
     });
 
-    const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber);
+    const session = new clientSession(clientIP, nodePort, clientPort, socket, userNumber, routeIncomingOsc);
     Max.post(`✓ User ${userNumber} connected (${clientIP})`);
 
     // Notify Max that a user has connected
@@ -562,5 +661,9 @@ module.exports = {
   sanitizeOscArgs,
   ephemeralSockets,
   sendClientMessage, // For sending OSC from client to server
-  isClient: () => isClient // Getter to check if running as client
+  isClient: () => isClient, // Getter to check if running as client
+  getMyUserNumber, // Get assigned user number (client mode)
+  setTargetReceiver, // Set which sender to listen to
+  getTargetReceiver, // Get current target
+  routeIncomingOsc // OSC routing function
 };

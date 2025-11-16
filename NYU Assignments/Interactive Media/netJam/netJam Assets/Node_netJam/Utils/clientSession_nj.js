@@ -2,13 +2,15 @@
 const OSC = require('osc-js');
 const Max = require('max-api');
 const dataFunctions = require('./dataFunctions_nj');
+
 class clientSession {
-    constructor(clientIP, nodePort, clientPort, socket, userNumber) {
+    constructor(clientIP, nodePort, clientPort, socket, userNumber, routingCallback) {
       this.clientIP = clientIP;
       this.nodePort = nodePort;
       this.clientPort = clientPort;
       this.socket = socket;
       this.userNumber = userNumber; // User number 0-3
+      this.routingCallback = routingCallback; // Function to call for OSC routing
       this.tab = null;
       this.page = 0;
     }
@@ -16,7 +18,7 @@ class clientSession {
     handleMessage(data, rinfo) {
       const msgString = data.toString('utf8').trim();
 
-      // 1) If it’s the "HELLO_NODE" handshake => parse, store port, return
+      // 1) If it's the "HELLO_NODE" handshake => parse, store port, send user number
       if (msgString.startsWith('HELLO_NODE')) {
         const parts = msgString.split(' ');
         if (parts.length === 2) {
@@ -24,9 +26,19 @@ class clientSession {
           if (!isNaN(portVal)) {
             Max.post(`clientSession => got iPadListeningPort=${portVal} from ${this.clientIP}`);
             this.clientPort = portVal; // update the final listening port
+
+            // Send user number assignment to client
+            const userNumMsg = `YOUR_USER_NUMBER ${this.userNumber}`;
+            this.socket.send(userNumMsg, 0, userNumMsg.length, this.clientPort, this.clientIP, (err) => {
+              if (err) {
+                Max.post(`Error sending user number to ${this.clientIP}: ${err.message}`);
+              } else {
+                Max.post(`✓ Sent user number ${this.userNumber} to ${this.clientIP}`);
+              }
+            });
           }
         }
-        return; // don’t unpack as OSC
+        return; // don't unpack as OSC
       }
     
       // 2) If not "HELLO_NODE", it must be an OSC packet
@@ -40,22 +52,35 @@ class clientSession {
         return;
       }
       try {
-        // Transform OSC path to include user number prefix
-        // Example: /mod1/filter -> /0/mod1/filter (for user 0)
-        let transformedPath = oscMsg.address;
-        if (!transformedPath.startsWith('/')) {
-          transformedPath = '/' + transformedPath;
+        // OSC path already contains sender index (set via setHost)
+        // Example: /0/m4 0.543307 (from user who set setHost 0)
+        let oscPath = oscMsg.address;
+        if (!oscPath.startsWith('/')) {
+          oscPath = '/' + oscPath;
         }
-        // Prepend user number to path
-        transformedPath = `/${this.userNumber}${transformedPath}`;
 
-        Max.post(`User ${this.userNumber} OSC:`, transformedPath, oscMsg.args);
+        Max.post(`Received OSC:`, oscPath, oscMsg.args);
 
-        // Route macro messages to macroAPI, everything else to mixer
-        if (String(oscMsg.address).startsWith('/macro')) {
-          Max.outlet('v8', 'macro_', transformedPath, oscMsg.args[0]);
-        } else {
-          Max.outlet('v8', 'mixer_', transformedPath, oscMsg.args[0]);
+        // Parse and route based on message type
+        const pathParts = oscPath.split('/').filter(p => p.length > 0);
+
+        // Check for mod messages: /<sender_index>/m<1-4>
+        // Example: /0/m4 0.543307
+        if (pathParts.length >= 2 && pathParts[1].match(/^m[1-4]$/)) {
+          const value = oscMsg.args[0];
+          // Call routing callback for internal filtering and outlet mapping
+          if (this.routingCallback) {
+            this.routingCallback(oscPath, value);
+          }
+          Max.post(`📨 OSC received: ${oscPath} ${value}`);
+        }
+        // Route macro messages to macroAPI
+        else if (oscPath.startsWith('/macro')) {
+          Max.outlet('v8', 'macro_', oscPath, oscMsg.args[0]);
+        }
+        // Everything else to mixer
+        else {
+          Max.outlet('v8', 'mixer_', oscPath, oscMsg.args[0]);
         }
       } catch (err) {
         Max.post(`Error routing OSC message => ${err.message}`);
