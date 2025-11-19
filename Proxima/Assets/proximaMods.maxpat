@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 96.0, 1660.0, 987.0 ],
+        "rect": [ 34.0, 96.0, 1163.0, 987.0 ],
         "boxes": [
             {
                 "box": {
@@ -705,6 +705,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[5]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -731,6 +732,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[6]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -757,6 +759,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[7]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -783,6 +786,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[8]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -809,6 +813,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[9]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -834,11 +839,11 @@
                     "patching_rect": [ 484.0, 154.5000006556511, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[34]",
+                            "parameter_longname": "mmDepth_10",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_10",
                             "parameter_type": 1
                         }
                     },
@@ -861,11 +866,11 @@
                     "patching_rect": [ 484.0, 121.50000065565109, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[35]",
+                            "parameter_longname": "mmDepth_9",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_9",
                             "parameter_type": 1
                         }
                     },
@@ -888,11 +893,11 @@
                     "patching_rect": [ 484.0, 86.50000065565109, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[36]",
+                            "parameter_longname": "mmDepth_8",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_8",
                             "parameter_type": 1
                         }
                     },
@@ -915,11 +920,11 @@
                     "patching_rect": [ 484.0, 51.50000065565109, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[37]",
+                            "parameter_longname": "mmDepth_7",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_7",
                             "parameter_type": 1
                         }
                     },
@@ -942,11 +947,11 @@
                     "patching_rect": [ 484.0, 17.500000655651093, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[38]",
+                            "parameter_longname": "mmDepth_6",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_6",
                             "parameter_type": 1
                         }
                     },
@@ -962,6 +967,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 607.0, 160.5000006556511, 20.0, 24.0 ]
                 }
             },
@@ -981,6 +987,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[12]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -4019,6 +4026,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 453.0, 159.5000006556511, 20.0, 24.0 ]
                 }
             },
@@ -4038,6 +4046,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[13]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -4056,6 +4065,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 607.0, 127.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -4075,6 +4085,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[14]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -7113,6 +7124,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 453.0, 126.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -7132,6 +7144,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[15]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -7150,6 +7163,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 607.0, 92.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -7169,6 +7183,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[16]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -10207,6 +10222,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 453.0, 92.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -10226,6 +10242,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[17]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -10244,6 +10261,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 607.0, 57.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -10263,6 +10281,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[18]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -13301,6 +13320,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 453.0, 56.50000065565109, 20.0, 24.0 ]
                 }
             },
@@ -13320,6 +13340,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[19]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -13338,6 +13359,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 607.0, 22.500000655651093, 20.0, 24.0 ]
                 }
             },
@@ -13357,6 +13379,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[20]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -16395,6 +16418,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 453.0, 22.500000655651093, 20.0, 24.0 ]
                 }
             },
@@ -16414,6 +16438,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[21]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -16495,6 +16520,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[4]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -16521,6 +16547,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[3]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -16547,6 +16574,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[2]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -16573,6 +16601,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button[1]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -16599,6 +16628,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
+                            "parameter_invisible": 2,
                             "parameter_longname": "live.button",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
@@ -16624,11 +16654,11 @@
                     "patching_rect": [ 114.58333060145378, 154.1666629910469, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[33]",
+                            "parameter_longname": "mmDepth_5",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_5",
                             "parameter_type": 1
                         }
                     },
@@ -16651,11 +16681,11 @@
                     "patching_rect": [ 114.58333060145378, 120.83333045244217, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[31]",
+                            "parameter_longname": "mmDepth_4",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_4",
                             "parameter_type": 1
                         }
                     },
@@ -16678,11 +16708,11 @@
                     "patching_rect": [ 114.58333060145378, 86.24999794363976, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[32]",
+                            "parameter_longname": "mmDepth_3",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_3",
                             "parameter_type": 1
                         }
                     },
@@ -16705,11 +16735,11 @@
                     "patching_rect": [ 114.58333060145378, 50.83333212137222, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[29]",
+                            "parameter_longname": "mmDepth_2",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_2",
                             "parameter_type": 1
                         }
                     },
@@ -16732,11 +16762,11 @@
                     "patching_rect": [ 114.66667008399963, 17.33333384990692, 34.66666769981384, 34.66666769981384 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "dial[30]",
+                            "parameter_longname": "mmDepth_1",
                             "parameter_mmax": 100.0,
                             "parameter_mmin": -100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dial",
+                            "parameter_shortname": "mmDepth_1",
                             "parameter_type": 1
                         }
                     },
@@ -16752,6 +16782,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 237.49999433755875, 159.99999618530273, 20.0, 24.0 ]
                 }
             },
@@ -16771,6 +16802,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[8]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -19809,6 +19841,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 83.33333134651184, 159.16666287183762, 20.0, 24.0 ]
                 }
             },
@@ -19828,6 +19861,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[9]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -19846,6 +19880,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 237.49999433755875, 126.666663646698, 20.0, 24.0 ]
                 }
             },
@@ -19865,6 +19900,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[10]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -22903,6 +22939,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 83.33333134651184, 126.24999698996544, 20.0, 24.0 ]
                 }
             },
@@ -22922,6 +22959,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[7]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -22964,6 +23002,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 237.49999433755875, 91.66666448116302, 20.0, 24.0 ]
                 }
             },
@@ -22983,6 +23022,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[4]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -26021,6 +26061,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 83.33333134651184, 91.66666448116302, 20.0, 24.0 ]
                 }
             },
@@ -26040,6 +26081,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[5]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -26058,6 +26100,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 237.49999433755875, 56.66666531562805, 20.0, 24.0 ]
                 }
             },
@@ -26077,6 +26120,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[2]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -29115,6 +29159,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 83.33333134651184, 56.24999865889549, 20.0, 24.0 ]
                 }
             },
@@ -29134,6 +29179,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[6]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
@@ -29152,6 +29198,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 237.33334040641785, 22.000000655651093, 20.0, 24.0 ]
                 }
             },
@@ -29171,6 +29218,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "mixer_vol", "fltr_cutoff", "fltr_res", "fltr_env", "fltr_keytrk", "lfo1_amt", "lfo2_amt", "lfo1_rate", "lfo2_rate", "lfo1_initPhase", "lfo2_initPhase", "lfo1_offset", "lfo2_offset", "master_vol", "master_pan", "pitch_semi", "pitch_fine", "a_semi", "a_fine", "b_semi", "b_fine", "a_pw", "b_pw", "a_mix", "b_mix", "a_keytrk", "b_keytrk", "a_initPhase", "b_initPhase", "fltr_attack", "fltr_dec", "fltr_sus", "fltr_rel", "amp_atk", "amp_dec", "amp_sus", "amp_rel", "mod_atk", "mod_dec", "mod_sus", "mod_rel", "polyMod_b", "polyMod_env", "noise_lp", "noise_hp", "noise_lpRes", "noise_hpRes", "noise_mix", "noise_s&h", "detune", "glide", "eq_loGain", "eq_midGain", "eq_midFreq", "eq_midQ", "eq_hiGain", "dist_drive", "dist_tone", "dist_mix", "phsr_rate", "phsr_width", "phsr_mix", "chrs_rate", "chrs_width", "chrs_mix", "del_time", "del_fdbk", "del_width", "del_loCut", "del_hiCut", "del_mix", "rev_time", "rev_color", "rev_width", "rev_loCut", "rev_hiCut", "rev_modAmt", "rev_preDelay", "rev_mix", "mm_1", "mm_2", "mm_3", "mm_4", "mm_5", "mm_6", "mm_7", "mm_8", "mm_9", "mm_10" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[3]",
                             "parameter_mmax": 89,
                             "parameter_modmode": 0,
@@ -32209,6 +32257,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 83.33333253860474, 21.929824352264404, 20.0, 24.0 ]
                 }
             },
@@ -32228,6 +32277,7 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity", "AT", "poly_at", "foot", "expression", "brightness", "breath", "m_whl", "p_whl", "const", "rndm", "noise", "amp_env", "mod_env", "flt_env", "key(c0)", "key(c4)", "LFO_1", "LFO_2", "LFO1*MW", "LFO2*MW", "LFO1*AT", "LFO2*AT", "LFO1(sine)", "LFO2(sine)", "Arp_vel", "arp_1", "arp_2", "arp_3", "arp_4" ],
+                            "parameter_invisible": 1,
                             "parameter_longname": "live.menu[11]",
                             "parameter_mmax": 30,
                             "parameter_modmode": 0,
