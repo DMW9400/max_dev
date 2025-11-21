@@ -48,7 +48,6 @@ function getParams(devID){
         outlet(0, i, 'id', param);
         post('i: ' + i + ', param: ' + param + '\n');
     });
-    
 }
 
 function init(){
