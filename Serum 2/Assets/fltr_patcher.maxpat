@@ -545,7 +545,7 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "f3_drive[1]",
+                            "parameter_longname": "f3_res",
                             "parameter_mmax": 100.0,
                             "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
@@ -1381,7 +1381,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-131",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1395,10 +1394,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f3_freqMod",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f3_freqMod",
                             "parameter_type": 0,
@@ -1453,7 +1450,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-124",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1467,10 +1463,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f3_freqVel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f3_freqVel",
                             "parameter_type": 0,
@@ -1687,7 +1681,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-117",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1701,10 +1694,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f2_freqMod",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f2_freqMod",
                             "parameter_type": 0,
@@ -1759,7 +1750,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-61",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1773,10 +1763,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f2_freqVel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f2_freqVel",
                             "parameter_type": 0,
@@ -1931,7 +1919,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-29",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1945,10 +1932,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f1_freqMod",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f1_freqMod",
                             "parameter_type": 0,
@@ -2003,7 +1988,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-16",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -2017,10 +2001,8 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "f1_freqVel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "f1_freqVel",
                             "parameter_type": 0,
@@ -2214,11 +2196,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
-                            "parameter_invisible": 1,
-                            "parameter_longname": "live.menu[7]",
+                            "parameter_longname": "f3_mode",
                             "parameter_mmax": 106,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[2]",
+                            "parameter_shortname": "f3_mode",
                             "parameter_type": 2
                         }
                     },
@@ -2393,11 +2374,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
-                            "parameter_invisible": 1,
-                            "parameter_longname": "live.menu[10]",
+                            "parameter_longname": "f2_mode",
                             "parameter_mmax": 106,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[2]",
+                            "parameter_shortname": "f2_mode",
                             "parameter_type": 2
                         }
                     },
@@ -2596,11 +2576,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "mg_low_6", "mg_low_12", "mg_low_18", "mg_low_24", "low_6", "low_12", "low_18", "low_24", "high_6", "high_12", "high_18", "high_24", "band_12", "band_24", "peak_12", "peak_24", "notch_12", "notch_24", "lh_6", "lh_12", "lb_12", "lp_12", "ln_12", "hb_12", "hp_12", "hn_12", "bp_12", "bn_12", "pp_12", "pn_12", "nn_12", "l/b/h_12", "l/b/h_24", "l/p/h_12", "l/p/h_24", "l/n/h_12", "l/n/h_24", "b/p/n_12", "b/p/n_24", "cmb_+", "cmb_-", "cmb_l6+", "cmb_l6-", "cmb_h6+", "cmb_h6-", "cmb_hl6+", "cmb_hl6-", "flg_+", "flg_-", "flg_l6+", "flg_l6-", "flg_h6+", "flg_h6-", "flg_hl6+", "flg_hl6-", "phs_12+", "phs_12-", "phs_24+", "phs_24-", "phs_36+", "phs_36-", "phs_48+", "phs_48-", "phs_48L6+", "phs_48L6-", "phs_48H6+", "phs_48H6-", "phs_48HL6+", "phs_48HL6-", "fphs_12HL6+", "fphs_12HL6-", "low_eq_6", "low_eq_12", "band_eq_12", "high_eq_6", "high_eq_12", "ringMod", "ringModx2", "sampHold", "sampHold-", "combs", "allpasses", "reverb", "french_lp", "german_lp", "add_bass", "formant_I", "formant_II", "formant_III", "band_reject", "dist_comb_1_LP", "dist_comb_1_BP", "dist_comb_2_LP", "dist_comb_2_bp", "scream_lp", "scream_bp", "wsp", "dj_mixer", "diffusor", "mg_ladder", "acid_ladder", "ems_ladder", "mg_dirty", "pz_svf", "comb_2", "exp_mm", "exp_bpf" ],
-                            "parameter_invisible": 1,
-                            "parameter_longname": "live.menu[8]",
+                            "parameter_longname": "f1_mode",
                             "parameter_mmax": 106,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[2]",
+                            "parameter_shortname": "f1_mode",
                             "parameter_type": 2
                         }
                     },
@@ -2912,7 +2891,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 810.0, 255.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -2924,7 +2903,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 735.0, 255.0, 68.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -2936,7 +2915,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 457.9710183143616, 255.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -2948,7 +2927,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 381.5, 255.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -2960,7 +2939,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 150.00577852129936, 255.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -2972,7 +2951,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 71.64757236838341, 255.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {

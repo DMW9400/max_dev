@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 898.0, 96.0, 446.0, 987.0 ],
+        "rect": [ 34.0, 96.0, 1265.0, 987.0 ],
         "boxes": [
             {
                 "box": {
@@ -393,11 +393,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
-                            "parameter_invisible": 1,
-                            "parameter_longname": "live.menu[1]",
+                            "parameter_longname": "a_w2_mode",
                             "parameter_mmax": 69,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "a_w2_mode",
                             "parameter_type": 2
                         }
                     },
@@ -444,7 +443,7 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "mod9_smth2",
+                            "parameter_longname": "a_w2_mSmth",
                             "parameter_mmax": 255.0,
                             "parameter_modmax": 255.0,
                             "parameter_modmode": 4,
@@ -516,7 +515,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 420.4761896133423, 479.2380907535553, 71.4285671710968, 35.0 ],
-                    "text": "scale -100 100 0. 0.5"
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -524,7 +523,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-14",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -537,11 +535,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "m9_decCurve2",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w2_mCurve",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "m9_decCurve2",
                             "parameter_type": 1,
@@ -570,7 +566,7 @@
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
                             "parameter_invisible": 2,
-                            "parameter_longname": "a_warp1[3]",
+                            "parameter_longname": "live.button[80]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
                             "parameter_shortname": "live.button",
@@ -631,7 +627,7 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "m9_dec2",
+                            "parameter_longname": "a_w2_mDecay",
                             "parameter_mmax": 510.0,
                             "parameter_modmax": 510.0,
                             "parameter_modmode": 4,
@@ -692,7 +688,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 514.5238077640533, 358.9999966621399, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -711,7 +707,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-29",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -724,11 +719,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "a_warp2_m9",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w2_mod",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "a_warp2_m9",
                             "parameter_type": 1,
@@ -783,7 +776,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-32",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -796,11 +788,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "a_warp2Vel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w2_vel",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "a_warp2_vel",
                             "parameter_type": 1,
@@ -832,7 +822,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 424.04761815071106, 358.9999966621399, 68.3333101272583, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -897,11 +887,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "Off", "Sync", "Bend +", "Bend -", "Bend +/-", "PWM", "Asym +", "Asym -", "Asym +/-", "Flip", "Mirror", "Remap 1", "Remap 2", "Remap 3", "Remap 4", "Quantize", "Odd/Even", "LPF", "HPF", "Tube", "Soft Clip", "Hard Clip", "Diode 1", "Diode 2", "Linear Fold", "Sine Fold", "Zero-Square", "Asym", "Rectify", "Sine Shaper", "Stomp Box", "Tape Sat", "Soft Sat", "FM (B)", "FM (C)", "FM (Noise)", "FM (Sub)", "FM (Filter 1)", "FM (Filter 2)", "FME (B)", "FME (C)", "FME (Noise)", "FME (Sub)", "FME (Filter 1)", "FME (Filter 2)", "FML (B)", "FML (C)", "FML (Noise)", "FML (Sub)", "FML (Filter 1)", "FML (Filter 2)", "PD (B)", "PD (C)", "PD (Noise)", "PD (Sub)", "PD (Filter 1)", "PD (Filter 2)", "PD (Self)", "AM (B)", "AM (C)", "AM (Noise)", "AM (Sub)", "AM (Filter 1)", "AM (Filter 2)", "RM (B)", "RM (C)", "RM (Noise)", "RM (Sub)", "RM (Filter 1)", "RM (Filter 2)" ],
-                            "parameter_invisible": 1,
-                            "parameter_longname": "live.menu",
+                            "parameter_longname": "a_w1_mode",
                             "parameter_mmax": 69,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "a_w1_mode",
                             "parameter_type": 2
                         }
                     },
@@ -948,7 +937,7 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "mod9_smth",
+                            "parameter_longname": "a_w1_mSmth",
                             "parameter_mmax": 255.0,
                             "parameter_modmax": 255.0,
                             "parameter_modmode": 4,
@@ -1020,7 +1009,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 101.68066620826721, 480.0, 71.4285671710968, 35.0 ],
-                    "text": "scale -100 100 0. 0.5"
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -1028,7 +1017,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-64",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1041,11 +1029,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "m9_decCurve",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w1_mCurve",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "a_warp1_mod_curve",
                             "parameter_type": 1,
@@ -1074,7 +1060,7 @@
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
                             "parameter_invisible": 2,
-                            "parameter_longname": "a_warp1[2]",
+                            "parameter_longname": "live.button[78]",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
                             "parameter_shortname": "live.button",
@@ -1135,7 +1121,7 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "m9_dec",
+                            "parameter_longname": "a_w1_mDecay",
                             "parameter_mmax": 510.0,
                             "parameter_modmax": 510.0,
                             "parameter_modmode": 4,
@@ -1196,7 +1182,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 195.0, 360.0, 67.0, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
@@ -1215,7 +1201,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-23",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1228,11 +1213,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "a_warp1_m9",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w1_mod",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "a_warp1_mod",
                             "parameter_type": 1,
@@ -1287,7 +1270,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-75",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -1300,11 +1282,9 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "a_warp1Vel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
-                            "parameter_modmax": 100.0,
-                            "parameter_modmin": -100.0,
+                            "parameter_longname": "a_w1_vel",
+                            "parameter_mmax": 200.0,
+                            "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "a_warp1_vel",
                             "parameter_type": 1,
@@ -1336,7 +1316,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 105.0, 360.0, 68.3333101272583, 35.0 ],
-                    "text": "scale -100 100 0. 1."
+                    "text": "scale 0 200 0. 1."
                 }
             },
             {
