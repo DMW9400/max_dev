@@ -19,7 +19,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 781.8333566188812, 25.33333396911621, 26.0, 20.0 ],
-                    "text": "B",
+                    "text": "C#",
                     "textjustification": 1
                 }
             },
@@ -463,11 +463,21 @@
                                     "source": [ "obj-9", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "saved_attribute_attributes": {
+                            "default_plcolor": {
+                                "expression": ""
+                            }
+                        }
                     },
                     "patching_rect": [ 818.9743101596832, 212.82050013542175, 81.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 818.9743101596832, 212.82050013542175, 100.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "default_plcolor": {
+                            "expression": ""
+                        }
+                    },
                     "text": "p handlePitch"
                 }
             },
@@ -911,11 +921,21 @@
                                     "source": [ "obj-9", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "saved_attribute_attributes": {
+                            "default_plcolor": {
+                                "expression": ""
+                            }
+                        }
                     },
                     "patching_rect": [ 433.13631597161293, 210.2563977241516, 81.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 434.358948469162, 210.2563977241516, 100.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "default_plcolor": {
+                            "expression": ""
+                        }
+                    },
                     "text": "p handlePitch"
                 }
             },
@@ -927,7 +947,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 433.16667956113815, 24.000000596046448, 26.0, 20.0 ],
-                    "text": "B",
+                    "text": "C",
                     "textjustification": 1
                 }
             },
@@ -1371,11 +1391,21 @@
                                     "source": [ "obj-9", 0 ]
                                 }
                             }
-                        ]
+                        ],
+                        "saved_attribute_attributes": {
+                            "default_plcolor": {
+                                "expression": ""
+                            }
+                        }
                     },
                     "patching_rect": [ 208.2089477777481, 233.58208119869232, 81.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 208.2089477777481, 233.58208119869232, 100.0, 22.0 ],
+                    "saved_attribute_attributes": {
+                        "default_plcolor": {
+                            "expression": ""
+                        }
+                    },
                     "text": "p handlePitch"
                 }
             },
@@ -2664,11 +2694,11 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "n_ampDecCrv",
+                            "parameter_longname": "n_ampCrv",
                             "parameter_mmax": 200.0,
                             "parameter_modmax": 200.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "n_ampDecCrv",
+                            "parameter_shortname": "n_ampCrv",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
