@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 96.0, 796.0, 987.0 ],
+        "rect": [ 34.0, 96.0, 1301.0, 987.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-160",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 776.0, 727.0, 50.0, 22.0 ],
+                    "text": "0."
+                }
+            },
             {
                 "box": {
                     "id": "obj-172",
@@ -123,15 +134,15 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "macro_3",
-                            "parameter_mmax": 76.0,
-                            "parameter_modmax": 510.0,
+                            "parameter_mmax": 100.0,
+                            "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "macro_3",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
                     },
-                    "size": 77.0,
+                    "size": 101.0,
                     "thickness": 60.0,
                     "varname": "dial[24]"
                 }
@@ -154,15 +165,15 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "macro_2",
-                            "parameter_mmax": 76.0,
-                            "parameter_modmax": 510.0,
+                            "parameter_mmax": 100.0,
+                            "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "macro_2",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
                     },
-                    "size": 77.0,
+                    "size": 101.0,
                     "thickness": 60.0,
                     "varname": "dial[23]"
                 }
@@ -185,15 +196,15 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "macro_1",
-                            "parameter_mmax": 76.0,
-                            "parameter_modmax": 510.0,
+                            "parameter_mmax": 100.0,
+                            "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
                             "parameter_shortname": "macro_1",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
                     },
-                    "size": 77.0,
+                    "size": 101.0,
                     "thickness": 60.0,
                     "varname": "dial[22]"
                 }
@@ -452,11 +463,11 @@
                         "valueof": {
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "dst_drive[1]",
+                            "parameter_longname": "dst_mix",
                             "parameter_mmax": 100.0,
                             "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "dst_drive",
+                            "parameter_shortname": "dst_mix",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
@@ -627,11 +638,11 @@
                         "valueof": {
                             "parameter_initial": [ 43 ],
                             "parameter_initial_enable": 1,
-                            "parameter_longname": "rt_f2_b2_send",
+                            "parameter_longname": "dst_hpLP",
                             "parameter_mmax": 100.0,
                             "parameter_modmax": 100.0,
                             "parameter_modmode": 4,
-                            "parameter_shortname": "rt_f2_b2_send",
+                            "parameter_shortname": "dst_hpLP",
                             "parameter_type": 1,
                             "parameter_unitstyle": 0
                         }
@@ -643,6 +654,7 @@
             },
             {
                 "box": {
+                    "focusbordercolor": [ 0.6313725490196078, 0.6392156862745098, 0.6627450980392157, 0.0 ],
                     "id": "obj-122",
                     "maxclass": "live.tab",
                     "num_lines_patching": 3,
@@ -653,6 +665,9 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 720.5882215499878, 7.352941036224365, 29.117647171020508, 55.882351875305176 ],
                     "saved_attribute_attributes": {
+                        "focusbordercolor": {
+                            "expression": ""
+                        },
                         "valueof": {
                             "parameter_enum": [ "off", "pre", "post" ],
                             "parameter_longname": "dst_route",
@@ -673,7 +688,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 856.9343019723892, 757.6642295122147, 74.0, 22.0 ],
+                    "patching_rect": [ 868.0, 756.0, 74.0, 22.0 ],
                     "saved_object_attributes": {
                         "_persistence": 1,
                         "normalized": 0,
@@ -689,7 +704,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 856.9343019723892, 699.9999962449074, 91.17646884918213, 22.0 ],
+                    "patching_rect": [ 868.0, 699.0, 91.17646884918213, 22.0 ],
                     "text": "scale 0 17 0. 1."
                 }
             },
@@ -3072,7 +3087,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-121", 1 ],
-                    "midpoints": [ 435.36667664051055, 882.0, 843.0, 882.0, 843.0, 744.0, 921.4343019723892, 744.0 ],
+                    "midpoints": [ 435.36667664051055, 882.0, 843.0, 882.0, 843.0, 744.0, 932.5, 744.0 ],
                     "source": [ "obj-112", 4 ]
                 }
             },
@@ -3094,7 +3109,7 @@
                 "patchline": {
                     "destination": [ "obj-118", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 808.0, 270.0, 876.0, 270.0, 876.0, 684.0, 866.4343019723892, 684.0 ],
+                    "midpoints": [ 808.0, 270.0, 876.0, 270.0, 876.0, 684.0, 877.5, 684.0 ],
                     "order": 1,
                     "source": [ "obj-115", 0 ]
                 }
@@ -3124,6 +3139,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-121", 0 ],
+                    "order": 0,
+                    "source": [ "obj-118", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-160", 1 ],
+                    "order": 1,
                     "source": [ "obj-118", 0 ]
                 }
             },
