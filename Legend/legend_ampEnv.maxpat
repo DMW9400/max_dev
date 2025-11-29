@@ -9,17 +9,33 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 898.0, 96.0, 796.0, 987.0 ],
+        "rect": [ 898.0, 96.0, 468.0, 987.0 ],
         "boxes": [
             {
                 "box": {
-                    "id": "obj-20",
+                    "id": "obj-22",
                     "maxclass": "newobj",
                     "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 300.0, 554.53125, 100.0, 22.0 ],
-                    "text": "route"
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 362.0, 378.0, 74.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "_persistence": 1,
+                        "normalized": 0,
+                        "smoothing": 1.0
+                    },
+                    "text": "live.remote~"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-21",
+                    "maxclass": "newobj",
+                    "numinlets": 10,
+                    "numoutlets": 10,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 300.0, 554.53125, 206.0, 22.0 ],
+                    "text": "route 38 39 40 41 42 43 44 45 46"
                 }
             },
             {
@@ -197,10 +213,10 @@
                     "patching_rect": [ 597.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[1]",
+                            "parameter_longname": "amp_release",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "amp_release",
                             "parameter_type": 0
                         }
                     },
@@ -235,10 +251,10 @@
                     "patching_rect": [ 543.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[27]",
+                            "parameter_longname": "amp_sustain",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "amp_sustain",
                             "parameter_type": 0
                         }
                     },
@@ -273,10 +289,10 @@
                     "patching_rect": [ 490.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[3]",
+                            "parameter_longname": "amp_decay",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "amp_decay",
                             "parameter_type": 0
                         }
                     },
@@ -311,10 +327,10 @@
                     "patching_rect": [ 435.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[38]",
+                            "parameter_longname": "amp_attack",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "amp_attack",
                             "parameter_type": 0
                         }
                     },
@@ -364,10 +380,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "on" ],
-                            "parameter_longname": "live.toggle[3]",
+                            "parameter_longname": "noise_mode",
                             "parameter_mmax": 1,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.toggle",
+                            "parameter_shortname": "noise_mode",
                             "parameter_type": 2
                         }
                     },
@@ -410,7 +426,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 173.0, 67.0, 40.0, 20.0 ],
+                    "patching_rect": [ 170.0, 67.5, 40.0, 20.0 ],
                     "text": "noise",
                     "textjustification": 1
                 }
@@ -429,10 +445,10 @@
                     "patching_rect": [ 162.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[19]",
+                            "parameter_longname": "mix_nLevel",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "mix_nLevel",
                             "parameter_type": 0
                         }
                     },
@@ -476,7 +492,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 123.0, 67.0, 32.0, 20.0 ],
+                    "patching_rect": [ 120.0, 67.0, 32.0, 20.0 ],
                     "text": "c lvl",
                     "textjustification": 1
                 }
@@ -495,10 +511,10 @@
                     "patching_rect": [ 108.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[18]",
+                            "parameter_longname": "mix_cLevel",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "mix_cLevel",
                             "parameter_type": 0
                         }
                     },
@@ -542,7 +558,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 70.0, 67.0, 33.0, 20.0 ],
+                    "patching_rect": [ 66.5, 67.0, 33.0, 20.0 ],
                     "text": "b lvl",
                     "textjustification": 1
                 }
@@ -561,10 +577,10 @@
                     "patching_rect": [ 55.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[17]",
+                            "parameter_longname": "mix_bLevel",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "mix_bLevel",
                             "parameter_type": 0
                         }
                     },
@@ -627,10 +643,10 @@
                     "patching_rect": [ 0.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "lp_freq[16]",
+                            "parameter_longname": "mix_aLevel",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "lp_freq",
+                            "parameter_shortname": "mix_aLevel",
                             "parameter_type": 0
                         }
                     },
@@ -690,7 +706,7 @@
                 "patchline": {
                     "destination": [ "obj-124", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 117.5, 98.99999740719795, 236.29686763882637, 98.99999740719795, 236.29686763882637, 140.99999740719795, 229.99999263882637, 140.99999740719795, 229.99999263882637, 275.99999740719795, 235.5, 275.99999740719795 ],
+                    "midpoints": [ 117.5, 267.0, 235.5, 267.0 ],
                     "source": [ "obj-126", 0 ]
                 }
             },
@@ -704,8 +720,16 @@
                 "patchline": {
                     "destination": [ "obj-128", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 171.5, 98.99999740719795, 297.2626874446869, 98.99999740719795, 297.2626874446869, 140.99999740719795, 291.2626874446869, 140.99999740719795, 291.2626874446869, 275.99999740719795, 324.5, 275.99999740719795 ],
+                    "midpoints": [ 171.5, 72.0, 168.0, 72.0, 168.0, 267.0, 324.5, 267.0 ],
                     "source": [ "obj-130", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-22", 0 ],
+                    "hidden": 1,
+                    "midpoints": [ 230.5, 267.0, 399.0, 267.0, 399.0, 363.0, 371.5, 363.0 ],
+                    "source": [ "obj-134", 0 ]
                 }
             },
             {
@@ -728,7 +752,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-20", 0 ],
+                    "destination": [ "obj-21", 0 ],
+                    "midpoints": [ 309.5, 468.0, 309.5, 468.0 ],
                     "source": [ "obj-19", 0 ]
                 }
             },
@@ -738,6 +763,69 @@
                     "hidden": 1,
                     "midpoints": [ 606.5, 267.0, 669.5, 267.0 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 1 ],
+                    "midpoints": [ 454.94444444444446, 588.0, 654.0, 588.0, 654.0, 315.0, 643.25, 315.0 ],
+                    "source": [ "obj-21", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-114", 1 ],
+                    "midpoints": [ 309.5, 579.0, 192.0, 579.0, 192.0, 354.0, 69.0, 354.0, 69.0, 315.0, 146.5, 315.0 ],
+                    "source": [ "obj-21", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-119", 1 ],
+                    "midpoints": [ 330.27777777777777, 588.0, 285.0, 588.0, 285.0, 354.0, 300.0, 354.0, 300.0, 315.0, 217.5, 315.0 ],
+                    "source": [ "obj-21", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-123", 1 ],
+                    "midpoints": [ 351.05555555555554, 588.0, 285.0, 588.0, 285.0, 354.0, 300.0, 354.0, 300.0, 315.0, 290.5, 315.0 ],
+                    "source": [ "obj-21", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-127", 1 ],
+                    "midpoints": [ 371.83333333333337, 588.0, 285.0, 588.0, 285.0, 354.0, 399.0, 354.0, 399.0, 315.0, 379.5, 315.0 ],
+                    "source": [ "obj-21", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-13", 1 ],
+                    "midpoints": [ 434.1666666666667, 588.0, 654.0, 588.0, 654.0, 315.0, 570.59375, 315.0 ],
+                    "source": [ "obj-21", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-15", 1 ],
+                    "midpoints": [ 413.3888888888889, 588.0, 516.0, 588.0, 516.0, 351.0, 432.0, 351.0, 432.0, 315.0, 499.5, 315.0 ],
+                    "source": [ "obj-21", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-22", 1 ],
+                    "midpoints": [ 392.6111111111111, 588.0, 516.0, 588.0, 516.0, 375.0, 426.5, 375.0 ],
+                    "source": [ "obj-21", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-9", 1 ],
+                    "midpoints": [ 475.72222222222223, 588.0, 744.0, 588.0, 744.0, 315.0, 724.5, 315.0 ],
+                    "source": [ "obj-21", 8 ]
                 }
             },
             {

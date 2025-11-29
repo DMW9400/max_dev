@@ -19,7 +19,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 781.8333566188812, 25.33333396911621, 26.0, 20.0 ],
-                    "text": "C#",
+                    "text": "C",
                     "textjustification": 1
                 }
             },
@@ -2751,7 +2751,6 @@
                     "bgcolor": [ 0.094117647058824, 0.098039215686275, 0.117647058823529, 0.0 ],
                     "id": "obj-127",
                     "maxclass": "dial",
-                    "min": -100.0,
                     "mode": 5,
                     "needlecolor": [ 0.4, 0.92156862745098, 1.0, 1.0 ],
                     "numinlets": 1,
@@ -2765,8 +2764,7 @@
                             "parameter_initial": [ 0 ],
                             "parameter_initial_enable": 1,
                             "parameter_longname": "n_ampDecVel",
-                            "parameter_mmax": 100.0,
-                            "parameter_mmin": -100.0,
+                            "parameter_mmax": 200.0,
                             "parameter_modmax": 100.0,
                             "parameter_modmin": -100.0,
                             "parameter_modmode": 4,
@@ -6423,7 +6421,7 @@
                 "patchline": {
                     "destination": [ "obj-164", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 802.8412932157516, 426.0, 780.0, 426.0, 780.0, 177.0, 750.0, 177.0, 750.0, 63.0, 712.1666876077652, 63.0 ],
+                    "midpoints": [ 802.8412932157516, 426.0, 780.0, 426.0, 780.0, 148.3313243468292, 750.0, 148.3313243468292, 750.0, 63.0, 712.1666876077652, 63.0 ],
                     "source": [ "obj-135", 0 ]
                 }
             },
