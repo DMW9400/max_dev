@@ -9,8 +9,19 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 96.0, 1660.0, 987.0 ],
+        "rect": [ 898.0, 96.0, 432.0, 987.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-21",
+                    "maxclass": "newobj",
+                    "numinlets": 37,
+                    "numoutlets": 37,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 375.0, 672.0, 653.0, 22.0 ],
+                    "text": "route 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82"
+                }
+            },
             {
                 "box": {
                     "id": "obj-12",
@@ -18,7 +29,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1296.8571734428406, 8.25209903717041, 42.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "mm12"
                 }
             },
@@ -29,7 +39,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1186.3218606114388, 8.25209903717041, 41.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "mm11"
                 }
             },
@@ -40,7 +49,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1081.5361438393593, 8.25209903717041, 42.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "mm10"
                 }
             },
@@ -171,7 +179,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 1305.7143168449402, 92.85714507102966, 15.0, 15.0 ],
+                    "patching_rect": [ 1305.7143168449402, 94.28571653366089, 15.0, 15.0 ],
                     "saved_attribute_attributes": {
                         "focusbordercolor": {
                             "expression": ""
@@ -211,13 +219,13 @@
                     "outlettype": [ "float" ],
                     "outlinecolor": [ 0.42745098039215684, 0.42745098039215684, 0.42745098039215684, 1.0 ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 1284.2857449054718, 52.85714411735535, 56.0, 56.0 ],
+                    "patching_rect": [ 1285.2143168449402, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[26]",
+                            "parameter_longname": "mm12_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm12_depth",
                             "parameter_type": 0
                         }
                     },
@@ -274,10 +282,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[42]",
+                            "parameter_longname": "mm12_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm12_dest",
                             "parameter_type": 2
                         }
                     },
@@ -365,10 +373,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[43]",
+                            "parameter_longname": "mm12_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm12_src",
                             "parameter_type": 2
                         }
                     },
@@ -455,10 +463,10 @@
                     "patching_rect": [ 1178.571456670761, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[27]",
+                            "parameter_longname": "mm11_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm11_depth",
                             "parameter_type": 0
                         }
                     },
@@ -515,10 +523,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[44]",
+                            "parameter_longname": "mm11_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm11_dest",
                             "parameter_type": 2
                         }
                     },
@@ -606,10 +614,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[45]",
+                            "parameter_longname": "mm11_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm11_src",
                             "parameter_type": 2
                         }
                     },
@@ -653,7 +661,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 1094.2857403755188, 94.28571653366089, 15.0, 15.0 ],
+                    "patching_rect": [ 1094.8901277780533, 94.45006781816483, 15.0, 15.0 ],
                     "saved_attribute_attributes": {
                         "focusbordercolor": {
                             "expression": ""
@@ -693,13 +701,13 @@
                     "outlettype": [ "float" ],
                     "outlinecolor": [ 0.42745098039215684, 0.42745098039215684, 0.42745098039215684, 1.0 ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 1074.2857398986816, 52.85714411735535, 56.0, 56.0 ],
+                    "patching_rect": [ 1074.5361438393593, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[28]",
+                            "parameter_longname": "mm10_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm10_depth",
                             "parameter_type": 0
                         }
                     },
@@ -756,10 +764,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[46]",
+                            "parameter_longname": "mm10_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm10_dest",
                             "parameter_type": 2
                         }
                     },
@@ -847,10 +855,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[47]",
+                            "parameter_longname": "mm10_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm10_src",
                             "parameter_type": 2
                         }
                     },
@@ -894,7 +902,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 947.1428797245026, 92.85714507102966, 15.0, 15.0 ],
+                    "patching_rect": [ 946.3186956644058, 94.00758990645409, 15.0, 15.0 ],
                     "saved_attribute_attributes": {
                         "focusbordercolor": {
                             "expression": ""
@@ -934,13 +942,13 @@
                     "outlettype": [ "float" ],
                     "outlinecolor": [ 0.42745098039215684, 0.42745098039215684, 0.42745098039215684, 1.0 ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 925.7143077850342, 52.85714411735535, 56.0, 56.0 ],
+                    "patching_rect": [ 925.9647117257118, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[23]",
+                            "parameter_longname": "mm9_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm9_depth",
                             "parameter_type": 0
                         }
                     },
@@ -997,10 +1005,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[36]",
+                            "parameter_longname": "mm9_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm9_dest",
                             "parameter_type": 2
                         }
                     },
@@ -1088,10 +1096,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[37]",
+                            "parameter_longname": "mm9_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm9_src",
                             "parameter_type": 2
                         }
                     },
@@ -1135,7 +1143,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 840.0000200271606, 94.28571653366089, 15.0, 15.0 ],
+                    "patching_rect": [ 840.5000195503235, 92.85714507102966, 15.0, 15.0 ],
                     "saved_attribute_attributes": {
                         "focusbordercolor": {
                             "expression": ""
@@ -1178,10 +1186,10 @@
                     "patching_rect": [ 820.0000195503235, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[24]",
+                            "parameter_longname": "mm8_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm8_depth",
                             "parameter_type": 0
                         }
                     },
@@ -1238,10 +1246,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[38]",
+                            "parameter_longname": "mm8_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm8_dest",
                             "parameter_type": 2
                         }
                     },
@@ -1329,10 +1337,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[39]",
+                            "parameter_longname": "mm8_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm8_src",
                             "parameter_type": 2
                         }
                     },
@@ -1419,10 +1427,10 @@
                     "patching_rect": [ 715.714302778244, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[25]",
+                            "parameter_longname": "mm7_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm7_depth",
                             "parameter_type": 0
                         }
                     },
@@ -1479,10 +1487,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[40]",
+                            "parameter_longname": "mm7_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm7_dest",
                             "parameter_type": 2
                         }
                     },
@@ -1570,10 +1578,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[41]",
+                            "parameter_longname": "mm7_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm7_src",
                             "parameter_type": 2
                         }
                     },
@@ -1660,10 +1668,10 @@
                     "patching_rect": [ 562.8571562767029, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[20]",
+                            "parameter_longname": "mm6_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm6_depth",
                             "parameter_type": 0
                         }
                     },
@@ -1720,10 +1728,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[26]",
+                            "parameter_longname": "mm6_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm6_dest",
                             "parameter_type": 2
                         }
                     },
@@ -1811,10 +1819,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[33]",
+                            "parameter_longname": "mm6_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm6_src",
                             "parameter_type": 2
                         }
                     },
@@ -1901,10 +1909,10 @@
                     "patching_rect": [ 457.1428680419922, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[21]",
+                            "parameter_longname": "mm5_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm5_depth",
                             "parameter_type": 0
                         }
                     },
@@ -1961,10 +1969,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[18]",
+                            "parameter_longname": "mm5_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm5_dest",
                             "parameter_type": 2
                         }
                     },
@@ -2052,10 +2060,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[27]",
+                            "parameter_longname": "mm5_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm5_src",
                             "parameter_type": 2
                         }
                     },
@@ -2142,10 +2150,10 @@
                     "patching_rect": [ 352.8571512699127, 52.85714411735535, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[22]",
+                            "parameter_longname": "mm4_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm4_depth",
                             "parameter_type": 0
                         }
                     },
@@ -2202,10 +2210,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[34]",
+                            "parameter_longname": "mm4_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm4_dest",
                             "parameter_type": 2
                         }
                     },
@@ -2293,10 +2301,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[35]",
+                            "parameter_longname": "mm4_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm4_src",
                             "parameter_type": 2
                         }
                     },
@@ -2383,10 +2391,10 @@
                     "patching_rect": [ 221.848726272583, 52.10083723068237, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[19]",
+                            "parameter_longname": "mm3_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm3_depth",
                             "parameter_type": 0
                         }
                     },
@@ -2443,10 +2451,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[29]",
+                            "parameter_longname": "mm3_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm3_dest",
                             "parameter_type": 2
                         }
                     },
@@ -2534,10 +2542,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[32]",
+                            "parameter_longname": "mm3_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm3_src",
                             "parameter_type": 2
                         }
                     },
@@ -2624,10 +2632,10 @@
                     "patching_rect": [ 115.96637964248657, 52.10083723068237, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[18]",
+                            "parameter_longname": "mm2_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm2_depth",
                             "parameter_type": 0
                         }
                     },
@@ -2684,10 +2692,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[17]",
+                            "parameter_longname": "mm2_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm2_dest",
                             "parameter_type": 2
                         }
                     },
@@ -2775,10 +2783,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[25]",
+                            "parameter_longname": "mm2_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm2_src",
                             "parameter_type": 2
                         }
                     },
@@ -2865,10 +2873,10 @@
                     "patching_rect": [ 11.764705181121826, 52.10083723068237, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_env[17]",
+                            "parameter_longname": "mm1_depth",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_env",
+                            "parameter_shortname": "mm1_depth",
                             "parameter_type": 0
                         }
                     },
@@ -2925,10 +2933,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "flt_cutoff", "flt_res", "flt_drive", "mod_amt", "env_amt", "pulse_width", "mixer_volume", "master_volume", "master_pan", "arp_rate", "glide", "flt_attack", "flt_decay", "flt_sustain", "flt_release", "amp_attack", "amp_decay", "amp_sus", "amp_rel", "pitch_coarse", "pitch_fine", "detune", "spread", "osc_1_semi", "osc_1_fine", "osc_1_pw", "osc_1_vol", "osc_1_range", "osc_2_semi", "osc_2_fine", "osc_2_pw", "osc_2_vol", "osc_2_range", "osc_3_semi", "osc_3_fine", "osc_3_pw", "osc_3_vol", "osc_3_range", "osc_4_semi", "osc_4_fine", "osc_4_pw", "osc_4_vol", "osc_4_range", "osc_5_semi", "osc_5_fine", "osc_5_pw", "osc_5_vol", "osc_5_range", "osc_6_semi", "osc_6_fine", "osc_6_pw", "osc_6_vol", "osc_6_range", "noise_mix", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "mm8", "mm9", "mm10", "mm11", "mm12", "phase_rate", "phase_width", "phase_mix", "chorus_rate", "chorus_width", "chorus_mix", "delay_time", "delay_wow", "delay_tape", "delay_feedback", "delay_width", "delay_mix", "reverb_time", "reverb_color", "reverb_width", "reverb_mix", "mseg1_rate", "mseg2_rate", "mseg3_rate", "mseg4_rate", "mseg1_trigger", "mseg2_trigger", "mseg3_trigger", "mseg4_trigger", "ffb_LP", "ffb_125", "ffb_175", "ffb_250", "ffb_350", "ffb_500", "ffb_700", "ffb_1k", "ffb_1.4k", "ffb_2k", "ffb_2.8k", "ffb_4k", "ffb_5.6k", "FFB_HP", "comp_input", "comp_thresh", "comp_ratio", "comp_output" ],
-                            "parameter_longname": "live.menu[30]",
+                            "parameter_longname": "mm1_dest",
                             "parameter_mmax": 108,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu[1]",
+                            "parameter_shortname": "mm1_dest",
                             "parameter_type": 2
                         }
                     },
@@ -3016,10 +3024,10 @@
                         },
                         "valueof": {
                             "parameter_enum": [ "off", "velocity(+)", "velocity(+/-)", "arp_vel", "arp_1", "arp_2", "arp_3", "arp_4", "modWheel", "afterTouch", "polyAT", "foot", "expression", "bright(74)", "bright>100", "breath", "const", "random_1", "random_2", "random_3", "random_4", "keytrack_c0", "keytrack_c3", "keytrack_c6", "osc_3", "osc_6", "osc_3*mw", "osc_6*mw", "mseg1", "mseg2", "mseg3", "mseg4", "mseg1*vel", "mseg2*vel", "mseg3*vel", "mseg4*vel", "mseg1*mw", "mseg2*mw", "mseg3*mw", "mseg4*mw", "mseg1*at", "mseg2*at", "mseg3*at", "mseg4*at" ],
-                            "parameter_longname": "live.menu[31]",
+                            "parameter_longname": "mm1_src",
                             "parameter_mmax": 43,
                             "parameter_modmode": 0,
-                            "parameter_shortname": "live.menu",
+                            "parameter_shortname": "mm1_src",
                             "parameter_type": 2
                         }
                     },
@@ -3057,17 +3065,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 25.0, 551.0, 30.0, 30.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-120",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "" ],
-                    "patching_rect": [ 375.0, 675.0, 100.0, 22.0 ],
-                    "text": "route"
                 }
             },
             {
@@ -3311,7 +3308,7 @@
                 "patchline": {
                     "destination": [ "obj-135", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 956.1428797245026, 111.74074232578278, 993.4066079854965, 111.74074232578278, 993.4066079854965, 156.74074232578278, 1002.3571665287018, 156.74074232578278 ],
+                    "midpoints": [ 955.3186956644058, 111.74074232578278, 993.4066079854965, 111.74074232578278, 993.4066079854965, 156.74074232578278, 1002.3571665287018, 156.74074232578278 ],
                     "source": [ "obj-134", 0 ]
                 }
             },
@@ -3319,7 +3316,7 @@
                 "patchline": {
                     "destination": [ "obj-136", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1002.3571665287018, 195.74074232578278, 1032.4066079854965, 195.74074232578278, 1032.4066079854965, 6.740742325782776, 935.2143077850342, 6.740742325782776 ],
+                    "midpoints": [ 1002.3571665287018, 195.74074232578278, 1032.4066079854965, 195.74074232578278, 1032.4066079854965, 6.740742325782776, 935.4647117257118, 6.740742325782776 ],
                     "source": [ "obj-135", 0 ]
                 }
             },
@@ -3327,7 +3324,7 @@
                 "patchline": {
                     "destination": [ "obj-133", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 935.2143077850342, 102.74074232578278, 903.4066079854965, 102.74074232578278, 903.4066079854965, 306.7407423257828, 928.071450471878, 306.7407423257828 ],
+                    "midpoints": [ 935.4647117257118, 102.74074232578278, 903.4066079854965, 102.74074232578278, 903.4066079854965, 306.7407423257828, 928.071450471878, 306.7407423257828 ],
                     "source": [ "obj-136", 0 ]
                 }
             },
@@ -3417,7 +3414,7 @@
                 "patchline": {
                     "destination": [ "obj-150", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 849.0000200271606, 111.74074232578278, 887.3869792819023, 111.74074232578278, 887.3869792819023, 156.74074232578278, 896.6428782939911, 156.74074232578278 ],
+                    "midpoints": [ 849.5000195503235, 111.74074232578278, 887.3869792819023, 111.74074232578278, 887.3869792819023, 156.74074232578278, 896.6428782939911, 156.74074232578278 ],
                     "source": [ "obj-149", 0 ]
                 }
             },
@@ -3637,7 +3634,7 @@
                 "patchline": {
                     "destination": [ "obj-181", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1360.9286036491394, 195.74074232578278, 1390.9780451059341, 195.74074232578278, 1390.9780451059341, 6.740742325782776, 1293.7857449054718, 6.740742325782776 ],
+                    "midpoints": [ 1360.9286036491394, 195.74074232578278, 1390.9780451059341, 195.74074232578278, 1390.9780451059341, 6.740742325782776, 1294.7143168449402, 6.740742325782776 ],
                     "source": [ "obj-180", 0 ]
                 }
             },
@@ -3645,7 +3642,7 @@
                 "patchline": {
                     "destination": [ "obj-178", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1293.7857449054718, 102.74074232578278, 1261.9780451059341, 102.74074232578278, 1261.9780451059341, 306.7407423257828, 1286.6428875923157, 306.7407423257828 ],
+                    "midpoints": [ 1294.7143168449402, 102.74074232578278, 1261.9780451059341, 102.74074232578278, 1261.9780451059341, 306.7407423257828, 1286.6428875923157, 306.7407423257828 ],
                     "source": [ "obj-181", 0 ]
                 }
             },
@@ -3841,15 +3838,267 @@
                 "patchline": {
                     "destination": [ "obj-210", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1103.2857403755188, 109.2865292429924, 1141.4515968561172, 109.2865292429924, 1141.4515968561172, 154.2865292429924, 1150.9285986423492, 154.2865292429924 ],
+                    "midpoints": [ 1103.8901277780533, 109.2865292429924, 1141.4515968561172, 109.2865292429924, 1141.4515968561172, 154.2865292429924, 1150.9285986423492, 154.2865292429924 ],
                     "source": [ "obj-209", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-109", 1 ],
+                    "midpoints": [ 631.0555555555555, 705.0, 360.0, 705.0, 360.0, 534.0, 522.0, 534.0, 522.0, 498.0, 513.0714392662048, 498.0 ],
+                    "source": [ "obj-21", 14 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-111", 1 ],
+                    "midpoints": [ 595.8333333333334, 705.0, 330.0, 705.0, 330.0, 300.0, 522.0, 300.0, 522.0, 264.0, 513.0714392662048, 264.0 ],
+                    "source": [ "obj-21", 12 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-114", 1 ],
+                    "midpoints": [ 560.6111111111111, 705.0, 330.0, 705.0, 330.0, 366.0, 408.78572249412537, 366.0 ],
+                    "source": [ "obj-21", 10 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-127", 1 ],
+                    "midpoints": [ 578.2222222222222, 705.0, 360.0, 705.0, 360.0, 534.0, 429.0, 534.0, 429.0, 498.0, 408.78572249412537, 498.0 ],
+                    "source": [ "obj-21", 11 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-129", 1 ],
+                    "midpoints": [ 543.0, 705.0, 330.0, 705.0, 330.0, 300.0, 429.0, 300.0, 429.0, 264.0, 408.78572249412537, 264.0 ],
+                    "source": [ "obj-21", 9 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-132", 1 ],
+                    "midpoints": [ 824.7777777777778, 705.0, 1038.0, 705.0, 1038.0, 378.0, 983.071450471878, 378.0 ],
+                    "source": [ "obj-21", 25 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-142", 1 ],
+                    "midpoints": [ 842.3888888888889, 705.0, 1038.0, 705.0, 1038.0, 501.0, 993.0, 501.0, 993.0, 498.0, 983.071450471878, 498.0 ],
+                    "source": [ "obj-21", 26 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-144", 1 ],
+                    "midpoints": [ 807.1666666666667, 705.0, 1038.0, 705.0, 1038.0, 264.0, 983.071450471878, 264.0 ],
+                    "source": [ "obj-21", 24 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-147", 1 ],
+                    "midpoints": [ 771.9444444444445, 705.0, 1038.0, 705.0, 1038.0, 369.0, 875.9285907745361, 369.0 ],
+                    "source": [ "obj-21", 22 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-157", 1 ],
+                    "midpoints": [ 789.5555555555555, 705.0, 1038.0, 705.0, 1038.0, 534.0, 897.0, 534.0, 897.0, 498.0, 875.9285907745361, 498.0 ],
+                    "source": [ "obj-21", 23 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-159", 1 ],
+                    "midpoints": [ 754.3333333333333, 705.0, 1038.0, 705.0, 1038.0, 300.0, 897.0, 300.0, 897.0, 264.0, 875.9285907745361, 264.0 ],
+                    "source": [ "obj-21", 21 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-162", 1 ],
+                    "midpoints": [ 719.1111111111111, 705.0, 1038.0, 705.0, 1038.0, 414.0, 792.0, 414.0, 792.0, 378.0, 771.6428740024567, 378.0 ],
+                    "source": [ "obj-21", 19 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-172", 1 ],
+                    "midpoints": [ 736.7222222222222, 705.0, 1038.0, 705.0, 1038.0, 534.0, 792.0, 534.0, 792.0, 498.0, 771.6428740024567, 498.0 ],
+                    "source": [ "obj-21", 20 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-174", 1 ],
+                    "midpoints": [ 701.5, 705.0, 1038.0, 705.0, 1038.0, 300.0, 792.0, 300.0, 792.0, 264.0, 771.6428740024567, 264.0 ],
+                    "source": [ "obj-21", 18 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-177", 1 ],
+                    "midpoints": [ 983.2777777777778, 705.0, 1050.0, 705.0, 1050.0, 414.0, 1263.0, 414.0, 1263.0, 369.0, 1341.6428875923157, 369.0 ],
+                    "source": [ "obj-21", 34 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-187", 1 ],
+                    "midpoints": [ 1000.8888888888889, 705.0, 1200.0, 705.0, 1200.0, 534.0, 1362.0, 534.0, 1362.0, 498.0, 1341.6428875923157, 498.0 ],
+                    "source": [ "obj-21", 35 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-189", 1 ],
+                    "midpoints": [ 965.6666666666666, 705.0, 1050.0, 705.0, 1050.0, 300.0, 1362.0, 300.0, 1362.0, 264.0, 1341.6428875923157, 264.0 ],
+                    "source": [ "obj-21", 33 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-192", 1 ],
+                    "midpoints": [ 930.4444444444445, 705.0, 1050.0, 705.0, 1050.0, 414.0, 1155.0, 414.0, 1155.0, 369.0, 1234.5000278949738, 369.0 ],
+                    "source": [ "obj-21", 31 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-202", 1 ],
+                    "midpoints": [ 948.0555555555555, 705.0, 1200.0, 705.0, 1200.0, 534.0, 1254.0, 534.0, 1254.0, 498.0, 1234.5000278949738, 498.0 ],
+                    "source": [ "obj-21", 32 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-204", 1 ],
+                    "midpoints": [ 912.8333333333334, 705.0, 1050.0, 705.0, 1050.0, 300.0, 1254.0, 300.0, 1254.0, 264.0, 1234.5000278949738, 264.0 ],
+                    "source": [ "obj-21", 30 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-207", 1 ],
+                    "midpoints": [ 877.6111111111111, 705.0, 1050.0, 705.0, 1050.0, 366.0, 1130.2143111228943, 366.0 ],
+                    "source": [ "obj-21", 28 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-217", 1 ],
+                    "midpoints": [ 895.2222222222222, 705.0, 1149.0, 705.0, 1149.0, 498.0, 1130.2143111228943, 498.0 ],
+                    "source": [ "obj-21", 29 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-219", 1 ],
+                    "midpoints": [ 860.0, 705.0, 1050.0, 705.0, 1050.0, 300.0, 1149.0, 300.0, 1149.0, 264.0, 1130.2143111228943, 264.0 ],
+                    "source": [ "obj-21", 27 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-35", 1 ],
+                    "midpoints": [ 402.1111111111111, 705.0, 201.0, 705.0, 201.0, 417.0, 87.0, 417.0, 87.0, 375.0, 67.86134433746338, 375.0 ],
+                    "source": [ "obj-21", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-45", 1 ],
+                    "midpoints": [ 419.72222222222223, 705.0, 102.0, 705.0, 102.0, 534.0, 87.0, 534.0, 87.0, 495.0, 67.86134433746338, 495.0 ],
+                    "source": [ "obj-21", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-47", 1 ],
+                    "midpoints": [ 384.5, 696.0, 201.0, 696.0, 201.0, 300.0, 87.0, 300.0, 87.0, 261.0, 67.86134433746338, 261.0 ],
+                    "source": [ "obj-21", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-54", 1 ],
+                    "midpoints": [ 454.94444444444446, 705.0, 201.0, 705.0, 201.0, 378.0, 172.06301879882812, 378.0 ],
+                    "source": [ "obj-21", 4 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-64", 1 ],
+                    "midpoints": [ 472.55555555555554, 705.0, 192.0, 705.0, 192.0, 498.0, 172.06301879882812, 498.0 ],
+                    "source": [ "obj-21", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-66", 1 ],
+                    "midpoints": [ 437.3333333333333, 705.0, 201.0, 705.0, 201.0, 264.0, 172.06301879882812, 264.0 ],
+                    "source": [ "obj-21", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-69", 1 ],
+                    "midpoints": [ 507.77777777777777, 705.0, 309.0, 705.0, 309.0, 378.0, 278.7857015132904, 378.0 ],
+                    "source": [ "obj-21", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-79", 1 ],
+                    "midpoints": [ 525.3888888888889, 705.0, 300.0, 705.0, 300.0, 498.0, 278.7857015132904, 498.0 ],
+                    "source": [ "obj-21", 8 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-81", 1 ],
+                    "midpoints": [ 490.1666666666667, 705.0, 309.0, 705.0, 309.0, 264.0, 278.7857015132904, 264.0 ],
+                    "source": [ "obj-21", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-84", 1 ],
+                    "midpoints": [ 666.2777777777778, 705.0, 360.0, 705.0, 360.0, 534.0, 540.0, 534.0, 540.0, 369.0, 620.2142989635468, 369.0 ],
+                    "source": [ "obj-21", 16 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-94", 1 ],
+                    "midpoints": [ 683.8888888888889, 705.0, 360.0, 705.0, 360.0, 534.0, 639.0, 534.0, 639.0, 498.0, 620.2142989635468, 498.0 ],
+                    "source": [ "obj-21", 17 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-96", 1 ],
+                    "midpoints": [ 648.6666666666667, 705.0, 360.0, 705.0, 360.0, 534.0, 648.0, 534.0, 648.0, 264.0, 620.2142989635468, 264.0 ],
+                    "source": [ "obj-21", 15 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-99", 1 ],
+                    "midpoints": [ 613.4444444444445, 705.0, 360.0, 705.0, 360.0, 534.0, 435.0, 534.0, 435.0, 369.0, 513.0714392662048, 369.0 ],
+                    "source": [ "obj-21", 13 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-211", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1150.9285986423492, 193.2865292429924, 1180.4515968561172, 193.2865292429924, 1180.4515968561172, 4.286529242992401, 1083.7857398986816, 4.286529242992401 ],
+                    "midpoints": [ 1150.9285986423492, 193.2865292429924, 1180.4515968561172, 193.2865292429924, 1180.4515968561172, 4.286529242992401, 1084.0361438393593, 4.286529242992401 ],
                     "source": [ "obj-210", 0 ]
                 }
             },
@@ -3857,7 +4106,7 @@
                 "patchline": {
                     "destination": [ "obj-208", 0 ],
                     "hidden": 1,
-                    "midpoints": [ 1083.7857398986816, 100.2865292429924, 1051.4515968561172, 100.2865292429924, 1051.4515968561172, 304.2865292429924, 1075.2143111228943, 304.2865292429924 ],
+                    "midpoints": [ 1084.0361438393593, 100.2865292429924, 1051.4515968561172, 100.2865292429924, 1051.4515968561172, 304.2865292429924, 1075.2143111228943, 304.2865292429924 ],
                     "source": [ "obj-211", 0 ]
                 }
             },
@@ -4027,7 +4276,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-120", 0 ],
+                    "destination": [ "obj-21", 0 ],
                     "source": [ "obj-49", 0 ]
                 }
             },

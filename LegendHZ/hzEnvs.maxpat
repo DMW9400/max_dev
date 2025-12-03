@@ -9,8 +9,30 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 898.0, 96.0, 468.0, 987.0 ],
+        "rect": [ 898.0, 96.0, 432.0, 987.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "newobj",
+                    "numinlets": 9,
+                    "numoutlets": 9,
+                    "outlettype": [ "", "", "", "", "", "", "", "", "" ],
+                    "patching_rect": [ 231.16, 616.61, 403.0, 22.0 ],
+                    "text": "route 39 40 41 42 43 44 45 46"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "newobj",
+                    "numinlets": 0,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 231.16, 544.0, 59.0, 22.0 ],
+                    "text": "r ---hzCtrl"
+                }
+            },
             {
                 "box": {
                     "id": "obj-18",
@@ -27,7 +49,7 @@
                 "box": {
                     "comment": "",
                     "id": "obj-17",
-                    "index": 0,
+                    "index": 1,
                     "maxclass": "inlet",
                     "numinlets": 0,
                     "numoutlets": 1,
@@ -60,7 +82,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 716.0, 352.0, 70.0, 35.0 ],
-                    "presentation_linecount": 2,
                     "text": "scale 0 1000 0. 1."
                 }
             },
@@ -89,7 +110,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 638.0, 352.0, 70.0, 35.0 ],
-                    "presentation_linecount": 2,
                     "text": "scale 0 1000 0. 1."
                 }
             },
@@ -118,7 +138,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 561.0, 352.0, 70.0, 35.0 ],
-                    "presentation_linecount": 2,
                     "text": "scale 0 1000 0. 1."
                 }
             },
@@ -147,7 +166,6 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 473.0, 352.0, 70.0, 35.0 ],
-                    "presentation_linecount": 2,
                     "text": "scale 0 1000 0. 1."
                 }
             },
@@ -178,7 +196,7 @@
                     "patching_rect": [ 551.5789670944214, 14.736842632293701, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_release[1]",
+                            "parameter_longname": "flt_release",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "flt_release",
@@ -216,7 +234,7 @@
                     "patching_rect": [ 492.6315965652466, 14.736842632293701, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_sustain[1]",
+                            "parameter_longname": "flt_sustain",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "flt_sustain",
@@ -254,7 +272,7 @@
                     "patching_rect": [ 434.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_decay[1]",
+                            "parameter_longname": "flt_decay",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "flt_decay",
@@ -292,7 +310,7 @@
                     "patching_rect": [ 375.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_attack[1]",
+                            "parameter_longname": "flt_attack",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
                             "parameter_shortname": "flt_attack",
@@ -442,10 +460,10 @@
                     "patching_rect": [ 176.8421115875244, 14.736842632293701, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_release",
+                            "parameter_longname": "amp_release",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_release",
+                            "parameter_shortname": "amp_release",
                             "parameter_type": 0
                         }
                     },
@@ -480,10 +498,10 @@
                     "patching_rect": [ 117.89474105834961, 14.736842632293701, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_sustain",
+                            "parameter_longname": "amp_sustain",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_sustain",
+                            "parameter_shortname": "amp_sustain",
                             "parameter_type": 0
                         }
                     },
@@ -518,10 +536,10 @@
                     "patching_rect": [ 59.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_decay",
+                            "parameter_longname": "amp_decay",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_decay",
+                            "parameter_shortname": "amp_decay",
                             "parameter_type": 0
                         }
                     },
@@ -556,10 +574,10 @@
                     "patching_rect": [ 0.0, 15.0, 56.0, 56.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
-                            "parameter_longname": "flt_attack",
+                            "parameter_longname": "amp_attack",
                             "parameter_mmax": 1000.0,
                             "parameter_modmode": 3,
-                            "parameter_shortname": "flt_attack",
+                            "parameter_shortname": "amp_attack",
                             "parameter_type": 0
                         }
                     },
@@ -665,8 +683,70 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-20", 0 ],
+                    "source": [ "obj-19", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-1", 0 ],
                     "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-1", 1 ],
+                    "midpoints": [ 576.66, 648.0, 801.0, 648.0, 801.0, 387.0, 780.5, 387.0 ],
+                    "source": [ "obj-20", 7 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-118", 1 ],
+                    "midpoints": [ 336.65999999999997, 648.0, 183.0, 648.0, 183.0, 387.0, 327.5, 387.0 ],
+                    "source": [ "obj-20", 2 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-120", 1 ],
+                    "midpoints": [ 288.65999999999997, 648.0, 183.0, 648.0, 183.0, 387.0, 250.5, 387.0 ],
+                    "source": [ "obj-20", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-122", 1 ],
+                    "midpoints": [ 240.66, 639.0, 174.0, 639.0, 174.0, 387.0, 162.5, 387.0 ],
+                    "source": [ "obj-20", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-124", 1 ],
+                    "midpoints": [ 384.65999999999997, 648.0, 216.0, 648.0, 216.0, 426.0, 426.0, 426.0, 426.0, 387.0, 405.5, 387.0 ],
+                    "source": [ "obj-20", 3 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-3", 1 ],
+                    "midpoints": [ 528.66, 648.0, 801.0, 648.0, 801.0, 387.0, 702.5, 387.0 ],
+                    "source": [ "obj-20", 6 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-5", 1 ],
+                    "midpoints": [ 480.65999999999997, 648.0, 645.0, 648.0, 645.0, 426.0, 558.0, 426.0, 558.0, 387.0, 625.5, 387.0 ],
+                    "source": [ "obj-20", 5 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-7", 1 ],
+                    "midpoints": [ 432.65999999999997, 648.0, 216.0, 648.0, 216.0, 426.0, 459.0, 426.0, 459.0, 387.0, 537.5, 387.0 ],
+                    "source": [ "obj-20", 4 ]
                 }
             },
             {
@@ -688,25 +768,10 @@
                 }
             }
         ],
-        "parameters": {
-            "obj-10": [ "flt_release[1]", "flt_release", 0 ],
-            "obj-12": [ "flt_sustain[1]", "flt_sustain", 0 ],
-            "obj-14": [ "flt_decay[1]", "flt_decay", 0 ],
-            "obj-150": [ "flt_sustain", "flt_sustain", 0 ],
-            "obj-152": [ "flt_decay", "flt_decay", 0 ],
-            "obj-154": [ "flt_attack", "flt_attack", 0 ],
-            "obj-156": [ "flt_release", "flt_release", 0 ],
-            "obj-16": [ "flt_attack[1]", "flt_attack", 0 ],
-            "parameterbanks": {
-                "0": {
-                    "index": 0,
-                    "name": "",
-                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
-                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
-                }
-            },
-            "inherited_shortname": 1
-        },
-        "autosave": 0
+        "saved_attribute_attributes": {
+            "default_plcolor": {
+                "expression": ""
+            }
+        }
     }
 }
