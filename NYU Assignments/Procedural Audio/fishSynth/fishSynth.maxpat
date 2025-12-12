@@ -9,8 +9,103 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 898.0, 96.0, 796.0, 987.0 ],
+        "rect": [ 898.0, 96.0, 284.0, 987.0 ],
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-28",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1476.0, 236.0, 50.0, 22.0 ],
+                    "text": "store 2"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-20",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 1467.0, 197.0, 50.0, 22.0 ],
+                    "text": "store 1"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-12",
+                    "linecount": 2,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1429.0, 1466.0, 233.0, 33.0 ],
+                    "presentation_linecount": 2,
+                    "text": "sample source: Watkins Marine Mammal Sound Database, Spinner Dolphin"
+                }
+            },
+            {
+                "box": {
+                    "autofit": 1,
+                    "forceaspect": 1,
+                    "id": "obj-7",
+                    "maxclass": "fpic",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "jit_matrix" ],
+                    "patching_rect": [ 1422.0, 1590.0, 213.0, 230.8190661478599 ],
+                    "pic": "dolphin_rising.png"
+                }
+            },
+            {
+                "box": {
+                    "data": {
+                        "clips": [
+                            {
+                                "absolutepath": "dolphin_rising.wav",
+                                "filename": "dolphin_rising.wav",
+                                "filekind": "audiofile",
+                                "id": "u505001020",
+                                "loop": 0,
+                                "content_state": {                                }
+                            }
+                        ]
+                    },
+                    "id": "obj-2",
+                    "maxclass": "playlist~",
+                    "mode": "basic",
+                    "numinlets": 1,
+                    "numoutlets": 5,
+                    "outlettype": [ "signal", "signal", "signal", "", "dictionary" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 1448.0, 1534.0, 150.0, 30.0 ],
+                    "quality": "basic",
+                    "saved_attribute_attributes": {
+                        "candicane2": {
+                            "expression": ""
+                        },
+                        "candicane3": {
+                            "expression": ""
+                        },
+                        "candicane4": {
+                            "expression": ""
+                        },
+                        "candicane5": {
+                            "expression": ""
+                        },
+                        "candicane6": {
+                            "expression": ""
+                        },
+                        "candicane7": {
+                            "expression": ""
+                        },
+                        "candicane8": {
+                            "expression": ""
+                        }
+                    }
+                }
+            },
             {
                 "box": {
                     "id": "obj-114",
@@ -100,7 +195,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 194.5, 105.0, 73.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "call duration"
                 }
             },
@@ -111,7 +205,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1454.0, 1133.0, 169.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "Dolphin call arch Spectrogram"
                 }
             },
@@ -136,7 +229,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1410.0, 1035.0, 233.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "sample source: Watkins Marine Mammal Sound Database, Bottle Nose Dolphin"
                 }
             },
@@ -244,7 +336,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 240.0, 502.0, 150.0, 60.0 ],
-                    "presentation_linecount": 4,
                     "text": "generate additional noise for fundamental's pitch input to fill out spectral gaps and mimic original"
                 }
             },
@@ -301,7 +392,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 653.5, 100.0, 65.0, 20.0 ],
-                    "presentation_linecount": 2,
                     "text": "pitchNoise"
                 }
             },
@@ -359,7 +449,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1050.0, 433.5, 195.0, 47.0 ],
-                    "presentation_linecount": 5,
                     "text": "Generate harmonic bands that follow the pitch contour of the fundamental "
                 }
             },
@@ -497,6 +586,7 @@
                     "numoutlets": 3,
                     "outlettype": [ "int", "", "" ],
                     "parameter_enable": 0,
+                    "parameter_mappable": 0,
                     "patching_rect": [ 1005.0, 52.0, 100.0, 22.0 ],
                     "varname": "vocalization[1]"
                 }
@@ -509,7 +599,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 1411.0, 570.0, 233.0, 33.0 ],
-                    "presentation_linecount": 5,
                     "text": "sample source: Watkins Marine Mammal Sound Database, Bottle Nose Dolphin"
                 }
             },
@@ -520,7 +609,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 41.5, 27.0, 53.0, 20.0 ],
-                    "presentation_linecount": 3,
                     "text": "auto call"
                 }
             },
@@ -533,7 +621,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 882.25, 117.0, 113.0, 33.0 ],
-                    "presentation_linecount": 2,
                     "text": "overtone/formant volume",
                     "textjustification": 1
                 }
@@ -597,7 +684,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 2505.0, 1260.0, 150.0, 20.0 ]
+                    "patching_rect": [ 2533.0, 2065.0, 150.0, 20.0 ]
                 }
             },
             {
@@ -643,7 +730,7 @@
                         "trill_freq": [ 189.0 ],
                         "trill_freq[1]": [ 1037.0 ],
                         "vocalization": [ 2 ],
-                        "vocalization[1]": [ 1 ],
+                        "vocalization[1]": [ 0 ],
                         "vst~": [
                             {
                                 "filetype": "C74Snapshot",
@@ -684,7 +771,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 1279.0, 323.0, 181.0, 35.0 ],
                     "saved_object_attributes": {
-                        "client_rect": [ 4, 44, 358, 172 ],
+                        "client_rect": [ 100, 168, 1193, 918 ],
                         "parameter_enable": 0,
                         "parameter_mappable": 0,
                         "storage_rect": [ 583, 69, 1034, 197 ]
@@ -742,7 +829,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 929.0, 517.0, 325.0, 33.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "all overtones are summed at the end and output to a gain~ object for piping into the audio mix"
                                 }
                             },
@@ -754,7 +840,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 939.0, 413.0, 322.0, 60.0 ],
-                                    "presentation_linecount": 4,
                                     "text": "the final audio signal for each overtone is generated by a highly resonant bandpass filter that is fed with noise and whose center frequency is fed by the slewed and multiplied pitch envelope"
                                 }
                             },
@@ -766,7 +851,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 943.0, 237.0, 322.0, 47.0 ],
-                                    "presentation_linecount": 3,
                                     "text": "we delay each harmonic band by progressively higher sample values to mimic the time \"slew\" between bands in the original dolphin call"
                                 }
                             },
@@ -778,7 +862,6 @@
                                     "numinlets": 1,
                                     "numoutlets": 0,
                                     "patching_rect": [ 947.0, 160.0, 322.0, 60.0 ],
-                                    "presentation_linecount": 6,
                                     "text": "first the input pitch envelope controlling the fundamental's vibrato is multiplied by a set value, creating higher pitch content that follow the frequency contour of the fundamental"
                                 }
                             },
@@ -1711,7 +1794,6 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
                                     "patching_rect": [ 477.0, 819.0, 100.0, 35.0 ],
-                                    "presentation_linecount": 2,
                                     "text": "scale 0 1000 0. 0.9"
                                 }
                             },
@@ -3017,6 +3099,38 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-24", 1 ],
+                    "midpoints": [ 1490.25, 1575.0, 1302.0, 1575.0, 1302.0, 897.0, 1280.5, 897.0 ],
+                    "order": 0,
+                    "source": [ "obj-2", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-24", 0 ],
+                    "midpoints": [ 1457.5, 1566.0, 1302.0, 1566.0, 1302.0, 885.0, 1254.5, 885.0 ],
+                    "order": 0,
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-46", 1 ],
+                    "midpoints": [ 1490.25, 1575.0, 1152.0, 1575.0, 1152.0, 957.0, 1130.5, 957.0 ],
+                    "order": 1,
+                    "source": [ "obj-2", 1 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-46", 0 ],
+                    "midpoints": [ 1457.5, 1566.0, 1152.0, 1566.0, 1152.0, 945.0, 849.5, 945.0 ],
+                    "order": 1,
+                    "source": [ "obj-2", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-17", 0 ],
                     "source": [ "obj-21", 0 ]
                 }
@@ -3157,7 +3271,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-68", 3 ],
-                    "midpoints": [ 427.5, 288.0, 528.75, 288.0 ],
+                    "midpoints": [ 427.5, 288.0, 516.3, 288.0 ],
                     "source": [ "obj-62", 0 ]
                 }
             },
@@ -3267,6 +3381,14 @@
             "obj-75": [ "pitch_variance[2]", "pitch_variance", 0 ],
             "obj-78": [ "pitch_variance[5]", "pitch_variance", 0 ],
             "obj-90": [ "pitch_variance[6]", "pitch_variance", 0 ],
+            "parameterbanks": {
+                "0": {
+                    "index": 0,
+                    "name": "",
+                    "parameters": [ "-", "-", "-", "-", "-", "-", "-", "-" ],
+                    "buttons": [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+                }
+            },
             "inherited_shortname": 1
         },
         "autosave": 0
