@@ -1,0 +1,6 @@
+# Images and PDFs in fishSynth folder
+NYU Assignments/Procedural Audio/fishSynth/*.png
+NYU Assignments/Procedural Audio/fishSynth/*.pdf
+
+# macOS
+.DS_Store
