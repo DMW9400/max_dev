@@ -1,6 +1,6 @@
 autowatch = 1;
-inlets = 2;
-outlets = 2;
+inlets = 1;
+outlets = 1;
 
 var zebra3Id = null;
 
@@ -35,7 +35,6 @@ function getDevices(parentID){
         }
     });
     getParams(zebra3Id);
-    outputZebra3Id();
 }
 
 function getParams(devID){
@@ -58,10 +57,3 @@ function init(){
     getZebra3();
 }
 
-function outputZebra3Id(){
-    if(zebra3Id !== null){
-        outlet(1, zebra3Id);
-    } else {
-        post('Zebra3 ID not found. Run init() first.\n');
-    }
-}
