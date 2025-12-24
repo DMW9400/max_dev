@@ -12,8 +12,12 @@
                <rdf:li>1</rdf:li>
             </rdf:Bag>
          </ablFR:colors>
-         <xmp:CreatorTool>Ableton Index 12.3</xmp:CreatorTool>
+         <ablFR:items>
+            <rdf:Bag/>
+         </ablFR:items>
+         <xmp:CreatorTool>Updated by Ableton Index 12.3.1</xmp:CreatorTool>
          <xmp:CreateDate>2025-12-04T15:04:27-05:00</xmp:CreateDate>
+         <xmp:MetadataDate>2025-12-14T15:06:16-05:00</xmp:MetadataDate>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>
