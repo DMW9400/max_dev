@@ -259,16 +259,26 @@ function deviceSelected(menuIdx, deviceIdx) {
         return;
     }
 
-    // Store the selection in menu state dict
-    menuState.set("device" + menuIdx, deviceIdx);
+    if (deviceIdx < 0 || deviceIdx >= deviceIds.length) {
+        post("Invalid device index: " + deviceIdx + "\n");
+        return;
+    }
+
+    var devId = deviceIds[deviceIdx];
+    var dev = devices[devId];
+
+    // Store the selection by name (more robust across sessions)
+    menuState.set("device" + menuIdx + "_idx", deviceIdx);
+    menuState.set("device" + menuIdx + "_name", dev.name);
 
     // Populate the corresponding param menu
     populateParamMenu(menuIdx, deviceIdx);
 
     // Clear param selection for this menu set
-    menuState.set("param" + menuIdx, -1);
+    menuState.set("param" + menuIdx + "_idx", -1);
+    menuState.set("param" + menuIdx + "_name", "");
 
-    post("Device menu " + menuIdx + " selected index " + deviceIdx + "\n");
+    post("Device menu " + menuIdx + " selected: " + dev.name + " (index " + deviceIdx + ")\n");
 }
 
 // --- Handle param menu selection ---
@@ -280,7 +290,7 @@ function paramSelected(menuIdx, paramIdx) {
     }
 
     // Get the currently selected device for this menu set
-    var deviceIdx = menuState.get("device" + menuIdx);
+    var deviceIdx = menuState.get("device" + menuIdx + "_idx");
     if (deviceIdx == null || deviceIdx < 0 || deviceIdx >= deviceIds.length) {
         post("No valid device selected for menu " + menuIdx + "\n");
         return;
@@ -296,21 +306,20 @@ function paramSelected(menuIdx, paramIdx) {
 
     var param = dev.params[paramIdx];
 
-    // Store the selection in menu state dict
-    menuState.set("param" + menuIdx, paramIdx);
+    // Store the selection by name (more robust across sessions)
+    menuState.set("param" + menuIdx + "_idx", paramIdx);
+    menuState.set("param" + menuIdx + "_name", param.name);
 
     // Output the param ID for live.modulate mapping
-    // Format: list of [menuIdx, paramId] for routing in Max
-    // e.g., selecting param in menu set 2 outputs: 2 <paramId>
     outlet(1, menuIdx, 'id', param.id);
 
-    post("Param menu " + menuIdx + " selected: " + param.name + " (id " + param.id + ") -> output: " + menuIdx + " " + param.id + "\n");
+    post("Param menu " + menuIdx + " selected: " + param.name + " (id " + param.id + ")\n");
 }
 
 // --- Get param ID for a specific menu set (for live.modulate) ---
 function getParamId(menuIdx) {
-    var deviceIdx = menuState.get("device" + menuIdx);
-    var paramIdx = menuState.get("param" + menuIdx);
+    var deviceIdx = menuState.get("device" + menuIdx + "_idx");
+    var paramIdx = menuState.get("param" + menuIdx + "_idx");
 
     if (deviceIdx == null || paramIdx == null) return null;
     if (deviceIdx < 0 || deviceIdx >= deviceIds.length) return null;
@@ -323,31 +332,77 @@ function getParamId(menuIdx) {
     return dev.params[paramIdx].id;
 }
 
+// --- Helper: find device index by name ---
+function findDeviceByName(name) {
+    if (!name) return -1;
+    for (var i = 0; i < deviceNames.length; i++) {
+        if (deviceNames[i] === name) return i;
+    }
+    return -1;
+}
+
+// --- Helper: find param index by name within a device ---
+function findParamByName(devId, paramName) {
+    if (!paramName || !devices[devId]) return -1;
+    var dev = devices[devId];
+    for (var i = 0; i < dev.params.length; i++) {
+        if (dev.params[i].name === paramName) return i;
+    }
+    return -1;
+}
+
 // --- Restore menu states from dict ---
 function restoreMenuStates() {
     for (var menuIdx = 0; menuIdx < 4; menuIdx++) {
-        var deviceIdx = menuState.get("device" + menuIdx);
+        // Try to find device by saved name first, fall back to saved index
+        var savedDeviceName = menuState.get("device" + menuIdx + "_name");
+        var savedDeviceIdx = menuState.get("device" + menuIdx + "_idx");
 
-        if (deviceIdx != null && deviceIdx >= 0 && deviceIdx < deviceIds.length) {
+        var deviceIdx = -1;
+        if (savedDeviceName) {
+            deviceIdx = findDeviceByName(String(savedDeviceName));
+        }
+        if (deviceIdx < 0 && savedDeviceIdx != null && savedDeviceIdx >= 0 && savedDeviceIdx < deviceIds.length) {
+            deviceIdx = savedDeviceIdx;
+        }
+
+        if (deviceIdx >= 0 && deviceIdx < deviceIds.length) {
             // Set the device menu selection
             var devMenuName = "devMenu_" + menuIdx;
             sendToMenu(devMenuName, "set", deviceIdx);
 
+            // Update stored index in case we found by name
+            menuState.set("device" + menuIdx + "_idx", deviceIdx);
+
             // Populate the param menu
             populateParamMenu(menuIdx, deviceIdx);
 
-            // Restore param selection if exists
-            var paramIdx = menuState.get("param" + menuIdx);
-            if (paramIdx != null && paramIdx >= 0) {
+            // Try to find param by saved name first, fall back to saved index
+            var savedParamName = menuState.get("param" + menuIdx + "_name");
+            var savedParamIdx = menuState.get("param" + menuIdx + "_idx");
+
+            var devId = deviceIds[deviceIdx];
+            var dev = devices[devId];
+
+            var paramIdx = -1;
+            if (savedParamName) {
+                paramIdx = findParamByName(devId, String(savedParamName));
+            }
+            if (paramIdx < 0 && savedParamIdx != null && savedParamIdx >= 0 && savedParamIdx < dev.params.length) {
+                paramIdx = savedParamIdx;
+            }
+
+            if (paramIdx >= 0 && paramIdx < dev.params.length) {
                 var parMenuName = "parMenu_" + menuIdx;
                 sendToMenu(parMenuName, "set", paramIdx);
 
-                // Re-output the param ID
-                var devId = deviceIds[deviceIdx];
-                var dev = devices[devId];
-                if (dev && paramIdx < dev.params.length) {
-                    outlet(1, menuIdx, dev.params[paramIdx].id);
-                }
+                // Update stored index in case we found by name
+                menuState.set("param" + menuIdx + "_idx", paramIdx);
+
+                // Re-output the param ID (with consistent format)
+                outlet(1, menuIdx, 'id', dev.params[paramIdx].id);
+
+                post("Restored menu " + menuIdx + ": " + dev.name + " -> " + dev.params[paramIdx].name + "\n");
             }
         }
     }
